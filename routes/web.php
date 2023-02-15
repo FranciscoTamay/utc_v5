@@ -8,6 +8,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\RegistroPagosController;
+use App\Http\Controllers\CarrerasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('registrop', RegistroPagosController::class);
     
 });
+
+// Rutas de Pancho
+
+// Route::resource('carreras',CarrerasController::class);
