@@ -3,7 +3,7 @@
 <!-- Aqui comienza el contenido -->
 <div class="seciton">
     <div class="section-header">
-        
+
     </div>
 </div>
 <div class="row mt-3">
@@ -41,7 +41,7 @@
                         <td>
                             <div class="row">
                                 <div class="col-4">
-                            <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
+                            <a href="{{ url('carreras',[$run]) }}" class="btn btn-outline-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
@@ -51,7 +51,7 @@
                             <form method="POST" action="{{ url('carreras',[$run] )}}">
                                 @method("delete")
                                 @csrf
-                                <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                <button class="btn btn-outline-danger"> <i class="fa-solid fa-trash"></i></button>
                             </form>
                             </div>
                             <!-- boton de eliminar -->
@@ -99,11 +99,14 @@
             <input type="1" name="id_plan" class="form-control" maxlength="50" placeholder="Id del Plan de Estudio" required>
         </div>
 
-        <div class="d-gid col-6 mx-auto">
-        <button class="btn btn-success">
+        <div class="row">
+            <div class="col"></div>
+        <div class="col-md-6">
+        <button class="btn btn-success btn-lg">
         <i class="fa-solid fa-floppy-disk"></i> Guardar
         </button>
         <!-- boton de guardar -->
+        </div>
         </div>
         </form>
         <!-- final del formulario -->
