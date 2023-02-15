@@ -9,7 +9,7 @@
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">
         <div class="d-grid mx-auto">
-            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
+            <button class="btn text-white" style="background-color: #1903A1;" data-bs-toggle="modal" data-bs-target="#modalCarreras">
                 <i class="fa-solid fa-circle-plus"></i> Añadir
             </button>
         </div>
@@ -100,9 +100,9 @@
         </div>
 
         <div class="row">
-            <div class="col"></div>
-        <div class="col-md-6">
-        <button class="btn btn-success btn-lg">
+            <div class="col-md-3"></div>
+        <div class="col-md-6 mx-auto">
+        <button class="btn btn-outline-success btn-lg">
         <i class="fa-solid fa-floppy-disk"></i> Guardar
         </button>
         <!-- boton de guardar -->
