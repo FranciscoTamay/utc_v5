@@ -36,8 +36,18 @@
     <!-- FIN DE DATO -->
 
     <div class="d-grid col-6 mx-auto">
-    <button  style="background-color:#e7e700" class="btn"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+    <button  class="btn btn-outline-warning"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
 </div>
+<br>
+      <!-- boton de REGRESAR -->
+<div class="d-grid col-3 mx-auto">
+                            <button class="btn btn-outline-info ">
+                                <a href="/servicios"></a>
+                            <i class="fa-solid fa-arrow-left"></i> Regresar
+                            </button>
+                  
+                        
+                        </div>
         </div>
 
     </div>
@@ -49,4 +59,5 @@
     </div>
 
 </div>
+
 @endsection
