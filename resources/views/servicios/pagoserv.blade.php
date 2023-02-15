@@ -1,13 +1,4 @@
 @extends('layouts.app')
-@section('page_css')
-<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-<!-- EXPORTAR EXEL -->
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css">
-<!-- SELECT 2 -->
- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"> 
-@endsection
 @section('content')
 
 <section class="section">
@@ -138,17 +129,6 @@
     </section>
 @endsection
 @section('page_js')
-            <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-            <!-- Para usar los botones -->
-            <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-            <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-            <!-- Para los estilos en Excel -->
-            <script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.templates.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
- <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>  
             <script>
                 //  EMPIEZA DATATABLES
                 $(document).ready(function() {
@@ -220,10 +200,11 @@
                 });
 
                 //  TERMINA DATATABLES
-            </script>
-            <script>
-                $(document).ready(function() {
+
+            // Empieza select 2
+            $(document).ready(function() {
     $('.servicio').select2();
 });
             </script>
+       
             @endsection()
