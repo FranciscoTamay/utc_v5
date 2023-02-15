@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('blogs', BlogController::class);
     Route::resource('servicios', ServiciosController::class);
     Route::resource('registrop', RegistroPagosController::class);
+    Route::resource('carreras', CarrerasController::class);
+
     
 });
 
