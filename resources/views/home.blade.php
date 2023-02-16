@@ -15,6 +15,7 @@
                                     
                                     <div class="card bg-c-blue order-card">
                                             <div class="card-block">
+                                                
                                             <h5>Usuarios</h5>                                               
                                                 @php
                                                  use App\Models\User;
@@ -25,7 +26,6 @@
                                             </div>                                            
                                         </div>                                    
                                     </div>
-                                    
 
                                                 <!-- CARD DE SERVICIOS -->
                                     <div class="col-md-4 col-xl-4">

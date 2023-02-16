@@ -15,4 +15,8 @@
     <a class="nav-link" href="/carreras">
     <i class="fa-solid fa-graduation-cap"></i><span>Carreras</span>
     </a>
+
+    <a class="nav-link" href="/planEstudio">
+    <i class="fa-solid fa-clipboard"></i><span>Plan Estudio</span>
+    </a>
 </li>

@@ -9,6 +9,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\RegistroPagosController;
 use App\Http\Controllers\CarrerasController;
+use App\Http\Controllers\PlanEstudioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +34,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //y creamos un grupo de rutas protegidas para los controladores
+// al crear un nuevo controlador se debe de agregar aqui 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
@@ -39,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('servicios', ServiciosController::class);
     Route::resource('registrop', RegistroPagosController::class);
     Route::resource('carreras', CarrerasController::class);
+    Route::resource('planEstudio',PlanEstudioController::class);
 
     
 });
