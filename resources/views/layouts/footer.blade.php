@@ -1,3 +1,3 @@
 <div class="footer-left">
-    All rights reserved &copy; {{ date('Y') }}
+    No sabia que chigados escribir :) ; {{ date('D M Y') }} 
 </div>

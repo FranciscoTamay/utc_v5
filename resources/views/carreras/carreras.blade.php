@@ -1,15 +1,23 @@
 @extends('layouts.app')
 @section('content')
 <!-- Aqui comienza el contenido -->
-<div class="seciton">
-    <div class="section-header">
 
+<div class="section">
+    <div class="section-header">
+        <div class="col-lg-12">
+            <div class="card-body">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">
         <div class="d-grid mx-auto">
-            <button class="btn text-white" style="background-color: #1903A1;" data-bs-toggle="modal" data-bs-target="#modalCarreras">
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
                 <i class="fa-solid fa-circle-plus"></i> Añadir
             </button>
         </div>
@@ -40,18 +48,18 @@
                         <td>{{$run->id_plan}}</td>
                         <td>
                             <div class="row">
-                                <div class="col-4">
-                            <a href="{{ url('carreras',[$run]) }}" class="btn btn-outline-warning">
+                                <div class="col-6">
+                            <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
                             <!-- boton de editar -->
 
-                            <div class="col-4">
+                            <div class="col-6">
                             <form method="POST" action="{{ url('carreras',[$run] )}}">
                                 @method("delete")
                                 @csrf
-                                <button class="btn btn-outline-danger"> <i class="fa-solid fa-trash"></i></button>
+                                <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
                             </form>
                             </div>
                             <!-- boton de eliminar -->
