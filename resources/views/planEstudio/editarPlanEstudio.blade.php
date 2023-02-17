@@ -69,7 +69,7 @@
                                 <a href="/planEstudio"></a>
                             <i class="fa-solid fa-arrow-left"></i> Regresar
                             </button>
-                        <!-- boton de guardar -->
+                        <!-- boton de regresar -->
                         
                         </div>
                         </div>

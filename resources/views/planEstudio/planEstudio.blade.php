@@ -1,6 +1,19 @@
 @extends('layouts.app')
 @section('content')
 <!-- AQUI EMPIEZA EL CONTENIDO -->
+<div class="section">
+    <div class="section-header">
+        <div class="col-lg-12">
+            <div class="card-body">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
+
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">
         <div class="d-grid mx-auto">
@@ -13,7 +26,7 @@
     <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
 
     <div class="row mt-3">
-        <div class="col-12 col-lg-8 offset-0 offset-lg-2">
+        <div class="col-8 col-lg-8 offset-0 offset-lg-1">
             <div class="table">
                 <table class="table table-bordered table-hover">
                 <thead>

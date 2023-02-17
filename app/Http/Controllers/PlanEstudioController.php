@@ -57,6 +57,9 @@ class PlanEstudioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $planEstudio = PlanEstudio::find($id);
+        $planEstudio->fill($request->input())->saveOrFail();
+        return redirect('planEstudio');
     }
 
     /**
@@ -68,5 +71,8 @@ class PlanEstudioController extends Controller
     public function destroy($id)
     {
         //
+        $planEstudio = PlanEstudio::find($id);
+        $planEstudio -> delete();
+        return redirect('planEstudio');
     }
 }
