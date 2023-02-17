@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AspirantesController;
 use Illuminate\Support\Facades\Route;
 //agregamos los siguientes controladores
 use App\Http\Controllers\HomeController;
@@ -9,6 +10,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\RegistroPagosController;
 use App\Http\Controllers\CarrerasController;
+use App\Http\Controllers\ProcedenciasController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +35,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //y creamos un grupo de rutas protegidas para los controladores
+
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
