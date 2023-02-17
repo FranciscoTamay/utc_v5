@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\ProcedenciasController;
+use App\Http\Controllers\PlanEstudioController;
 use App\Http\Controllers\AspirantesController;
 use Illuminate\Support\Facades\Route;
 //agregamos los siguientes controladores
@@ -10,7 +11,6 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\RegistroPagosController;
 use App\Http\Controllers\CarrerasController;
-use App\Http\Controllers\ProcedenciasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-//y creamos un grupo de rutas protegidas para los controladores
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);
@@ -43,10 +42,19 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('servicios', ServiciosController::class);
     Route::resource('registrop', RegistroPagosController::class);
     Route::resource('carreras', CarrerasController::class);
+    Route::resource('planEstudio',PlanEstudioController::class);
 
-    
+// RUTAs DE HECTOR
+
+
+
+
+// FIN DE LAS RUTAS DE HECTOR
 });
 
-// Rutas de Pancho
 
-// Route::resource('carreras',CarrerasController::class);
+
+
+
+
+

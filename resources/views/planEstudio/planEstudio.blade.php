@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<!-- Aqui comienza el contenido -->
-
+<!-- AQUI EMPIEZA EL CONTENIDO -->
 <div class="section">
     <div class="section-header">
         <div class="col-lg-12">
@@ -14,6 +13,7 @@
     </div>
 </div>
 <!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
+
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">
         <div class="d-grid mx-auto">
@@ -26,37 +26,42 @@
     <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
 
     <div class="row mt-3">
-        <div class="col-12 col-lg-8 offset-0 offset-lg-2">
-            <div class="table-responsive">
+        <div class="col-8 col-lg-8 offset-0 offset-lg-1">
+            <div class="table">
                 <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>CODIGO</th>
-                        <th>NOMBRE CARRERA</th>
-                        <th>PLAN ESTUDIO</th>
+                        <th>ASINATURAS</th>
+                        <th>NOMBRE PLAN</th>
+                        <th>AÑO</th>
+                        <th>CUATRIMESTRES</th>
+                        <th>HORAS</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     @php $i=1; @endphp
-                    @foreach($carreras as $run)
+                    @foreach($planEstudios as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->codigo_carrera}}</td>
-                        <td>{{$run->nombre_carrera}}</td>
-                        <td>{{$run->id_plan}}</td>
+                        <td>{{$run->id_asignatura}}</td>
+                        <td>{{$run->nombre_plan}}</td>
+                        <td>{{$run->anio}}</td>
+                        <td>{{$run->cuatrimestres}}</td>
+                        <td>{{$run->horas}}</td>
+
                         <td>
                             <div class="row">
-                                <div class="col-6">
-                            <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
+                                <div class="col-md-6">
+                            <a href="{{ url('planEstudio',[$run]) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
                             <!-- boton de editar -->
 
-                            <div class="col-6">
-                            <form method="POST" action="{{ url('carreras',[$run] )}}">
+                            <div class="col-md-6">
+                            <form method="POST" action="{{ url('planEstudio',[$run] )}}">
                                 @method("delete")
                                 @csrf
                                 <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
@@ -84,37 +89,48 @@
       </div>
       <div class="modal-body">
 
-        <form id="frmCarreras" method="POST" action="{{ url('carreras') }}">
+        <form id="frmPlanEstudio" method="POST" action="{{ url('planEstudio') }}">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" required>
+            <input type="number" name="id_asignatura" class="form-control" maxlength="50" placeholder="Ingrese la Asigantura" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" required>
+            <input type="text" name="nombre_plan" class="form-control" maxlength="120" placeholder="Nombre del plan" required>
         </div>
 
         <div class="input-group mb-3">
         <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="id_plan" class="form-control" maxlength="50" placeholder="Id del Plan de Estudio" required>
+            <input type="number" name="anio" class="form-control" maxlength="50" placeholder="Año del Plan de Estudio" required>
         </div>
 
-        <div class="row">
-            <div class="col-md-3"></div>
-        <div class="col-md-6 mx-auto">
-        <button class="btn btn-outline-success btn-lg">
+        <div class="input-group mb-3">
+        <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="number" name="cuatrimestres" class="form-control" maxlength="50" placeholder="Cuatrimestres del Plan de Estudio" required>
+        </div>
+
+        <div class="input-group mb-3">
+        <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Horas del Plan de Estudio" required>
+        </div>
+
+        <div class="d-gid col-6 mx-auto">
+        <button class="btn btn-success">
         <i class="fa-solid fa-floppy-disk"></i> Guardar
         </button>
         <!-- boton de guardar -->
-        </div>
         </div>
         </form>
         <!-- final del formulario -->
@@ -125,8 +141,7 @@
     </div>
   </div>
 </div>
-    <!-- Aqui termina la ventana modal -->
-<!-- Aqui finaliza el contenido -->
+<!-- AQUI FINALIZA EL CONTENIDO -->
 @endsection
 
 @section('page_js')

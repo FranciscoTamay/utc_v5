@@ -15,6 +15,7 @@
                                     
                                     <div class="card bg-c-blue order-card">
                                             <div class="card-block">
+                                                
                                             <h5>Usuarios</h5>                                               
                                                 @php
                                                  use App\Models\User;
@@ -76,6 +77,20 @@
                                         </div>                                    
                                     </div>
                                     <!-- FIN CARD DE carreras -->
+
+                                    <div  style="background-color:#008181" class="card  order-card">
+                                            <div class="card-block">
+                                            <h5>Registro de carreras</h5>                                               
+                                                @php
+                                                 use App\Models\Carreras;
+                                                $cant_carreras = Carreras::count();                                                
+                                                @endphp
+                                                <h2 class="text-right"> <i class="fa-sharp fa-solid fa-layer-group"></i> <span>     {{$cant_carreras}}</span></h2>
+                                                <h6 class="m-b-0 text-right"><a href="carreras" class="text-white">Acceder al modulo de carreras</a></h6>
+                                            </div>                                            
+                                        </div>                                    
+                                    </div>
+                                    <!-- FIN CARD DE  -->
      
                                     
                                     <div class="col-md-4 col-xl-4">
