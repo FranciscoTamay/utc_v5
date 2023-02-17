@@ -44,9 +44,17 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('carreras', CarrerasController::class);
     Route::resource('planEstudio',PlanEstudioController::class);
 
-    
+// RUTAs DE HECTOR
+
+
+
+
+// FIN DE LAS RUTAS DE HECTOR
 });
 
-// Rutas de Pancho
 
-// Route::resource('carreras',CarrerasController::class);
+
+
+
+
+
