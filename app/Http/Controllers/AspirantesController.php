@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aspirantes;
+use App\Models\Carreras;
+use App\Models\Procedencias;
 use Illuminate\Http\Request;
 
 class AspirantesController extends Controller
@@ -14,6 +17,12 @@ class AspirantesController extends Controller
     public function index()
     {
         //
+        $carreras = Carreras::all();
+        $procedencias = Procedencias::all();
+        $aspirantes = Aspirantes::select('folio','nombres','apellido_p','apellido_m','curp','correo','telefono','localidad','genero','id_procedencia','id_carrera','nombre_carrera','nombre_esc',)
+     ->join('carreras','carreras.id','=','aspirantes.id_carrera',)
+     ->join('procedencia','procedencia.id','=','aspirantes.id_procedencia')->get();
+        return view('aspirantes.aspirantes',compact('aspirantes','procedencias','carreras'));
     }
 
     /**

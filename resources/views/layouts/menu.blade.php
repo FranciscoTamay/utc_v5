@@ -19,4 +19,7 @@
     <a class="nav-link" href="/planEstudio">
     <i class="fa-solid fa-clipboard"></i><span>Plan Estudio</span>
     </a>
+    <a class="nav-link" href="/alumno">
+    <i class="fa-solid fa-clipboard"></i><span>alumno prueba</span>
+    </a>
 </li>

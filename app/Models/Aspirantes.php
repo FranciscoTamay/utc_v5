@@ -14,6 +14,8 @@ class Aspirantes extends Model
     protected $fillable = ['id',
     'folio',
     'nombres',
+    'apellido_p',
+    'apellido_m',
     'curp',
     'correo',
     'telefono',

@@ -106,7 +106,21 @@
                                                 <h6 class="m-b-0 text-right"><a href="/roles" class="text-white">Acceder al modulo de roles</a></h6>
                                             </div>
                                         </div>
-                                    </div>                                                                
+                                    </div>   
+                                    
+                                    <div class="col-md-4 col-xl-4">
+                                        <div style="background-color:#907080" class="card order-card">
+                                            <div class="card-block">
+                                            <h5>Modulo de Escuela de Procedencias</h5>                                               
+                                                @php
+                                                use App\Models\Procedencias;
+                                                 $cant_procedencias = Procedencias::count();                                                
+                                                @endphp
+                                                <h2 class="text-right"><i class="fa-solid fa-school"></i><span>{{$cant_procedencias}}</span></h2>
+                                                <h6 class="m-b-0 text-right"><a href="procedencias" class="text-white">Acceder al modulo de procedencias</a></h6>
+                                            </div>
+                                        </div>
+                                    </div>   
                                     
                                     <div class="col-md-4 col-xl-4">
                                         <div class="card bg-c-pink order-card">
@@ -118,6 +132,20 @@
                                                 @endphp
                                                 <h2 class="text-right"><i class="fa fa-blog f-left"></i><span>     {{$cant_blogs}}</span></h2>
                                                 <h6 class="m-b-0 text-right"><a href="/blogs" class="text-white">Acceder al modulo de Blogs</a></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-xl-4">
+                                        <div  style="background-color:#709070" class="card bg-c-succes order-card">
+                                            <div class="card-block">
+                                                <h5>Aspirantes</h5>                                               
+                                                @php
+                                                 use App\Models\Aspirantes;
+                                                $cant_aspirantes = Aspirantes::count();                                                
+                                                @endphp
+                                                <h2 class="text-right"><i class="fa-solid fa-person"></i><span>     {{$cant_aspirantes}}</span></h2>
+                                                <h6 class="m-b-0 text-right"><a href="/aspirantes" class="text-white">Acceder al modulo ASPIRANTES</a></h6>
                                             </div>
                                         </div>
                                     </div>

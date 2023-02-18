@@ -11,7 +11,9 @@ class Procedencias extends Model
     protected $table = "procedencia";
     protected $primaryKey = "id";
     protected $fillable = ['id',
-    'nombre_esc'
+    'nombre_esc',
+    'created_at',
+    'updated_at'
 
 ];
 }

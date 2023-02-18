@@ -26,6 +26,9 @@ use App\Http\Controllers\CarrerasController;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('alumno', function () {
+    return view('aspirantes.aspiranteAm');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -45,10 +48,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('planEstudio',PlanEstudioController::class);
 
 // RUTAs DE HECTOR
-
-
-
-
+Route::resource('aspirantes', AspirantesController::class);
+Route::resource('procedencias', ProcedenciasController::class);
 // FIN DE LAS RUTAS DE HECTOR
 });
 

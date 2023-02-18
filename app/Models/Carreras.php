@@ -9,7 +9,7 @@ class Carreras extends Model
 {
     use HasFactory;
 
-    public $timestamps=false;
+
     protected $table = "carreras";
     protected $primaryKey = "id";
     protected $fillable=[
