@@ -26,7 +26,7 @@
     <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
 
     <div class="row mt-3">
-        <div class="col-12 col-lg-8 offset-0 offset-lg-2">
+        <div class="col-10 col-lg-10 offset-0 offset-lg-1">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                 <thead>
