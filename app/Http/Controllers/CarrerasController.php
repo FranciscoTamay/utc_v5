@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Carreras;
+use App\Models\PlanEstudio;
 
 class CarrerasController extends Controller
 {
@@ -16,7 +17,8 @@ class CarrerasController extends Controller
     {
         //
         $carreras = Carreras::all();
-        return view('carreras.carreras',compact('carreras'));
+        $planEstudios = PlanEstudio::all();
+        return view('carreras.carreras',compact('carreras','planEstudios'));
     }
 
     /**

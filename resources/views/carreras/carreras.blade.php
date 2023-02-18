@@ -104,7 +104,12 @@
         <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="id_plan" class="form-control" maxlength="50" placeholder="Id del Plan de Estudio" required>
+            <select class="form-control" name="id_plan" id="">
+                <option value="">Plan de Estudios</option>
+                @foreach($planEstudios as $row)
+                <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="row">

@@ -18,8 +18,8 @@
     @method('PUT')
     <!-- CASILLA DE DATO -->
     <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-ticket"></i></span>
-        <select  name="id_servicio"  class="form servicio1" required>
+        <span class="input-group"><i class="fa-solid fa-graduation-cap"></i></span>
+        <select  name="id_servicio"  class="servicio1 form-control" required>
             <option value="">SELECCIONA EL SERVICIO</option>
              @foreach($servicios as $row)
                 @if ($row->id == $registro_pago->id_servicio)
@@ -78,7 +78,7 @@
 @endsection
 @section('page_js')
         
-            <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
  <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>  
 
             <script>
