@@ -145,7 +145,7 @@
                                                 $cant_aspirantes = Aspirantes::count();                                                
                                                 @endphp
                                                 <h2 class="text-right"><i class="fa-solid fa-person"></i><span>     {{$cant_aspirantes}}</span></h2>
-                                                <h6 class="m-b-0 text-right"><a href="/aspirantes" class="text-white">Acceder al modulo ASPIRANTES</a></h6>
+                                                <h6 class="m-b-0 text-right"><a href="/asp" class="text-white">Acceder al modulo ASPIRANTES</a></h6>
                                             </div>
                                         </div>
                                     </div>

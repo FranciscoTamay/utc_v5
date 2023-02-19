@@ -46,9 +46,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('registrop', RegistroPagosController::class);
     Route::resource('carreras', CarrerasController::class);
     Route::resource('planEstudio',PlanEstudioController::class);
+    Route::resource('asp', AspirantesController::class);
 
 // RUTAs DE HECTOR
-Route::resource('aspirantes', AspirantesController::class);
+
 Route::resource('procedencias', ProcedenciasController::class);
 // FIN DE LAS RUTAS DE HECTOR
 });
