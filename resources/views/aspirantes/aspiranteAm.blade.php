@@ -22,17 +22,19 @@
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body ">
        <!-- FORMULARIO PARA AGREGAR -->
+
        <div class="modal-body">
-    <form id="frmServicios" method="POST" action="{{url("aspirantes")}}">
+    <form id="frmServicios" method="POST" action="{{url("asp")}}">
     @csrf
     <!-- CASILLA DE DATO -->
+    <label class="form-label">FOLIO</label>
     <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-ticket"></i></span>
         <input type="number" name="folio" class="form-control" maxlength="50" placeholder="FOLIO" required>
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">NOMBRES COMPLETOS</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-n"></i></span>
@@ -40,6 +42,7 @@
         
     </div>
     <!-- FIN DE DATO -->
+    <label  class="form-label">APELLIDO PATERNO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-p"></i></span>
@@ -48,6 +51,7 @@
     </div>
     <!-- FIN DE DATO -->
 
+    <label  class="form-label">APELLLIDO MATERNO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-m"></i></span>
@@ -55,7 +59,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">CURP COMPLETO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-c"></i></span>
@@ -64,6 +68,7 @@
     </div>
     <!-- FIN DE DATO -->
 
+    <label  class="form-label">CORREO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
@@ -71,7 +76,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">TELEFONO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
@@ -79,7 +84,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">LOCALIDAD</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-chart-area"></i></span>
@@ -87,7 +92,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">GENERO</label>
          <!-- CASILLA DE DATO -->
          <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
@@ -95,7 +100,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">PROCEDENCIA</label>
          <!-- CASILLA DE DATO -->
          <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-school"></i></span>
@@ -103,7 +108,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">CARRERA</label>
          <!-- CASILLA DE DATO -->
          <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-scroll"></i></span>
@@ -134,5 +139,4 @@
                 </div>
             </div>
 
-</section>
 @endsection

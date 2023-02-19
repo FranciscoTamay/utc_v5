@@ -23,17 +23,19 @@
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body ">
        <!-- FORMULARIO PARA AGREGAR -->
+
        <div class="modal-body">
     <form id="frmServicios" method="POST" action="{{url("asp")}}">
     @csrf
     <!-- CASILLA DE DATO -->
+    <label class="form-label">FOLIO</label>
     <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-ticket"></i></span>
         <input type="number" name="folio" class="form-control" maxlength="50" placeholder="FOLIO" required>
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">NOMBRES COMPLETOS</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-n"></i></span>
@@ -41,6 +43,7 @@
         
     </div>
     <!-- FIN DE DATO -->
+    <label  class="form-label">APELLIDO PATERNO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-p"></i></span>
@@ -49,6 +52,7 @@
     </div>
     <!-- FIN DE DATO -->
 
+    <label  class="form-label">APELLLIDO MATERNO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-m"></i></span>
@@ -56,7 +60,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">CURP COMPLETO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-c"></i></span>
@@ -65,6 +69,7 @@
     </div>
     <!-- FIN DE DATO -->
 
+    <label  class="form-label">CORREO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
@@ -72,7 +77,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">TELEFONO</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
@@ -80,7 +85,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">LOCALIDAD</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-chart-area"></i></span>
@@ -88,7 +93,7 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">GENERO</label>
          <!-- CASILLA DE DATO -->
          <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
@@ -96,24 +101,33 @@
         
     </div>
     <!-- FIN DE DATO -->
-
+    <label  class="form-label">PROCEDENCIA</label>
          <!-- CASILLA DE DATO -->
          <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-school"></i></span>
-        <input type="text" name="id_procedencia" class="form-control" maxlength="50" placeholder="ESCUELA DE PROCEDENCIA" required>
-        
-    </div>
-    <!-- FIN DE DATO -->
+                        <span class="input-group-text"><i class="fa-solid fa-school"></i></span>
+                        <select name="id_procedencia" class="aspirante form-control" required>
+                            <option value="">SELECCIONA LA PROCEDENCIA</option>
+                            @foreach($procedencias as $row)
+                            <option value="{{$row->id}}">{{$row->nombre_esc}}</option>
+                            @endforeach
 
-         <!-- CASILLA DE DATO -->
-         <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-scroll"></i></span>
-        <input type="text" name="id_carrera" class="form-control" maxlength="50" placeholder="CARRERA QUE DESEA CURSAR" required>
-        
-    </div>
+                        </select>
+                    </div>
     <!-- FIN DE DATO -->
- 
-   
+    <label  class="form-label">CARRERA</label>
+   <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-scroll"></i></i></span>
+                        <select name="id_carrera" class="aspirante form-control" required>
+                            <option value="">SELECCIONA LA CARRERA</option>
+                            @foreach($carreras as $row)
+                            <option value="{{$row->id}}">{{$row->nombre_carrera}}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+
+
 <div class="d-grid col-6 mx-auto">
     <button class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
 </div>
@@ -146,8 +160,8 @@
             <!-- COMIENZO DE LA TABLA -->
     <div class="col-12 col-lg-8 offset-0 offset-lg-2"></div>
         <div class="table-responsive"></div>
-        <table id="example230" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
-                <thead style="background-color:#6777ef" class=" text-center">
+        <table  id="pro" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
+                <thead class="bg-success text-center">
                     <tr>
 
                         <th scope="col"class="text-center text-black">FOLIO</th>
@@ -159,8 +173,8 @@
                         <th scope="col" class="text-center text-black">TELEFONO</th>
                         <th scope="col" class="text-center text-black">LOCALIDAD</th>
                         <th scope="col" class="text-center text-black">GENERO</th>
-                        <th scope="col" class="text-center text-black">ESC. PROCEDENCIA</th>
-                        <th scope="col" class="text-center text-black">ASP. CARRERA</th>
+                        <th scope="col" class="text-center text-black">PROCEDENCIA</th>
+                        <th scope="col" class="text-center text-black">CARRERA</th>
                         <th scope="col" class="text-center text-black">EDITAR</th>
                         <th scope="col" class="text-center text-black">BORRAR</th>
                     </tr>
@@ -211,3 +225,83 @@
     </section>
 
 @endsection
+@section('page_js')
+            <script>
+                //  EMPIEZA DATATABLES
+                $(document).ready(function() {
+                    var table = $('#pro').DataTable({
+                        orderCellsTop: true,
+                        fixedHeader: true,
+                        dom: "Bfrtip",
+                        buttons: {
+                            dom: {
+                                button: {
+                                    className: 'btn'
+                                }
+                            },
+                            buttons: [{
+                                //definimos estilos del boton de excel
+                                extend: "excel",
+                                text: '<i class="fa-solid fa-file-invoice"></i>  EXPORTAR LISTA DE LIBROS A EXCEL',
+                                className: 'btn btn-outline-success',
+
+                                // 1 - ejemplo básico - uso de templates pre-definidos
+                                //definimos los parametros al exportar a excel
+
+                                excelStyles: {
+                                    //template: "header_blue",  // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
+                                    //template:"green_medium" 
+
+                                    "template": [
+                                        "blue_medium",
+                                        "header_green",
+                                        "title_medium"
+                                    ]
+
+                                },
+                            }]
+                        },
+                        "destroy": true,
+                        "language": {
+                            "lengthMenu": "Mostrar _MENU_ Registro por Pagina",
+                            "zeroRecords": " No se encontro el Registro Disculpe",
+                            "info": "Mostrando la Pagina _PAGE_ de _PAGES_",
+                            "infoEmpty": "No records available",
+                            "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                            'search': '<i class="fa-solid fa-magnifying-glass"></i> BUSCAR UN ASPIRANTE',
+                            'paginate': {
+                                'next': 'Siguiente',
+                                'previous': 'Anterior',
+                            }
+                        }
+
+
+                    });
+
+                    //Creamos una fila en el head de la tabla y lo clonamos para cada columna
+                    $('#pro thead tr').clone(true).appendTo('#pro thead');
+
+                    $('#pro thead tr:eq(1) th').each(function(i) {
+                        var title = $(this).text(); //es el nombre de la columna
+                        $(this).html('<input class="text-center" type="text" placeholder="FILTRAR REGISTRO" />');
+
+                        $('input', this).on('keyup change', function() {
+                            if (table.column(i).search() !== this.value) {
+                                table
+                                    .column(i)
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    });
+                });
+
+                //  TERMINA DATATABLES
+
+            // Empieza select 2
+            $(document).ready(function() {
+    $('.aspirante').select2();
+});
+            </script>
+       
+            @endsection()

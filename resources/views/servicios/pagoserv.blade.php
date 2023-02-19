@@ -86,8 +86,8 @@
             <!-- COMIENZO DE LA TABLA -->
     <div class="col-12 col-lg-8 offset-0 offset-lg-2"></div>
         <div class="table-responsive"></div>
-        <table id="example230" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
-                <thead style="background-color:#6777ef" class=" text-center">
+        <table  id="example230" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
+                <thead  class="bg-secondary text-center">
                     <tr>
 
                         <th scope="col"class="text-center text-black">SERVICIO</th>

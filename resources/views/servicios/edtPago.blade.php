@@ -1,9 +1,4 @@
 @extends('layouts.app')
-@section('page_css')
-<!-- SELECT 2 -->
- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css"> 
-@endsection
 @section('content')
 <section class="section">
         <div class="section-header">
@@ -78,8 +73,7 @@
 @endsection
 @section('page_js')
         
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
- <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>  
+
 
             <script>
                 $(document).ready(function() {
