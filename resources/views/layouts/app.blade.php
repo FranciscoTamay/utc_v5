@@ -95,4 +95,7 @@
         };
     }(jQuery));
 </script>
+<!-- MOMENT JS -->
+<script src="{{ asset('js/moment.js') }}"></script>
+<script src="{{ asset('js/moment-with-locales.js') }}"></script>
 </html>

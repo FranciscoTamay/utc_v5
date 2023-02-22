@@ -16,7 +16,8 @@ class CarrerasController extends Controller
     public function index()
     {
         //
-        $carreras = Carreras::all();
+        $carreras = Carreras::select('carreras.id','codigo_carrera','nombre_carrera','id_plan','nombre_plan')
+        ->join('plan_estudio','plan_estudio.id','=','carreras.id_plan')->get();
         $planEstudios = PlanEstudio::all();
         return view('carreras.carreras',compact('carreras','planEstudios'));
     }
@@ -45,7 +46,8 @@ class CarrerasController extends Controller
     {
         //
         $carrera = Carreras::find($id);
-        return view('carreras.editarCarrera',compact('carrera'));
+        $planEstudios = PlanEstudio::all();
+        return view('carreras.editarCarrera',compact('carrera','planEstudios'));
     }
 
     /**

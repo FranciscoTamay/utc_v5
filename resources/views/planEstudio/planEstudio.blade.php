@@ -95,7 +95,13 @@
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="id_asignatura" class="form-control" maxlength="50" placeholder="Ingrese la Asigantura" required>
+            <!-- <input type="number" name="id_asignatura" class="form-control" maxlength="50" placeholder="Ingrese la Asigantura" required> -->
+            <select class="form-control" name="id_plan" id="">
+                <option value="">Asignaturas</option>
+                @foreach($asignaturas as $row)
+                <option value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="input-group mb-3">

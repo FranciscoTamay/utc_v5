@@ -33,30 +33,31 @@
                     <tr>
                         <th>ID</th>
                         <th>CODIGO</th>
-                        <th>NOMBRE CARRERA</th>
-                        <th>PLAN ESTUDIO</th>
+                        <th>NOMBRE ASIGNATURA</th>
+                        <th>NUMERO DE UNIDADES</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     @php $i=1; @endphp
-                    @foreach($carreras as $run)
+                    @foreach($asignaturas as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->codigo_carrera}}</td>
-                        <td>{{$run->nombre_carrera}}</td>
-                        <td>{{$run->nombre_plan}}</td>
+                        <td>{{$run->codigo_asignatura}}</td>
+                        <td>{{$run->nombre_asignatura}}</td>
+                        <td>{{$run->num_unidades}}</td>
+                        
                         <td>
                             <div class="row">
-                                <div class="col-6">
-                            <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
+                                <div class="col-4">
+                            <a href="{{ url('asignaturas',[$run]) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
                             <!-- boton de editar -->
 
-                            <div class="col-6">
-                            <form method="POST" action="{{ url('carreras',[$run] )}}">
+                            <div class="col-4">
+                            <form method="POST" action="{{ url('asignaturas',[$run] )}}">
                                 @method("delete")
                                 @csrf
                                 <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
@@ -72,44 +73,40 @@
             </div>
         </div>
     </div>
-    <!-- Aqui es en donde termina la tabla de las carreras -->
+    <!-- Aqui es en donde termina la tabla de las asignatura -->
     <!-- Aqui empieza la ventana modal  -->
     <!-- Modal -->
 <div class="modal fade" id="modalCarreras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una carrera</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una Asignatura</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
-        <form id="frmCarreras" method="POST" action="{{ url('carreras') }}">
+        <form id="frmAsignaturas" method="POST" action="{{ url('asignaturas') }}">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" required>
+            <input type="number" name="codigo_asignatura" class="form-control" maxlength="50" placeholder="Codigo de la Asignatura" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" required>
+            <input type="text" name="nombre_asignatura" class="form-control" maxlength="120" placeholder="Nombre de la Asignatura" required>
         </div>
 
         <div class="input-group mb-3">
         <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <select class="form-control" name="id_plan" id="">
-                <option value="">Plan de Estudios</option>
-                @foreach($planEstudios as $row)
-                <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
-                @endforeach
-            </select>
+            <input type="number" name="num_unidades" class="form-control" maxlength="50" placeholder="Número de Asignatura" required>
+            
         </div>
 
         <div class="row">

@@ -28,11 +28,12 @@
     <form id="frmServicios" method="POST" action="{{url("asp")}}">
     @csrf
     <!-- CASILLA DE DATO -->
-    <label class="form-label">FOLIO</label>
+    <label class="form-label">FOLIO </label>
     <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-ticket"></i></span>
-        <input type="number" name="folio" class="form-control" maxlength="50" placeholder="FOLIO" required>
+        <input type="number" name="folio" class=" form-control" maxlength="50" placeholder="FOLIO" required>
         
+                
     </div>
     <!-- FIN DE DATO -->
     <label  class="form-label">NOMBRES COMPLETOS</label>
@@ -97,7 +98,13 @@
          <!-- CASILLA DE DATO -->
          <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
-        <input type="text" name="genero" class="form-control" maxlength="50" placeholder="GENERO DEL ASPIRANTE" required>
+        <!-- <input type="text" name="genero" class="form-control" maxlength="50" placeholder="GENERO DEL ASPIRANTE" required> -->
+        <select name="genero" id="" class="form-control">
+            <option value="" >Seleccione su genero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            
+        </select>
         
     </div>
     <!-- FIN DE DATO -->
@@ -302,6 +309,21 @@
             $(document).ready(function() {
     $('.aspirante').select2();
 });
+            </script>
+
+            <script>
+                import moment from 'moment';
+
+                export default {
+
+                    data () {
+                        return {
+                            variable: 'data'
+                            }
+                    }
+
+                }
+
             </script>
        
             @endsection()

@@ -15,7 +15,7 @@
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="number" name="codigo_carrera" class="form-control" value="{{ $carrera->codigo_carrera}}" maxlength="50" placeholder="Código de la carrera">
+                            <input type="number" name="codigo_carrera" class="form-control" value="{{ $carrera->codigo_carrera}}" maxlength="50" placeholder="Código de la carrera" required>
                             <!-- lo que se tiene puesto en el value la variable $carrera es nuestro objeto y codigo carrera
                                 es del valor de la columna que se tiene en la tabla teniendo en cuenta que nos referimos al 
                                 name del imput -->
@@ -25,14 +25,26 @@
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="text" name="nombre_carrera" class="form-control" value="{{ $carrera->nombre_carrera}}" maxlength="120" placeholder="Nombre de la carrera">
+                            <input type="text" name="nombre_carrera" class="form-control" value="{{ $carrera->nombre_carrera}}" maxlength="120" placeholder="Nombre de la carrera" required>
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="number" name="id_plan" class="form-control" value="{{ $carrera->id_plan}}" maxlength="50" placeholder="Plan de estudio">
+                            <!-- <input type="number" name="id_plan" class="form-control" value="{{ $carrera->id_plan}}" maxlength="50" placeholder="Plan de estudio" required> -->
+                            <select class="form-control" name="id_plan" id="" value="{{ $carrera->id_plan}}" required>
+                            
+
+
+                            @foreach($planEstudios as $row)
+                            @if ($row->id == $carrera->id_plan)
+                            <option selected value="{{$row->id}}">{{$row->nombre_plan}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
+                            @endif
+                            @endforeach
+                            </select>
                         </div>
                         
                         <div class="row">
