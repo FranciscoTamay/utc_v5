@@ -45,7 +45,7 @@
                     @foreach($planEstudios as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->id_asignatura}}</td>
+                        <td>{{$run->nombre_asignatura}}</td>
                         <td>{{$run->nombre_plan}}</td>
                         <td>{{$run->anio}}</td>
                         <td>{{$run->cuatrimestres}}</td>
@@ -96,7 +96,7 @@
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
             <!-- <input type="number" name="id_asignatura" class="form-control" maxlength="50" placeholder="Ingrese la Asigantura" required> -->
-            <select class="form-control" name="id_plan" id="">
+            <select class="form-control" name="id_asignatura" id="" required>
                 <option value="">Asignaturas</option>
                 @foreach($asignaturas as $row)
                 <option value="{{$row->id}}">{{$row->nombre_asignatura}}</option>

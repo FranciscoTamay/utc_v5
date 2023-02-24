@@ -13,6 +13,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\RegistroPagosController;
 use App\Http\Controllers\CarrerasController;
+use App\Http\Controllers\MatriculasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('planEstudio',PlanEstudioController::class);
     Route::resource('asp', AspirantesController::class);
     Route::resource('asignaturas', AsignaturaController::class);
+    Route::resource('matriculas', MatriculasController::class);
 
 // RUTAs DE HECTOR
 
