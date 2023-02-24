@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PlanEstudio;
-use App\Models\Asignaturas;
 
-
-class PlanEstudioController extends Controller
+class AlumnosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +14,6 @@ class PlanEstudioController extends Controller
     public function index()
     {
         //
-        $planEstudios = PlanEstudio::select('plan_estudio.id','id_asignatura','nombre_plan','anio','cuatrimestres','horas','nombre_asignatura')
-        ->join('asignaturas','asignaturas.id','=','plan_estudio.id_asignatura')->get();
-        $asignaturas = Asignaturas::all();
-        return view('planEstudio.planEstudio',compact('planEstudios','asignaturas'));
     }
 
     /**
@@ -32,10 +25,6 @@ class PlanEstudioController extends Controller
     public function store(Request $request)
     {
         //
-        $planEstudio = new PlanEstudio($request->input());
-        $planEstudio->saveOrFail();
-        return redirect('planEstudio');
-
     }
 
     /**
@@ -47,9 +36,6 @@ class PlanEstudioController extends Controller
     public function show($id)
     {
         //
-        $planEstudio = PlanEstudio::find($id);
-        $asignaturas = Asignaturas::all();
-        return view('planEstudio.editarPlanEstudio',compact('planEstudio','asignaturas'));
     }
 
     /**
@@ -62,9 +48,6 @@ class PlanEstudioController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $planEstudio = PlanEstudio::find($id);
-        $planEstudio->fill($request->input())->saveOrFail();
-        return redirect('planEstudio');
     }
 
     /**
@@ -76,8 +59,5 @@ class PlanEstudioController extends Controller
     public function destroy($id)
     {
         //
-        $planEstudio = PlanEstudio::find($id);
-        $planEstudio -> delete();
-        return redirect('planEstudio');
     }
 }

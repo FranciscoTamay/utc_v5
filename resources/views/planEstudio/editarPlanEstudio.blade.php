@@ -15,10 +15,19 @@
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="number" name="id_asignatura" class="form-control" value="{{ $planEstudio->id_asignatura}}" maxlength="50" placeholder="Asignatura">
+                            <!-- <input type="number" name="id_asignatura" class="form-control" value="{{ $planEstudio->id_asignatura}}" maxlength="50" placeholder="Asignatura"> -->
                             <!-- lo que se tiene puesto en el value la variable $carrera es nuestro objeto y codigo carrera
                                 es del valor de la columna que se tiene en la tabla teniendo en cuenta que nos referimos al 
                                 name del imput -->
+                                <select class="form-control" name="id_asignatura" id="" value="{{ $planEstudio->id_asignatura}}" required>
+                            @foreach($asignaturas as $row)
+                            @if ($row->id == $planEstudio->id_asignatura)
+                            <option selected value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
+                            @endif
+                            @endforeach
+                            </select>
                         </div>
 
                         <div class="input-group mb-3">

@@ -32,32 +32,31 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>CODIGO</th>
-                        <th>NOMBRE ASIGNATURA</th>
-                        <th>NUMERO DE UNIDADES</th>
+                        <th>MATRICULA</th>
+                        <th>ID ALUMNO</th>
+                        
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     @php $i=1; @endphp
-                    @foreach($asignaturas as $run)
+                    @foreach($matriculas as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->codigo_asignatura}}</td>
-                        <td>{{$run->nombre_asignatura}}</td>
-                        <td>{{$run->num_unidades}}</td>
+                        <td>{{$run->matricula}}</td>
+                        <td>{{$run->id_alumno}}</td>
                         
                         <td>
                             <div class="row">
                                 <div class="col-4">
-                            <a href="{{ url('asignaturas',[$run]) }}" class="btn btn-warning">
+                            <a href="{{ url('matriculas',[$run]) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
                             <!-- boton de editar -->
 
                             <div class="col-4">
-                            <form method="POST" action="{{ url('asignaturas',[$run] )}}">
+                            <form method="POST" action="{{ url('matriculas',[$run] )}}">
                                 @method("delete")
                                 @csrf
                                 <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
@@ -73,40 +72,32 @@
             </div>
         </div>
     </div>
-    <!-- Aqui es en donde termina la tabla de las asignatura -->
+    <!-- Aqui es en donde termina la tabla de las carreras -->
     <!-- Aqui empieza la ventana modal  -->
     <!-- Modal -->
 <div class="modal fade" id="modalCarreras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una Asignatura</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una carrera</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
-        <form id="frmAsignaturas" method="POST" action="{{ url('asignaturas') }}">
+        <form id="frmMatriculas" method="POST" action="{{ url('matriculas') }}">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="codigo_asignatura" class="form-control" maxlength="50" placeholder="Codigo de la Asignatura" required>
+            <input type="number" name="matricula" class="form-control" maxlength="50" placeholder="Matricula del Estudiante" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="text" name="nombre_asignatura" class="form-control" maxlength="120" placeholder="Nombre de la Asignatura" required>
-        </div>
-
-        <div class="input-group mb-3">
-        <span class="input-group-text">
-            <i class="fa-solid fa-graduation-cap"></i>
-            </span>
-            <input type="number" name="num_unidades" class="form-control" maxlength="50" placeholder="Número de Unidades" required>
-            
+            <input type="text" name="id_alumno" class="form-control" maxlength="120" placeholder="Ingrese al Alumno" required>
         </div>
 
         <div class="row">
