@@ -1,5 +1,17 @@
 @extends('layouts.app')
 @section('content')
+<div class="section">
+    <div class="section-header">
+        <div class="col-lg-12">
+            <div class="card-body">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
 <div class="row mt-3">
         <div class="col-md-6 offset-md-3">
             <div class="card">
