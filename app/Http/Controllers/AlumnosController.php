@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Alumnos;
 
 class AlumnosController extends Controller
 {
@@ -14,6 +15,8 @@ class AlumnosController extends Controller
     public function index()
     {
         //
+        $alumnos = Alumnos::all();
+        return view('alumnos.alumnos',compact('alumnos'));
     }
 
     /**
@@ -25,6 +28,9 @@ class AlumnosController extends Controller
     public function store(Request $request)
     {
         //
+        $alumno = new Alumnos($request->input());
+        $alumno->saveOrFail();
+        return redirect('alumnos');
     }
 
     /**
@@ -36,6 +42,8 @@ class AlumnosController extends Controller
     public function show($id)
     {
         //
+        $alumno = Alumnos::find($id);
+        return view('alumnos.editarAlumno',compact('alumno'));
     }
 
     /**
@@ -48,6 +56,9 @@ class AlumnosController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $alumno = Alumnos::find($id);
+        $alumno->fill($request->input())->saveOrFail();
+        return redirect('alumnos');
     }
 
     /**
@@ -59,5 +70,8 @@ class AlumnosController extends Controller
     public function destroy($id)
     {
         //
+        $alumno = Alumnos::find($id);
+        $alumno->delete();
+        return redirect('alumnos');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\ProcedenciasController;
 use App\Http\Controllers\PlanEstudioController;
@@ -52,6 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('asp', AspirantesController::class);
     Route::resource('asignaturas', AsignaturaController::class);
     Route::resource('matriculas', MatriculasController::class);
+    Route::resource('alumnos', AlumnosController::class);
 
 // RUTAs DE HECTOR
 

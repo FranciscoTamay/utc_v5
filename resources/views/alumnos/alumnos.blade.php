@@ -32,31 +32,48 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>MATRICULA</th>
-                        <th>ID ALUMNO</th>
-                        
+                        <th>CURP</th>
+                        <th>NSS</th>
+                        <th>APELLIDO PATERNO</th>
+                        <th>APELLIDO MATERNO</th>
+                        <th>NOMBRES</th>
+                        <th>GENERO</th>
+                        <th>TELEFONO</th>
+                        <th>CORREO</th>
+                        <th>DIRECCION</th>
+                        <th>LOCALIDAD</th>
+                        <th>MUNICIPIO</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     @php $i=1; @endphp
-                    @foreach($matriculas as $run)
+                    @foreach($alumnos as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->matricula}}</td>
-                        <td>{{$run->id_alumno}}</td>
+                        <td>{{$run->curp}}</td>
+                        <td>{{$run->num_seguro}}</td>
+                        <td>{{$run->apellido_paterno}}</td>
+                        <td>{{$run->apellido_materno}}</td>
+                        <td>{{$run->nombres}}</td>
+                        <td>{{$run->sexo}}</td>
+                        <td>{{$run->telefono}}</td>
+                        <td>{{$run->correo}}</td>
+                        <td>{{$run->direccion}}</td>
+                        <td>{{$run->localidad}}</td>
+                        <td>{{$run->municipio}}</td>
                         
                         <td>
                             <div class="row">
                                 <div class="col-4">
-                            <a href="{{ url('matriculas',[$run]) }}" class="btn btn-warning">
+                            <a href="{{ url('alumnos',[$run]) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
                             <!-- boton de editar -->
 
                             <div class="col-4">
-                            <form method="POST" action="{{ url('matriculas',[$run] )}}">
+                            <form method="POST" action="{{ url('alumnos',[$run] )}}">
                                 @method("delete")
                                 @csrf
                                 <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
@@ -84,21 +101,91 @@
       </div>
       <div class="modal-body">
 
-        <form id="frmMatriculas" method="POST" action="{{ url('matriculas') }}">
+        <form id="frmAlumnos" method="POST" action="{{ url('alumnos') }}">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="matricula" class="form-control" maxlength="50" placeholder="Matricula del Estudiante" required>
+            <input type="text" name="curp" class="form-control" maxlength="50" placeholder="CURP del Alumno" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="text" name="id_alumno" class="form-control" maxlength="120" placeholder="Ingrese al Alumno" required>
+            <input type="number" name="num_seguro" class="form-control" maxlength="120" placeholder="NSS del alumno" required>
         </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="text" name="apellido_paterno" class="form-control" maxlength="120" placeholder="Apellido Paterno del Alumno" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="text" name="apellido_materno" class="form-control" maxlength="120" placeholder="Apellido Materno del Alumno" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="text" name="nombres" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <!-- <input type="text" name="sexo" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required> -->
+            <select name="sexo" id="" class="form-control" required>
+            <option value="">Seleccione su sexo</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="number" name="telefono" class="form-control" maxlength="120" placeholder="Número del Alumno" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="email" name="correo" class="form-control" maxlength="120" placeholder="Correo del Alumno" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="text" name="direccion" class="form-control" maxlength="120" placeholder="Direccion del Alumno" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="text" name="localidad" class="form-control" maxlength="120" placeholder="Localidad del Alumno" required>
+        </div>
+
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="text" name="municipio" class="form-control" maxlength="120" placeholder="Municipio del Alumno" required>
+        </div>
+
 
         <div class="row">
             <div class="col-md-3"></div>
