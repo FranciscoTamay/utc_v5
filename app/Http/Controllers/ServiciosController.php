@@ -23,11 +23,19 @@ class ServiciosController extends Controller
 
     public function store(Request $request)
     {
-        $servicio = new Servicios($request->input());
-        $servicio->saveOrFail();
-        return redirect('servicios');
+        $request->validate([
 
+            'codigo_serv' => 'required| unique:servicios',
+            'nombre_serv' => 'required| unique:servicios',
+            'precio_serv' => 'required',
 
+        ]);
+        $autor = new Servicios();
+        $autor-> codigo_serv= $request->get('codigo_serv');
+        $autor-> nombre_serv= $request->get('nombre_serv');
+        $autor-> precio_serv= $request->get('precio_serv');
+        $autor->save();
+        return redirect('servicios')->with('success', '¡SERVICIO GUARDADO DE MANERA EXITOSA!');
     }
 
     public function show($id)
@@ -47,7 +55,7 @@ class ServiciosController extends Controller
     {
         $servicio = Servicios::find($id);
         $servicio->fill($request->input())->saveOrFail();
-        return redirect('servicios');
+        return redirect('servicios')->with('warning', '¡SERVICIO EDITADO DE MANERA EXITOSA!');
     }
 
 
@@ -56,6 +64,6 @@ class ServiciosController extends Controller
         //
         $servicio = Servicios::find($id);
         $servicio->delete();
-        return redirect('servicios');
+        return redirect('servicios')->with('danger', '¡SERVICIO ELIMINADO CON EXITO!');;
     }
 }
