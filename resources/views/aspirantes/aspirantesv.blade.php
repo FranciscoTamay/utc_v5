@@ -147,9 +147,7 @@
       </div>
     </div>
   </div>
-</div>
-                                    
-                               
+</div>                   
                                 </div>                        
                         </div>
                     </div>
@@ -220,11 +218,7 @@
                     @endforeach()
                 </tbody>
             </table>
-        
-        </div>
-    </div>
-    </div>
-                    </div>
+
                 </div>
             </div>
            
@@ -232,6 +226,7 @@
     </section>
 
 @endsection
+
 @section('page_js')
             <script>
                 //  EMPIEZA DATATABLES
