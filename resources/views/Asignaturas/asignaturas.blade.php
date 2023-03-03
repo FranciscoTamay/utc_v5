@@ -35,6 +35,7 @@
                         <th>CODIGO</th>
                         <th>NOMBRE ASIGNATURA</th>
                         <th>NUMERO DE UNIDADES</th>
+                        <th>HORAS</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
@@ -46,7 +47,7 @@
                         <td>{{$run->codigo_asignatura}}</td>
                         <td>{{$run->nombre_asignatura}}</td>
                         <td>{{$run->num_unidades}}</td>
-                        
+                        <td>{{$run->horas}}</td>
                         <td>
                             <div class="row">
                                 <div class="col-4">
@@ -106,7 +107,13 @@
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
             <input type="number" name="num_unidades" class="form-control" maxlength="50" placeholder="Número de Unidades" required>
-            
+        </div>
+
+        <div class="input-group mb-3">
+        <span class="input-group-text">
+            <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Ingrese las horas de la asignatura" required>
         </div>
 
         <div class="row">

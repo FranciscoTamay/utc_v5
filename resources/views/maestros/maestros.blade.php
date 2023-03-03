@@ -32,48 +32,45 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>CURP</th>
-                        <th>NSS</th>
+                        <th>CODIGO</th>
+                        <th>SEXO</th>
                         <th>APELLIDO PATERNO</th>
                         <th>APELLIDO MATERNO</th>
                         <th>NOMBRES</th>
-                        <th>GENERO</th>
-                        <th>TELEFONO</th>
-                        <th>CORREO</th>
-                        <th>DIRECCION</th>
-                        <th>LOCALIDAD</th>
-                        <th>MUNICIPIO</th>
+                        <th>CURP</th>
+                        <th>NSS</th>
+                        <th>RFC</th>
+                        <th>ID GRADO</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     @php $i=1; @endphp
-                    @foreach($alumnos as $run)
+                    @foreach($maestros as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->curp}}</td>
-                        <td>{{$run->num_seguro}}</td>
+                        <td>{{$run->codigo}}</td>
+                        <td>{{$run->sexo}}</td>
                         <td>{{$run->apellido_paterno}}</td>
                         <td>{{$run->apellido_materno}}</td>
                         <td>{{$run->nombres}}</td>
-                        <td>{{$run->sexo}}</td>
-                        <td>{{$run->telefono}}</td>
-                        <td>{{$run->correo}}</td>
-                        <td>{{$run->direccion}}</td>
-                        <td>{{$run->localidad}}</td>
-                        <td>{{$run->municipio}}</td>
+                        <td>{{$run->curp}}</td>
+                        <td>{{$run->num_seguro}}</td>
+                        <td>{{$run->rfc}}</td>
+                        <td>{{$run->id_grado}}</td>
+                        
                         
                         <td>
                             <div class="row">
                                 <div class="col-6">
-                            <a href="{{ url('alumnos',[$run]) }}" class="btn btn-warning">
+                            <a href="{{ url('maestros',[$run]) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
                             <!-- boton de editar -->
 
                             <div class="col-6">
-                            <form method="POST" action="{{ url('alumnos',[$run] )}}">
+                            <form method="POST" action="{{ url('maestros',[$run] )}}">
                                 @method("delete")
                                 @csrf
                                 <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
@@ -101,7 +98,7 @@
       </div>
       <div class="modal-body">
 
-        <form id="frmAlumnos" method="POST" action="{{ url('alumnos') }}">
+        <form id="frmMaestros" method="POST" action="{{ url('maestros') }}">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text">

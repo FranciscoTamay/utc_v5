@@ -5,9 +5,7 @@
     <div class="section-header">
         <div class="col-lg-12">
             <div class="card-body">
-                <div class="row">
-
-                </div>
+                
             </div>
         </div>
     </div>
@@ -32,7 +30,6 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>ASINATURAS</th>
                         <th>NOMBRE PLAN</th>
                         <th>AÑO</th>
                         <th>CUATRIMESTRES</th>
@@ -45,7 +42,6 @@
                     @foreach($planEstudios as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->nombre_asignatura}}</td>
                         <td>{{$run->nombre_plan}}</td>
                         <td>{{$run->anio}}</td>
                         <td>{{$run->cuatrimestres}}</td>
@@ -80,7 +76,7 @@
     <!-- Aqui es en donde termina la tabla de las carreras -->
     <!-- Aqui empieza la ventana modal  -->
     <!-- Modal -->
-<div class="modal fade" id="modalCarreras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCarreras" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -91,19 +87,6 @@
 
         <form id="frmPlanEstudio" method="POST" action="{{ url('planEstudio') }}">
         @csrf
-        <div class="input-group mb-3">
-            <span class="input-group-text">
-            <i class="fa-solid fa-graduation-cap"></i>
-            </span>
-            <!-- <input type="number" name="id_asignatura" class="form-control" maxlength="50" placeholder="Ingrese la Asigantura" required> -->
-            <select class="form-control" name="id_asignatura" id="" required>
-                <option value="">Asignaturas</option>
-                @foreach($asignaturas as $row)
-                <option value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
-                @endforeach
-            </select>
-        </div>
-
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
@@ -151,4 +134,16 @@
 @endsection
 
 @section('page_js')
+<!-- Aqui es donde esta la funcionalidad de select 2 -->
+<!-- <script >
+     $(document).ready(function() {
+    $('.asignatura').select2();
+});
+</script> -->
+<script>
+        $(document).ready(function() {
+    $('#id_asignatura').select2();
+});
+</script>
+<!-- aqui termina select 2 -->
 @endsection()
