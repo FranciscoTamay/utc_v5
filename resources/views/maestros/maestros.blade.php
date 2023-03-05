@@ -60,6 +60,7 @@
                         <td>{{$run->id_grado}}</td>
                         
                         
+                        
                         <td>
                             <div class="row">
                                 <div class="col-6">
@@ -104,15 +105,21 @@
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="text" name="curp" class="form-control" maxlength="50" placeholder="CURP del Alumno" required>
+            <input type="number" name="codigo" class="form-control" maxlength="50" placeholder="Código del Profesor" required>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="number" name="num_seguro" class="form-control" maxlength="120" placeholder="NSS del alumno" required>
+            <!-- <input type="text" name="sexo" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required> -->
+            <select name="sexo" id="" class="form-control" required>
+            <option value="">Seleccione el genero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
         </div>
+
 
         <div class="input-group mb-3">
             <span class="input-group-text">
@@ -135,18 +142,7 @@
             <input type="text" name="nombres" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text">
-            <i class="fa-solid fa-graduation-cap"></i>
-            </span>
-            <!-- <input type="text" name="sexo" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required> -->
-            <select name="sexo" id="" class="form-control" required>
-            <option value="">Seleccione su sexo</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Femenino</option>
-        </select>
-        </div>
-
+        
         <div class="input-group mb-3">
             <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>

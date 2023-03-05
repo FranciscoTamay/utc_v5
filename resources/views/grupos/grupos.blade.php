@@ -169,6 +169,7 @@
             </span>
             <input type="text" name="localidad" class="form-control" maxlength="120" placeholder="Localidad del Alumno" required>
         </div>
+        
 
 
         <div class="input-group mb-3">

@@ -28,6 +28,9 @@ class MaestrosController extends Controller
     public function store(Request $request)
     {
         //
+        $maestro = new Maestros($request->input());
+        $maestro->saveOrFail();
+        return redirect('maestros');
     }
 
     /**
@@ -39,6 +42,8 @@ class MaestrosController extends Controller
     public function show($id)
     {
         //
+        $maestro = Maestros::find($id);
+        return view('grupos.editarMaestro',compact('maestro'));
     }
 
     /**
