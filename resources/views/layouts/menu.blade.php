@@ -1,6 +1,6 @@
 <li class="side-menus {{ Request::is('*') ? 'active' : '' }}">
     <a class="nav-link" href="/home">
-        <i class=" fas fa-building"></i><span>Dashboard</span>
+        <i class=" fas fa-building"></i><span>Inico</span>
     </a>
     <a class="nav-link" href="/usuarios">
         <i class=" fas fa-users"></i><span>Usuarios</span>
