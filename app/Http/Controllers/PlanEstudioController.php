@@ -17,10 +17,8 @@ class PlanEstudioController extends Controller
     public function index()
     {
         //
-        $planEstudios = PlanEstudio::select('plan_estudio.id','id_asignatura','nombre_plan','anio','cuatrimestres','horas','nombre_asignatura')
-        ->join('asignaturas','asignaturas.id','=','plan_estudio.id_asignatura')->get();
-        $asignaturas = Asignaturas::all();
-        return view('planEstudio.planEstudio',compact('planEstudios','asignaturas'));
+        $planEstudios = PlanEstudio::all();
+        return view('planEstudio.planEstudio',compact('planEstudios'));
     }
 
     /**

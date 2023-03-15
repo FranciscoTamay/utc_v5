@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\Aspirantes2Controller;
 use App\Http\Controllers\ProcedenciasController;
 use App\Http\Controllers\PlanEstudioController;
 use App\Http\Controllers\AspirantesController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\MaestrosController;
 use App\Http\Controllers\MatriculasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,10 +60,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('alumnos', AlumnosController::class);
     Route::resource('grupos', GruposController::class);
     Route::resource('maestros', MaestrosController::class);
+    Route::resource('procedencias', ProcedenciasController::class);
+    Route::resource('aspirante', Aspirantes2Controller::class);
 
 // RUTAs DE HECTOR
 
-Route::resource('procedencias', ProcedenciasController::class);
+
 // FIN DE LAS RUTAS DE HECTOR
 });
 

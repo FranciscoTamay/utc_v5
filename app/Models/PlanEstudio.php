@@ -14,7 +14,6 @@ class PlanEstudio extends Model
     protected $primaryKey = "id";
     protected $fillable=[
         'id',
-        'id_asignatura',
         'nombre_plan',
         'anio',
         'cuatrimestres',

@@ -28,7 +28,7 @@
     <i class="fa-solid fa-user-graduate"></i><span>Alumnos</span>
     </a>
  
-    <a class="nav-link" href="/alumno">
+    <a class="nav-link" href="/aspirante">
     <i class="fa-solid fa-clipboard"></i><span>alumno prueba</span>
     </a>
 

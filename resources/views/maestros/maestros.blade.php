@@ -1,103 +1,29 @@
 @extends('layouts.app')
 @section('content')
 <!-- Aqui comienza el contenido -->
-
-<div class="section">
-    <div class="section-header">
-        <div class="col-lg-12">
-            <div class="card-body">
-                <div class="row">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
-<div class="row mt-3">
-    <div class="col-md-4 offset-md-4">
-        <div class="d-grid mx-auto">
-            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
-                <i class="fa-solid fa-circle-plus"></i> Añadir
-            </button>
-        </div>
-    </div>
-    </div>
-    <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
-
-    <div class="row mt-3">
-        <div class="col-10 col-lg-10 offset-0 offset-lg-1">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>CODIGO</th>
-                        <th>SEXO</th>
-                        <th>APELLIDO PATERNO</th>
-                        <th>APELLIDO MATERNO</th>
-                        <th>NOMBRES</th>
-                        <th>CURP</th>
-                        <th>NSS</th>
-                        <th>RFC</th>
-                        <th>ID GRADO</th>
-                        <th>ACCIONES</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    @php $i=1; @endphp
-                    @foreach($maestros as $run)
-                    <tr>
-                        <td>{{$i++}}</td>
-                        <td>{{$run->codigo}}</td>
-                        <td>{{$run->sexo}}</td>
-                        <td>{{$run->apellido_paterno}}</td>
-                        <td>{{$run->apellido_materno}}</td>
-                        <td>{{$run->nombres}}</td>
-                        <td>{{$run->curp}}</td>
-                        <td>{{$run->num_seguro}}</td>
-                        <td>{{$run->rfc}}</td>
-                        <td>{{$run->id_grado}}</td>
-                        
-                        
-                        
-                        <td>
-                            <div class="row">
-                                <div class="col-6">
-                            <a href="{{ url('maestros',[$run]) }}" class="btn btn-warning">
-                            <i class="fa-solid fa-pencil"></i>
-                            </a>
-                                </div>
-                            <!-- boton de editar -->
-
-                            <div class="col-6">
-                            <form method="POST" action="{{ url('maestros',[$run] )}}">
-                                @method("delete")
-                                @csrf
-                                <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
-                            </form>
-                            </div>
-                            <!-- boton de eliminar -->
-                            </div>
-                        </td>                        
-                    </tr>
-                    @endforeach
-                </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <!-- Aqui es en donde termina la tabla de las carreras -->
-    <!-- Aqui empieza la ventana modal  -->
-    <!-- Modal -->
-<div class="modal fade" id="modalCarreras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una carrera</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+<section class="section">
+        <div class="section-header">
+                <div class="col-lg-12">
+                        <div class="card-body">                          
+                                <div class="row">
+                                    <div class="col-md-4"></div> 
+                                    <!-- esta madre nada mas es una espacio en blanco para centrar col-md- y el perro tamaño que quieras jsjsjjs -->
+                                    <div class="col-md-4 col-sm-1">
+                                    <div class="accordion" id="accordionExample">
+                                       
+                             <!-- AGREGAR SERVICIO -->
+<div class="row"></div>                  
+ <div class="accordion-item ">
+    <h2 class="accordion-header bg-success" id="headingTwo">
+      <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <i class="fa-solid fa-money-bill-transfer"></i>     AGREGAR UN REGISTRO DE PAGO
+      </button>
+      
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body ">
+       <!-- FORMULARIO PARA AGREGAR -->
+       <div class="modal-body">
 
         <form id="frmMaestros" method="POST" action="{{ url('maestros') }}">
         @csrf
@@ -192,14 +118,90 @@
         </form>
         <!-- final del formulario -->
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+        <!-- FIN FORMULARIO PARA AGREGARR-->
+
       </div>
     </div>
   </div>
-</div>
-    <!-- Aqui termina la ventana modal -->
-<!-- Aqui finaliza el contenido -->
+</div>                     
+                                </div>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+    <!-- COMIENZO DE LA CARD  TABLA -->
+ <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">                          
+                                <div class="row">
+                                    <div class="col"></div> 
+            <!-- COMIENZO DE LA TABLA -->
+    <div class="col-12 col-lg-8 offset-0 offset-lg-2"></div>
+        <div class="table-responsive"></div>
+        <table  id="example230" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
+                <thead  class="bg-secondary text-center">
+                    <tr>
+
+                  
+                        <th>CODIGO</th>
+                        <th>SEXO</th>
+                        <th>APELLIDO PATERNO</th>
+                        <th>APELLIDO MATERNO</th>
+                        <th>NOMBRES</th>
+                        <th>CURP</th>
+                        <th>NSS</th>
+                        <th>RFC</th>
+                        <th>ID GRADO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach($maestros as $row)
+                    <tr>
+                        <td>{{ $row->codigo }}</td>
+                        <td>{{$row->sexo}}</td>
+                        <td>{{$row->apellido_paterno}}</td>
+                        <td>{{$row->apellido_materno}}</td>
+                        <td>{{$row->nombres}}</td>
+                        <td>{{$row->curp}}</td>
+                        <td>{{$row->num_seguro}}</td>
+                        <td>{{$row->rfc}}</td>
+                        <td>{{$row->id_grado}}</td>
+                        
+                        
+                        
+                        <td>
+                            <div class="row">
+                                <div class="col-6">
+                            <a href="{{ url('maestros',[$row]) }}" class="btn btn-warning">
+                            <i class="fa-solid fa-pencil"></i>
+                            </a>
+                                </div>
+                            <!-- boton de editar -->
+
+                            <div class="col-6">
+                            <form method="POST" action="{{ url('maestros',[$row] )}}">
+                                @method("delete")
+                                @csrf
+                                <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                            </form>
+                            </div>
+                            <!-- boton de eliminar -->
+                            </div>
+                        </td>                        
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- Aqui es en donde termina la tabla de las carreras -->
+    <!-- Aqui empieza la ventana modal  -->
+   
 @endsection
 
 @section('page_js')

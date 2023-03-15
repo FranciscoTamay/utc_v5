@@ -56,8 +56,9 @@
     </section>
 
     <!-- FIN DE SECCION -->
-@livewireStyles
+    @livewireStyles
 @endsection
+
 @section('page_js')
             <script> 
              //  EMPIEZA DATATABLES

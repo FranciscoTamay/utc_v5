@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Maestros extends Model
 {
     use HasFactory;
-    public $timestamps=false;
     protected $table = "maestros";
     protected $primaryKey = "id";
-    protected $fillable=[
+    protected $fillable = [
         'id',
         'codigo',
         'sexo',
@@ -24,3 +23,5 @@ class Maestros extends Model
         'id_grado'        
     ];
 }
+
+

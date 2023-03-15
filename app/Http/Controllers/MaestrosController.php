@@ -17,6 +17,7 @@ class MaestrosController extends Controller
         //
         $maestros = Maestros::all();
         return view('maestros.maestros',compact('maestros'));
+
     }
 
     /**
