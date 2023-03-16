@@ -13,23 +13,23 @@
     </a>
 
     <a class="nav-link" href="/carreras">
-    <i class="fa-solid fa-graduation-cap"></i><span>Carreras</span>
+    <i class="fas fa-graduation-cap"></i><span>Carreras</span>
     </a>
 
     <a class="nav-link" href="/planEstudio">
-    <i class="fa-solid fa-clipboard"></i><span>Plan Estudio</span>
+    <i class="fas fa-clipboard"></i><span>Plan Estudio</span>
     </a>
 
     <a class="nav-link" href="/asignaturas">
-    <i class="fa-solid fa-book"></i><span>Asignaturas</span>
+    <i class="fas fa-book"></i><span>Asignaturas</span>
     </a>
 
     <a class="nav-link" href="/asignaturas">
-    <i class="fa-solid fa-user-graduate"></i><span>Alumnos</span>
+    <i class="fas fa-user-graduate"></i><span>Alumnos</span>
     </a>
  
     <a class="nav-link" href="/aspirante">
-    <i class="fa-solid fa-clipboard"></i><span>alumno prueba</span>
+    <i class="fas fa-clipboard"></i><span>alumno prueba</span>
     </a>
 
     
