@@ -67,7 +67,7 @@
                                     <div class="col"></div> 
             <!-- COMIENZO DE LA TABLA -->
     <div class="col-12 col-lg-8 offset-0 offset-lg-2"></div>
-        <div class="table-responsive"></div>
+        <div class="table-responsive">
             <table  id="example23" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
                 <thead class="bg-secondary text-center">
                 <tr>
@@ -75,8 +75,7 @@
         <th scope="col"class="text-center text-black" >ID</th>
         <th scope="col"class="text-center text-black" >NOMBRE DE LA ECUELA DE PROCEDENCIA</th>
         <th scope="col"class="text-center text-black" >FECHA DE CREACION</th>
-        <th scope="col"class="text-center text-black" >EDIATAR</th>
-        <th scope="col"class="text-center text-black" >BORRAR</th>
+        <th scope="col"class="text-center text-black" >ACCIONES</th>
     
     </tr>
                 </thead>
@@ -91,8 +90,6 @@
                         <td class="text-center">
 
         <a href="{{ url('procedencias', [$row]) }}" class="btn bg-warning"><i class="fa-solid fa-pencil"></i></a>
-</td>
-<td class="text-center  fw-bold fs-6" style="width:1%">
            <form method="POST" action="{{ url('procedencias', [$row]) }}">
             @method("delete")
             @csrf
@@ -105,8 +102,8 @@
                     @endforeach()
                 </tbody>
             </table>
-
-
+            </div> 
+            <!-- finaliza el reponsive table -->
 </div>
 
 <!-- FINDE LA TABLA -->
