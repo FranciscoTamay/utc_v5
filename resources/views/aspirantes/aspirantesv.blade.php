@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
+<section class="section">
+        <div class="section-header">
+                <div class="col-lg-12">
+                        <div class="card-body">                          
+                                <div class="row">
+                                    <div class="col-md-4"></div> 
 
 
 
