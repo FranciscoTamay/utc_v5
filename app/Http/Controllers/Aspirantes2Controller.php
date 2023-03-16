@@ -33,7 +33,7 @@ class Aspirantes2Controller extends Controller
         //
         $aspirante = new Aspirantes($request->input());
         $aspirante->saveOrFail();
-        return redirect('asp');
+        return redirect('aspirante');
     }
 
     
@@ -58,7 +58,7 @@ class Aspirantes2Controller extends Controller
         //
         $aspirante = Aspirantes::find($id);
         $aspirante->fill($request->input())->saveOrFail();
-        return redirect('asp');
+        return redirect('aspirante');
 
     }
 
@@ -68,6 +68,6 @@ class Aspirantes2Controller extends Controller
         //
         $aspirante = Aspirantes::find($id);
         $aspirante->delete();
-        return redirect('asp');
+        return redirect('aspirante');
     }
 }
