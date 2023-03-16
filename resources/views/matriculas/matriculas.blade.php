@@ -33,7 +33,10 @@
                     <tr>
                         <th>ID</th>
                         <th>MATRICULA</th>
-                        <th>ID ALUMNO</th>
+                        <th>CURP</th>
+                        <th>APELLIDO PATERNO</th>
+                        <th>APELLIDO MATERNO</th>
+                        <th>NOMBRES</th>
                         
                         <th>ACCIONES</th>
                     </tr>
@@ -44,7 +47,10 @@
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{$run->matricula}}</td>
-                        <td>{{$run->id_alumno}}</td>
+                        <td>{{$run->curp}}</td>
+                        <td>{{$run->apellido_paterno}}</td>
+                        <td>{{$run->apellido_materno}}</td>
+                        <td>{{$run->nombres}}</td>
                         
                         <td>
                             <div class="row">
@@ -94,10 +100,15 @@
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text">
+        <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <input type="text" name="id_alumno" class="form-control" maxlength="120" placeholder="Ingrese al Alumno" required>
+            <select class="form-control" name="id_plan" id="">
+                <option value="">Alumnos</option>
+                @foreach($alumnos as $row)
+                <option value="{{$row->id}}">{{$row->curp}}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="row">

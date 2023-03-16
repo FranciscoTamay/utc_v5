@@ -9,7 +9,6 @@ class Matriculas extends Model
 {
     use HasFactory;
 
-    public $timestamps=false;
     protected $table = "matriculas";
     protected $primaryKey = "id";
     protected $fillable=[
