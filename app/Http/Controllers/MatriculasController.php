@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Matriculas;
+use App\Models\Alumnos;
 
 class MatriculasController extends Controller
 {
@@ -15,8 +16,10 @@ class MatriculasController extends Controller
     public function index()
     {
         //
-        $matriculas = Matriculas::all();
-        return view('matriculas.matriculas',compact('matriculas'));
+        $alumnos = Alumnos::all();
+        $matriculas = Matriculas::select('matriculas.id','matricula','id_alumno','curp','apellido_paterno','apellido_materno','nombres')
+        ->join('alumnos','alumnos.id','=','matriculas.id_alumno')->get();
+        return view('matriculas.matriculas',compact('matriculas','alumnos'));
     }
 
     /**
@@ -30,7 +33,7 @@ class MatriculasController extends Controller
         //
         $matricula = new Matriculas($request->input());
         $matricula->saveOrFail();
-        return redirect('matriculas');
+        return redirect('matriculas','alumnos');
     }
 
     /**
@@ -43,7 +46,7 @@ class MatriculasController extends Controller
     {
         //
         $matricula = Matriculas::find($id);
-        return view('matriculas.editarMatriculas',compact('matricula'));
+        return view('matriculas.editarMatriculas',compact('matricula','alumnos'));
 
     }
 
@@ -59,7 +62,7 @@ class MatriculasController extends Controller
         //
         $matricula = Matriculas::find($id);
         $matricula->fill($request->input())->saveOrFail();
-        return redirect('matriculas');
+        return redirect('matriculas','alumnos');
 
     }
 
