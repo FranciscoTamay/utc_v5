@@ -131,6 +131,7 @@
                                     
                                
                                 </div>                        
+=======
     <!-- AGREGAR UN ALUMNO NUEVO-->
     <div class="row"></div>
     <div class="accordion-item ">
@@ -221,7 +222,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
                             <input type="text" name="genero" class="form-control" maxlength="50" placeholder="GENERO DEL ASPIRANTE" required>
-                            <select name="genero" class=" form-control" required>
+                            <select name="id_procedencia" class=" form-control" required>
                                 <option value="">SELECCIONA UN GENERO</option>
                                 <option value="MASCULINO">MASCULINO</option>
                                 <option value="FEMENINO">FEMENINO</option>
