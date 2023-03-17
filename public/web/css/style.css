@@ -55,7 +55,7 @@
 /* 3.1 Misc */
 @import url("//fonts.googleapis.com/css?family=Nunito:400,600,700,800");
 :root{
-   --var-background:#fff243;
+   --var-background:#a8a246;
 }
 .btn:focus,
 .btn:active,
@@ -3890,7 +3890,7 @@ body.layout-3 .main-footer {
 }
 
 .main-sidebar .sidebar-menu li.active a {
-    color: #6777ef;
+    color: var(--var-background);
     font-weight: 600;
     background-color: #f8fafb;
 }
