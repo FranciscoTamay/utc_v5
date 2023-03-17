@@ -35,11 +35,11 @@
         
     </div>
     <!-- FIN DE NOMBRES COMPLETOS -->
-    <label  class="form-label">NOMBRES COMPLETOS</label>
+    <label  class="form-label">NOMBRE</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-n"></i></span>
-        <input type="text" name="nombres" class="form-control" maxlength="50" placeholder="NOMBRES COMPLETOS" required>
+        <input type="text" name="nombres" class="form-control" maxlength="50" placeholder="NOMBRE" required>
         
     </div>
     <!-- FIN DE DATO -->
@@ -60,11 +60,11 @@
         
     </div>
     <!-- FIN DE DATO -->
-    <label  class="form-label">CURP COMPLETO</label>
+    <label  class="form-label">CURP</label>
      <!-- CASILLA DE DATO -->
      <div class="input-group mb-3">
         <span class="input-group-text"><i class="fa-solid fa-c"></i></span>
-        <input type="text" name="curp" class="form-control" maxlength="50" placeholder="CURP COMPLETO" required>
+        <input type="text" name="curp" class="form-control" maxlength="50" placeholder="CURP " required>
         
     </div>
     <!-- FIN DE DATO -->
@@ -93,24 +93,25 @@
         
     </div>
     <!-- FIN DE DATO -->
-    <label  class="form-label">GENERO</label>
-         <!-- CASILLA DE DATO -->
-         <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
-        <input type="text" name="genero" class="form-control" maxlength="50" placeholder="GENERO DEL ASPIRANTE" required>
-        <select name="id_procedencia" class=" form-control" required>
-                            <option value="">SELECCIONA UN GENERO</option>
-                            <option value="MASCULINO">MASCULINO</option>
-                            <option value="FEMENINO">FEMENINO</option>
-                
 
-                        </select>
-        
-    </div>
+
+    <label  class="form-label">GENERO</label>
+    <div class="input-group mb-3">
+            <span class="input-group-text">
+            <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
+            </span>
+            <!-- <input type="text" name="sexo" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required> -->
+            <select name="genero" id="" class="form-control" required>
+            <option value="">SELECCIONA TU GENERO</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Femenino">OTRO</option>
+        </select>
+        </div>
     <!-- FIN DE DATO --><!-- FIN DE DATO -->
     <label  class="form-label">PROCEDENCIA</label>
          <!-- CASILLA DE DATO -->
-         <div class="input-group mb-3">
+         <div class="input-group mb-2">
                         <span class="input-group-text"><i class="fa-solid fa-school"></i></span>
                         <select name="id_procedencia" class="aspirante form-control" required>
                             <option value="">SELECCIONA LA PROCEDENCIA</option>
@@ -122,7 +123,7 @@
                     </div>
     <!-- FIN DE DATO -->
     <label  class="form-label">CARRERA</label>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
                         <span class="input-group-text"><i class="fa-solid fa-scroll"></i></i></span>
                         <select name="id_carrera" class="aspirante form-control" required>
                             <option value="">SELECCIONA LA CARRERA</option>
