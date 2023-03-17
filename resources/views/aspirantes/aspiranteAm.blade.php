@@ -13,7 +13,7 @@
         <div class="accordion-body ">
             <!-- FORMULARIO PARA AGREGAR UN ALUMNO -->
 
-     
+            
                 <form id="frmServicios" method="POST" action="{{url("aspirante")}}">
                     @csrf
                     <!-- CASILLA DE FOLIO -->
