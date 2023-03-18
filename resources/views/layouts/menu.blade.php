@@ -2,6 +2,7 @@
     <a class="nav-link" href="/home">
         <i class=" fas fa-building"></i><span>Inico</span>
     </a>
+
     <a class="nav-link" href="/usuarios">
         <i class=" fas fa-users"></i><span>Usuarios</span>
     </a>
@@ -13,25 +14,23 @@
     </a>
 
     <a class="nav-link" href="/carreras">
-    <i class="fas fa-graduation-cap"></i><span>Carreras</span>
+        <i class="fas fa-graduation-cap"></i><span>Carreras</span>
     </a>
 
     <a class="nav-link" href="/planEstudio">
-    <i class="fas fa-clipboard"></i><span>Plan Estudio</span>
+        <i class="fas fa-clipboard"></i><span>Plan Estudio</span>
     </a>
 
     <a class="nav-link" href="/asignaturas">
-    <i class="fas fa-book"></i><span>Asignaturas</span>
+        <i class="fas fa-book"></i><span>Asignaturas</span>
     </a>
 
     <a class="nav-link" href="/asignaturas">
-    <i class="fas fa-user-graduate"></i><span>Alumnos</span>
+        <i class="fas fa-user-graduate"></i><span>Alumnos</span>
     </a>
- 
+
     <a class="nav-link" href="/aspirante">
-    <i class="fas fa-clipboard"></i><span>alumno prueba</span>
+        <i class="fas fa-clipboard"></i><span>alumno prueba</span>
     </a>
-
-    
 
 </li>
