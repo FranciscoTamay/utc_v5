@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Maestros;
 use App\Models\GradoProfesor;
 
-class MaestrosController extends Controller
+class GradoProfesorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +16,7 @@ class MaestrosController extends Controller
     {
         //
         $grados = GradoProfesor::all();
-        $maestros = Maestros::select('maestros.id','codigo','sexo','apellido_paterno','apellido_materno','nombres','curp','num_seguro','rfc','id_grado','grado_nombre')
-        ->join('grado_prof','grado_prof.id','=','maestros.id_grado')->get();
-        return view('maestros.maestros',compact('maestros','grados'));
-
+        return view('gradoProfe.GradoProfesor',compact('grados'));
     }
 
     /**
@@ -32,9 +28,6 @@ class MaestrosController extends Controller
     public function store(Request $request)
     {
         //
-        $maestro = new Maestros($request->input());
-        $maestro->saveOrFail();
-        return redirect('maestros');
     }
 
     /**
@@ -46,9 +39,6 @@ class MaestrosController extends Controller
     public function show($id)
     {
         //
-        $maestro = Maestros::find($id);
-        $grados = GradoProfesor::all();
-        return view('maestros.editarMaestro',compact('maestro','grados'));
     }
 
     /**
@@ -61,9 +51,6 @@ class MaestrosController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $maestro = Maestros::find($id);
-        $maestro->fill($request->input())->saveOrFail();
-        return redirect('maestros');
     }
 
     /**
@@ -75,8 +62,5 @@ class MaestrosController extends Controller
     public function destroy($id)
     {
         //
-        $maestro = Maestros::find($id);
-        $maestro->delete();
-        return redirect('maestros');
     }
 }

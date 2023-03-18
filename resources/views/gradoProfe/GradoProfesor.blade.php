@@ -16,7 +16,7 @@
  <div class="accordion-item ">
     <h2 class="accordion-header bg-success" id="headingTwo">
       <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      <div class="col-md-2"><i class="fa-solid fa-user-tie"></i></div>     AGREGAR UN PROFESOR
+      <i class="fa-solid fa-money-bill-transfer"></i>     AGREGAR UN PROFESOR
       </button>
       
     </h2>
@@ -25,7 +25,7 @@
        <!-- FORMULARIO PARA AGREGAR -->
        <div class="modal-body">
 
-        <form id="frmMaestros" method="POST" action="{{ url('maestros') }}">
+        <form id="frmGrados" method="POST" action="{{ url('grados') }}">
         @csrf
         <div class="input-group mb-3">
             <span class="input-group-text">
@@ -93,15 +93,10 @@
 
 
         <div class="input-group mb-3">
-        <span class="input-group-text">
+            <span class="input-group-text">
             <i class="fa-solid fa-graduation-cap"></i>
             </span>
-            <select class="form-control" name="id_grado" id="">
-                <option value="">Seleccione el grado del profesor</option>
-                @foreach($grados as $row)
-                <option value="{{$row->id}}">{{$row->grado_nombre}}</option>
-                @endforeach
-            </select>
+            <input type="number" name="id_grado" class="form-control" maxlength="120" placeholder="Grado del Profesor" required>
         </div>
 
 
@@ -138,50 +133,33 @@
                                 <div class="row">
                                     <div class="col"></div> 
             <!-- COMIENZO DE LA TABLA -->
-    <div class="col-12 col-lg-8 offset-0 offset-lg-2"></div>
-        <div class="table-responsive">
+    <div class="col-4 col-lg-4 offset-0 offset-lg-2"></div>
+        <div class="table-responsive"></div>
         <table  id="example230" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
                 <thead  class="bg-secondary text-center">
                     <tr>
 
                   
-                        <th>CODIGO</th>
-                        <th>SEXO</th>
-                        <th>APELLIDO PATERNO</th>
-                        <th>APELLIDO MATERNO</th>
-                        <th>NOMBRES</th>
-                        <th>CURP</th>
-                        <th>NSS</th>
-                        <th>RFC</th>
-                        <th>ID GRADO</th>
+                        <th>ID</th>
+                        <th>GRADO PROFESOR</th>
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    @foreach($maestros as $row)
+                    @foreach($grados as $row)
                     <tr>
-                        <td>{{ $row->codigo }}</td>
-                        <td>{{$row->sexo}}</td>
-                        <td>{{$row->apellido_paterno}}</td>
-                        <td>{{$row->apellido_materno}}</td>
-                        <td>{{$row->nombres}}</td>
-                        <td>{{$row->curp}}</td>
-                        <td>{{$row->num_seguro}}</td>
-                        <td>{{$row->rfc}}</td>
+                        <td>{{ $row->id }}</td>
                         <td>{{$row->grado_nombre}}</td>
-                        
-                        
-                        
                         <td>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                             <a href="{{ url('maestros',[$row]) }}" class="btn btn-warning">
                             <i class="fa-solid fa-pencil"></i>
                             </a>
                                 </div>
                             <!-- boton de editar -->
 
-                            <div class="col-6">
+                            <div class="col-4">
                             <form method="POST" action="{{ url('maestros',[$row] )}}">
                                 @method("delete")
                                 @csrf
@@ -195,8 +173,6 @@
                     @endforeach
                 </tbody>
                 </table>
-                </div>
-                <!-- fin del table-reponsive -->
             </div>
         </div>
     </section>
