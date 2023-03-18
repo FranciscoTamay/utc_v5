@@ -4424,6 +4424,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 4rem;
+    transition: 0.4s;
 }
 
 .border-azul {
