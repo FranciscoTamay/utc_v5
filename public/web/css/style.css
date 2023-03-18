@@ -4425,6 +4425,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     cursor: pointer;
     margin-bottom: 4rem;
     transition: 0.4s;
+    box-shadow: 2px 2px 20px 2px #afafaf;
 }
 
 .border-azul {
