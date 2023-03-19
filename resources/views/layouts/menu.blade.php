@@ -1,4 +1,6 @@
-<li class="side-menus {{ Request::is('*') ? 'active' : '' }}">
+
+
+    <li class="side-menus {{ Request::is('*') ? 'active' : '' }}">
     <a class="nav-link" href="/home">
         <i class=" fas fa-building"></i><span>Inico</span>
     </a>
@@ -25,7 +27,7 @@
         <i class="fas fa-book"></i><span>Asignaturas</span>
     </a>
 
-    <a class="nav-link" href="/asignaturas">
+    <a class="nav-link" href="/alumno">
         <i class="fas fa-user-graduate"></i><span>Alumnos</span>
     </a>
 

@@ -57,6 +57,7 @@
 
 :root {
     --var-background: #333333;
+    --var-text: #f0f0f0;
 }
 
 .btn:focus,
@@ -64,11 +65,11 @@
 .btn:active:focus,
 .custom-select:focus,
 .form-control:focus {
-    box-shadow: none !important;
+    box-shadow: none;
     outline: none;
 }
 
-a {
+body a {
     color: var(--var-background);
     font-weight: 500;
     transition: all .5s;
@@ -120,67 +121,67 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 .text-primary-all *,
 .text-primary-all *:before,
 .text-primary-all *:after {
-    color: var(--var-background) !important;
+    color: var(--var-background);
 }
 
 .text-secondary,
 .text-secondary-all *,
 .text-secondary-all *:before,
 .text-secondary-all *:after {
-    color: #cdd3d8 !important;
+    color: #cdd3d8;
 }
 
 .text-success,
 .text-success-all *,
 .text-success-all *:before,
 .text-success-all *:after {
-    color: #47c363 !important;
+    color: #47c363;
 }
 
 .text-info,
 .text-info-all *,
 .text-info-all *:before,
 .text-info-all *:after {
-    color: #3abaf4 !important;
+    color: #3abaf4;
 }
 
 .text-warning,
 .text-warning-all *,
 .text-warning-all *:before,
 .text-warning-all *:after {
-    color: #ffa426 !important;
+    color: #ffa426;
 }
 
 .text-danger,
 .text-danger-all *,
 .text-danger-all *:before,
 .text-danger-all *:after {
-    color: #fc544b !important;
+    color: #fc544b;
 }
 
 .text-light,
 .text-light-all *,
 .text-light-all *:before,
 .text-light-all *:after {
-    color: #e3eaef !important;
+    color: #e3eaef;
 }
 
 .text-white,
 .text-white-all *,
 .text-white-all *:before,
 .text-white-all *:after {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .text-dark,
 .text-dark-all *,
 .text-dark-all *:before,
 .text-dark-all *:after {
-    color: #191d21 !important;
+    color: #191d21;
 }
 
 .font-weight-normal {
-    font-weight: 500 !important;
+    font-weight: 500;
 }
 
 .lead {
@@ -214,7 +215,7 @@ ol {
 }
 
 .text-muted {
-    color: #98a6ad !important;
+    color: #98a6ad;
 }
 
 /* 3.2 Form */
@@ -2308,12 +2309,14 @@ h6 .badge {
 
 /* 3.18 Navbar */
 .navbar {
-    height: 70px;
+    margin-top: 0.6rem;
+    height: 65px;
     left: 250px;
     right: 5px;
     position: absolute;
     z-index: 890;
-    background-color: transparent;
+    background-color: white;
+    border-radius: 20px;
 }
 
 .navbar.active {
@@ -2468,7 +2471,7 @@ h6 .badge {
 }
 
 .navbar .nav-link {
-    color: #f2f2f2;
+    color: #303030;
     padding-left: 15px !important;
     padding-right: 15px !important;
     padding-top: 0 !important;
@@ -2477,7 +2480,10 @@ h6 .badge {
 }
 
 .navbar .nav-link.nav-link-lg div {
-    margin-top: 3px;
+    margin-left: 0.6rem;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    color: #303030;
 }
 
 .navbar .nav-link.nav-link-lg i {
@@ -2494,6 +2500,7 @@ h6 .badge {
 }
 
 .navbar .nav-link.nav-link-user img {
+    margin-top: -15px;
     object-fit: cover;
     width: 30px;
 }
@@ -2943,7 +2950,7 @@ html {
 }
 
 body {
-    background-color: #f4f6f9;
+    background-color: --var-background;
     font-size: 14px;
     font-weight: 400;
     font-family: "Nunito", "Segoe UI", arial;
@@ -3445,8 +3452,12 @@ pre {
 
 /* 4.2 Section */
 .section {
+    border-radius: 20px;
     position: relative;
     z-index: 1;
+    background: #fff;
+    width: 100%;
+    height: 51.5rem;
 }
 
 .section>*:first-child {
@@ -3531,13 +3542,11 @@ pre {
 }
 
 .main-wrapper-1 .section .section-header {
-    margin-left: -30px;
-    margin-right: -30px;
-    margin-top: -10px;
-    border-radius: 0;
-    border-top: 1px solid #f9f9f9;
+    border-radius: 20px;
+    margin-top: 5px;
     padding-left: 35px;
     padding-right: 35px;
+    background:#f9f9f9;
 }
 
 @media (max-width: 575.98px) {
@@ -3651,7 +3660,7 @@ body.sidebar-mini .main-sidebar:after {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
     content: ' ';
     position: fixed;
-    background-color: #fff;
+    background-color: --var-background;
     width: 65px;
     height: 100%;
     left: 0;
@@ -3744,7 +3753,7 @@ body.sidebar-mini .main-sidebar .sidebar-menu>li.active>a {
 
 body.sidebar-mini .main-sidebar .sidebar-menu>li ul.dropdown-menu {
     position: absolute;
-    background-color: #fff;
+    background-color: #1a1616;
     left: 65px;
     top: 10px;
     width: 200px;
@@ -4019,12 +4028,18 @@ body.layout-3 .main-footer {
     padding-right: 0;
 }
 
+.main-sidebar {
+    background: var(--var-background);
+    border-bottom-right-radius: 20px;
+}
+
 .main-sidebar .sidebar-brand {
     display: inline-block;
     width: 100%;
     text-align: center;
     height: 60px;
     line-height: 60px;
+    background: var(--var-background);
 }
 
 .main-sidebar .sidebar-brand.sidebar-brand-sm {
@@ -4112,9 +4127,9 @@ body.layout-3 .main-footer {
 }
 
 .main-sidebar .sidebar-menu li.active a {
-    color: var(--var-background);
+    color: var(--var-text);
     font-weight: 600;
-    background-color: #f8fafb;
+    background-color: var(--var-background);
 }
 
 .main-sidebar .sidebar-menu li.active a.has-dropdown:after {
@@ -4179,11 +4194,14 @@ body.layout-3 .main-footer {
 }
 
 .main-content {
-    padding-left: 280px;
-    padding-right: 30px;
+    padding-left: 254px;
+    padding-right: 5px;
     padding-top: 80px;
     width: 100%;
+    height: 100%;
     position: relative;
+    border-radius: 20px;
+    background: var(--var-background);
 }
 
 .main-footer {
@@ -4221,6 +4239,7 @@ body:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-men
 body:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li a:hover {
     background-color: var(--var-background);
     color: #fff;
+    border-top-right-radius: 20px;
 }
 
 body:not(.sidebar-mini) .sidebar-style-1 .sidebar-menu li.active ul.dropdown-menu li.active a {
@@ -4262,6 +4281,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
         position: fixed !important;
         margin-top: 0 !important;
         z-index: 891;
+        border-bottom-right-radius: 0px;
     }
 
     body.layout-2 .main-wrapper,
@@ -4415,7 +4435,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     float: right;
 }
 
-.home{
+.home {
     padding-top: 2rem;
     width: 100%;
     height: 82%;
@@ -4433,7 +4453,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 }
 
-.border-azul:hover{
+.border-azul:hover {
     color: #fff;
     background: #0da8ee;
 }
@@ -4443,7 +4463,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 }
 
-.border-amarillo:hover{
+.border-amarillo:hover {
     color: #fff;
     background: #dfee0d;
 }
@@ -4452,7 +4472,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     border: 3px solid #2ed8b6;
 }
 
-.border-verde:hover{
+.border-verde:hover {
     color: #fff;
     background: #2ed8b6;
 }
@@ -4462,7 +4482,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 }
 
-.border-verde-fuerte:hover{
+.border-verde-fuerte:hover {
     color: #fff;
     background: #218b76;
 }
@@ -4472,7 +4492,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 }
 
-.border-rosado:hover{
+.border-rosado:hover {
     color: #fff;
     background: #FF5370;
 }
@@ -4482,7 +4502,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 }
 
-.border-gris:hover{
+.border-gris:hover {
     color: #fff;
     background: #666666;
 }
@@ -4492,29 +4512,35 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     border: 3px solid #d165db;
 }
 
-.border-morado:hover{
+.border-morado:hover {
     color: #fff;
     background: #d165db;
 }
+
 .border-azulf {
     border: 3px solid #4143ce;
 
 }
 
-.border-azulf:hover{
+.border-azulf:hover {
     color: #fff;
     background: #4143ce;
 }
+
 .border-rojo {
     border: 3px solid #e44646;
 
 }
 
-.border-rojo:hover{
+.border-rojo:hover {
     color: #fff;
     background: #e44646;
 }
 
-.text-home{
+.text-home {
     text-decoration: none;
+}
+
+body{
+    background: var(--var-background);
 }

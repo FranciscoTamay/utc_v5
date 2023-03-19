@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="section">
+<div class="section">
     <div class="section-header">
         <h3 class="text-center">Inicio</h3>
     </div>
@@ -173,8 +173,5 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
-</section>
+</div>
 @endsection
