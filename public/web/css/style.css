@@ -56,8 +56,8 @@
 @import url("//fonts.googleapis.com/css?family=Nunito:400,600,700,800");
 
 :root {
-    --var-background: #333333;
-    --var-text: #f0f0f0;
+    --var-background: #202528 ;
+    --var-text: #edeffd;
 }
 
 .btn:focus,
@@ -2311,8 +2311,8 @@ h6 .badge {
 .navbar {
     margin-top: 0.6rem;
     height: 65px;
-    left: 250px;
-    right: 5px;
+    left: 16rem;
+    right: 1rem;
     position: absolute;
     z-index: 890;
     background-color: white;
@@ -2635,8 +2635,8 @@ h6 .badge {
     }
 
     .navbar {
-        left: 5px;
-        right: 0;
+        left: 2rem;
+        right: 2rem;
     }
 
     .navbar .dropdown-menu {
@@ -3457,7 +3457,7 @@ pre {
     z-index: 1;
     background: #fff;
     width: 100%;
-    height: 51.5rem;
+    height: 100%;
 }
 
 .section>*:first-child {
@@ -3465,7 +3465,6 @@ pre {
 }
 
 .section .section-header {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
     background-color: #fff;
     border-radius: 3px;
@@ -4034,12 +4033,14 @@ body.layout-3 .main-footer {
 }
 
 .main-sidebar .sidebar-brand {
+    margin-top: 1rem;
     display: inline-block;
     width: 100%;
     text-align: center;
     height: 60px;
     line-height: 60px;
     background: var(--var-background);
+    margin-bottom: 1rem;
 }
 
 .main-sidebar .sidebar-brand.sidebar-brand-sm {
@@ -4194,8 +4195,8 @@ body.layout-3 .main-footer {
 }
 
 .main-content {
-    padding-left: 254px;
-    padding-right: 5px;
+    padding-left: 16rem;
+    padding-right: 1rem;
     padding-top: 80px;
     width: 100%;
     height: 100%;
