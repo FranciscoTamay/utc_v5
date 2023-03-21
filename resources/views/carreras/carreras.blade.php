@@ -5,7 +5,7 @@
 <div class="section">
     <!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
     <div class="row mt-1">
-        <div class="col-md-4 offset-md-4 mt-4" >
+        <div class="col-md-4 offset-md-4 mt-4">
             <div class="d-grid mx-auto">
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
                     <i class="fa-solid fa-circle-plus"></i> Añadir
@@ -18,7 +18,7 @@
     <div class="row mt-3">
         <div class="col-10 col-lg-10 offset-0 offset-lg-1">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table id="example" class="table table-striped display dataTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -122,6 +122,14 @@
 <!-- Aqui termina la ventana modal -->
 <!-- Aqui finaliza el contenido -->
 @endsection
-
 @section('page_js')
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/es_es.lang.js'
+            }
+        });
+    });
+</script>
 @endsection()
