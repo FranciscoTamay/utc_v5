@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('grupos', GruposController::class);
     Route::resource('maestros', MaestrosController::class);
     Route::resource('procedencias', ProcedenciasController::class);
-    Route::resource('aspirante', Aspirantes2Controller::class);
+    
     Route::resource('grados', GradoProfesorController::class);
 
 // RUTAs DE HECTOR
@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 // FIN DE LAS RUTAS DE HECTOR
 });
-
+Route::resource('aspirante', Aspirantes2Controller::class);
 
 
 
