@@ -126,7 +126,7 @@
             </div>
 </section>
 @endsection
-@section('page_js')
+@section('scripts')
 <script>
     //  EMPIEZA DATATABLES
     $(document).ready(function() {
