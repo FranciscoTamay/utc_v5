@@ -71,7 +71,7 @@
 
 
 @endsection
-@section('page_js')
+@section('scripts')
         
 
 

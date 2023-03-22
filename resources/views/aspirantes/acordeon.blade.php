@@ -13,7 +13,11 @@
                         <div class="card-body">                          
                                 <div class="row">
                                     <div class="col-md-4"></div> 
-
+<div class="table-responsive">
+  <table class="table">
+    ...
+  </table>
+</div>
 
 
  <!-- COMIENZO DE LA CARD  TABLA -->
@@ -23,7 +27,7 @@
                                 <div class="row">
                                     <div class="col"></div> 
             <!-- COMIENZO DE LA TABLA -->
-    <div class="col-12 col-lg-8 offset-0 offset-lg-2"></div>
+    <div class="col-12 col-lg-8 offset-0 offset-lg-2 bg-primary"></div>
         <div class="table-responsive">
         <table  id="pro" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
                 <thead class="bg-success text-center">
@@ -74,11 +78,11 @@
                     
                         </td>
                     </tr>
-
+                    </div>
                     @endforeach()
                 </tbody>
             </table>
-            </div>
+       
 
                 </div>
             </div>

@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@livewireScripts
 @livewire('show-servicios')
 <!-- COMIENZO DE LA CARD  TABLA -->
             <div class="col-lg-12">
@@ -56,10 +55,10 @@
     </section>
 
     <!-- FIN DE SECCION -->
-    @livewireStyles
+
 @endsection
 
-@section('page_js')
+@section('scripts')
             <script> 
              //  EMPIEZA DATATABLES
              $(document).ready(function(){
