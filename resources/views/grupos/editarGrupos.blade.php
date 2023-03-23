@@ -8,31 +8,65 @@
                 </div>
 
                 <div class="card-body">
-                    <form id="frmCarrera" method="POST" action="{{ url('grupos',[$grupo] )}}">
+                    <form id="frmGrupo" method="POST" action="{{ url('grupos',[$grupo] )}}">
                         @method('PUT')
                         @csrf
+                       
+ 
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="number" name="codigo_asignatura" class="form-control" value="{{ $grupo->id_matricula}}" maxlength="50" placeholder="Código de la asignatura" required>
-                            <!-- lo que se tiene puesto en el value la variable $carrera es nuestro objeto y codigo carrera
-                                es del valor de la columna que se tiene en la tabla teniendo en cuenta que nos referimos al 
-                                name del imput -->
+                            <select class="form-control" name="id_matricula" id="" value="{{ $grupo->matricula}}" required>
+                            @foreach($matriculas as $row)
+                            @if ($row->id == $grupo->id_matricula)
+                            <option selected value="{{$row->id}}">{{$row->matricula}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->matricula}}</option>
+                            @endif
+                            @endforeach
+                            </select>
                         </div>
+
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="text" name="nombre_asignatura" class="form-control" value="{{ $grupo->id_asignatura}}" maxlength="120" placeholder="Nombre de la asignatura" required>
+                            <select class="form-control" name="id_carrera" id="" value="{{ $grupo->codigo_asignatura}}" required>
+                            @foreach($asignaturas as $row)
+                            @if ($row->id == $grupo->id_asignatura)
+                            <option selected value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
+                            @endif
+                            @endforeach
+                            </select>
                         </div>
+
+
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
                             <input type="number" name="num_unidades" class="form-control" value="{{ $grupo->id_profesor}}" maxlength="50" placeholder="Número de las unidades" required>
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            </span>
+                            <select class="form-control" name="id_profesor" id="" value="{{ $grupo->profesor}}" required>
+                            @foreach($carreras as $row)
+                            @if ($row->id == $grupo->id_carrera)
+                            <option selected value="{{$row->id}}">{{$row->carrera}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->carrera}}</option>
+                            @endif
+                            @endforeach
+                            </select>
                         </div>
 
                         <div class="input-group mb-3">

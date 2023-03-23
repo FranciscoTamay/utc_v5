@@ -12,7 +12,6 @@
             </div>
         </div>
     </div>
-</div>
 <!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
 <div class="row mt-3">
     <div class="col-md-4 offset-md-4">
@@ -81,6 +80,9 @@
             </div>
         </div>
     </div>
+
+    
+</div>
     <!-- Aqui es en donde termina la tabla de las carreras -->
     <!-- Aqui empieza la ventana modal  -->
     <!-- Modal -->
@@ -88,7 +90,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una carrera</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar un grupo</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

@@ -54,7 +54,10 @@ class GruposController extends Controller
     {
         //
         $grupo = Grupos::find($id);
-        return view('grupos.editarGrupos',compact('grupo'));
+        $asignaturas = Asignaturas::all();
+        $matriculas = Matriculas::all();
+        $carreras = Carreras::all();
+        return view('grupos.editarGrupos',compact('grupo','asignaturas','matriculas','carreras'));
     }
 
     /**
