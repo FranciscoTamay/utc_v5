@@ -1,8 +1,6 @@
 @extends('layouts.app')
 <style>
-    .select2-container {
-        z-index: 1060 !important;
-    }
+
 </style>
 
 @section('content')
@@ -109,9 +107,11 @@
                         <button class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
                 </form>
-
             </div>
         </div>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
+            cerrar
+        </button>
     </div>
 </div>
 

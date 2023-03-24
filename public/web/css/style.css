@@ -4500,3 +4500,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 body {
     background: var(--var-background);
 }
+
+.select2-container {
+    z-index: 1060 !important;
+}
