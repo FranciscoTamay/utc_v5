@@ -85,7 +85,7 @@
 <!-- Aqui es en donde termina la tabla de las carreras -->
 <!-- Aqui empieza la ventana modal  -->
 <!-- Modal -->
-<div class="modal fade" id="modalCarreras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCarreras"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -101,7 +101,7 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select class="form-control matricula" name="id_matricula" id="">
+                        <select class="form-control select2" name="id_matricula" id="">
                             <option value="">Seleccione la matricula</option>
                             @foreach($matriculas as $row)
                             <option value="{{$row->id}}">{{$row->matricula}}</option>
@@ -113,7 +113,7 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select class="form-control" name="id_asignatura" id="">
+                        <select class="form-control select2" name="id_asignatura" id="">
                             <option value="">Seleccione la asignatura</option>
                             @foreach($asignaturas as $row)
                             <option value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
@@ -125,7 +125,7 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
-                        <select name="id_servicio" class="form-control codigo" required>
+                        <select name="id_servicio" class="form-control select2" required>
                             <option value="">Seleccione el codigo del profesor</option>
                             @foreach($maestros as $row)
                             <option value="{{$row->id}}">{{$row->codigo}}</option>
@@ -138,7 +138,7 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select class="form-control carrera" name="id_carrera" id="">
+                        <select class="form-control select2" name="id_carrera" id="">
                             <option value="">Seleccione la carrera</option>
                             @foreach($carreras as $row)
                             <option value="{{$row->id}}">{{$row->nombre_carrera}}</option>
@@ -172,11 +172,7 @@
 @section('page_js')
 <script>
     $(document).ready(function() {
-        $('.codigo').select2();
-
-        $('.matricula').select2();
-
-        $('.carrera').select2();
+        $('.select2').select2();
     });
 </script>
 @endsection()
