@@ -1,80 +1,22 @@
 @extends('layouts.app')
+<style>
+    .select2-container {
+        z-index: 1060 !important;
+    }
+</style>
+
 @section('content')
 <section class="section">
-    <div class="section-header">
-        <div class="col-lg-12">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <!-- esta madre nada mas es una espacio en blanco para centrar col-md- y el perro tamaño que quieras jsjsjjs -->
-                    <div class="col-md-4 col-sm-1">
-                        <div class="accordion" id="accordionExample">
 
-                            <!-- AGREGAR SERVICIO -->
-                            <div class="row"></div>
-                            <div class="accordion-item ">
-                                <h2 class="accordion-header bg-success" id="headingTwo">
-                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <i class="fa-solid fa-money-bill-transfer"></i> AGREGAR UN REGISTRO DE PAGO
-                                    </button>
-
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body ">
-                                        <!-- FORMULARIO PARA AGREGAR -->
-                                        <div class="modal-body">
-
-                                            <!-- IMPORTANTE EN ESA URL VA COMO NOMBRASTE EL CONTROLADOR EN WEB -->
-                                            <form id="frmServicios" method="POST" action="{{url("registrop")}}">
-                                                @csrf
-                                                <!-- CASILLA DE DATO -->
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text"><i class="fa-solid fa-wallet"></i></span>
-                                                    <select name="id_servicio" class="form-control servicio" required>
-                                                        <option value="">SELECCIONA EL SERVICIO</option>
-                                                        @foreach($servicios as $row)
-                                                        <option value="{{$row->id}}">{{$row->nombre_serv}}</option>
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-                                                <!-- FIN DE DATO -->
-                                                </center>
-                                                <!-- CASILLA DE DATO -->
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
-                                                    <input type="text" name="id_matricula" class="form-control" maxlength="50" placeholder="SELECIONA LA MATRICULA" required>
-
-                                                </div>
-                                                <!-- FIN DE DATO -->
-                                                <!-- CASILLA DE DATO -->
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
-                                                    <input type="date" name="estado" class="form-control" maxlength="50" placeholder="ESTATO DEL PAGO" required>
-
-                                                </div>
-                                                <!-- FIN DE DATO -->
-                                                <div class="d-grid col-6 mx-auto">
-                                                    <button class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
-                                                </div>
-                                            </form>
-
-
-
-                                        </div>
-
-                                        <!-- FIN FORMULARIO PARA AGREGARR-->
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="row mt-1">
+        <div class="col-md-4 offset-md-4 mt-4">
+            <div class="d-grid mx-auto">
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#example">
+                    Abrir ventana modal
+                </button>
             </div>
         </div>
     </div>
-
 
     <!-- COMIENZO DE LA CARD  TABLA -->
     <div class="col-lg-12">
@@ -85,46 +27,94 @@
                     <!-- COMIENZO DE LA TABLA -->
                     <div class="col-12 col-lg-8 offset-0 offset-lg-2"></div>
                     <div class="table-responsive">
-                    <table id="example230" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
-                        <thead class="bg-secondary text-center">
-                            <tr>
+                        <table id="example230" class="table table-striped table-striped mt-4 table-bordered alert alert-with">
+                            <thead class="bg-secondary text-center">
+                                <tr>
 
-                                <th scope="col" class="text-center text-black">SERVICIO</th>
-                                <th scope="col" class="text-center text-black">MATRICULA</th>
-                                <th scope="col" class="text-center text-black">FECHA DE PAGO SERVICIO</th>
-                                <th scope="col" class="text-center text-black">ACCIONES</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-group-divider">
-                            @foreach($registro_pagos as $row)
-                            <tr>
+                                    <th scope="col" class="text-center text-black">SERVICIO</th>
+                                    <th scope="col" class="text-center text-black">MATRICULA</th>
+                                    <th scope="col" class="text-center text-black">FECHA DE PAGO SERVICIO</th>
+                                    <th scope="col" class="text-center text-black">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                @foreach($registro_pagos as $row)
+                                <tr>
 
-                                <td class="text-center  fw-bold text-black">{{ $row->nombre_serv }}</td>
-                                <td class="text-center  fw-bold text-black">{{ $row->id_matricula}}</td>
-                                <td class="text-center  fw-bold text-black">{{ $row->estado }}</td>
+                                    <td class="text-center  fw-bold text-black">{{ $row->nombre_serv }}</td>
+                                    <td class="text-center  fw-bold text-black">{{ $row->id_matricula}}</td>
+                                    <td class="text-center  fw-bold text-black">{{ $row->estado }}</td>
 
 
-                                <td class="text-center">
+                                    <td class="text-center">
 
-                                    <a href="{{ url('registrop', [$row]) }}" class="btn bg-warning"><i class="fa-solid fa-pencil"></i></a>
+                                        <a href="{{ url('registrop', [$row]) }}" class="btn bg-warning"><i class="fa-solid fa-pencil"></i></a>
 
-                                    <form method="POST" action="{{ url('registrop', [$row]) }}">
-                                        @method("delete")
-                                        @csrf
-                                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                        <form method="POST" action="{{ url('registrop', [$row]) }}">
+                                            @method("delete")
+                                            @csrf
+                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
 
-                                    </form>
-                                </td>
-                            </tr>
+                                        </form>
+                                    </td>
+                                </tr>
 
-                            @endforeach()
-                        </tbody>
-                    </table>
+                                @endforeach()
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>
             </div>
+        </div>
+    </div>
+
 </section>
+
+<div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una carrera</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="frmServicios" method="POST" action="{{url("registrop")}}">
+                    @csrf
+                    <!-- CASILLA DE DATO -->
+                    <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+                        <span class="input-group-text"><i class="fa-solid fa-wallet"></i></span>
+                        <select name="id_servicio" class="select2 form-control " required style="width: 90%;">
+                            <option class="select-wit " value="">SELECCIONA EL SERVICIO</option>
+                            @foreach($servicios as $row)
+                            <option value="{{$row->id}}">{{$row->nombre_serv}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!-- FIN DE DATO -->
+                    <!-- CASILLA DE DATO -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <input type="text" name="id_matricula" class="form-control" maxlength="50" placeholder="SELECIONA LA MATRICULA" required>
+                    </div>
+                    <!-- FIN DE DATO -->
+                    <!-- CASILLA DE DATO -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                        <input type="date" name="estado" class="form-control" maxlength="50" placeholder="ESTATO DEL PAGO" required>
+                    </div>
+                    <!-- FIN DE DATO -->
+                    <div class="d-grid col-6 mx-auto">
+                        <button class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 @section('scripts')
 <script>
@@ -201,7 +191,7 @@
 
     // Empieza select 2
     $(document).ready(function() {
-        $('.servicio').select2();
+        $('.select2').select2();
     });
 </script>
 
