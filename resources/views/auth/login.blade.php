@@ -24,9 +24,8 @@ Admin Login
                     @endif
                     <div class="inputBox">
                         <input type="text" aria-describedby="emailHelpBlock" id="email" class="form-control1{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" tabindex="1" value="{{ (Cookie::get('email') !== null) ? Cookie::get('email') : old('email') }}" autofocus required>
-                        {{ $errors->first('email') }}
                         <i class="fa-solid fa-user"></i>
-                        <span>Nombre</span>
+                        <span>Correo</span>
                     </div>
                     <div class="inputBox">
                         <input aria-describedby="passwordHelpBlock" id="password" type="password" value="{{ (Cookie::get('password') !== null) ? Cookie::get('password') : null }}" class="form-control1{{ $errors->has('password') ? ' is-invalid': '' }}" name="password" tabindex="2" required>
