@@ -72,6 +72,9 @@ Route::group(['middleware' => ['auth']], function() {
 });
 Route::resource('aspirante', Aspirantes2Controller::class);
 
+Route::get('calificaciones', function () {
+    return view('calificaciones.calificaciones');
+});
 
 
 

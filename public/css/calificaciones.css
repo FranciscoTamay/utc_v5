@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #202528;
+    font-family: 'Open Sans';
+}
+
+.contenedor{
+    height: 85%;
+    width: 95%;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.contenedor .title{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.contenedor .logo_img{
+    height: 4%;
+    width: 4%;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
+.form_input{
+    height: 17px;
+    width: 18%;
+    border-color: black;
+   
+}
+.label1{
+    margin-left: 3.9%;
+    font-size: 11px;
+}
+
+.label2{
+    margin-left: 2%;
+    font-size: 11px;
+}
+
+.label3{
+   margin-left: 4.3%;
+   font-size: 11px;
+}
+
+.label4{
+    margin-left: 2.8%;
+    font-size: 11px;
+}
+
+.label5{
+    margin-left: 2%;
+    font-size: 11px;
+}
+
+.label6{
+    margin-left: 4.35%;
+    font-size: 11px;
+}
+
+.texto_simbo{
+    font-size: 10px;
+    margin-left: 11%;
+}
+
+.texto_simbol{
+    font-size: 10px;
+    margin-left: 9.5%;
+}
+
+
+.texto_simbo2{
+    font-size: 10px;
+    margin-inline: 8%;
+    
+}
+
+.texto_simbo2_1{
+    font-size: 10px;
+    margin-inline: 0.1%;
+    
+}
+
+.texto_simbo3{
+    font-size: 10px;
+    margin-inline: 8%;
+
+}
+
+.texto_simbo3_1{
+    font-size: 10px;
+    margin-inline: 2.8%;
+
+}
