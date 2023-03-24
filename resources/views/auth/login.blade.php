@@ -36,6 +36,7 @@ Admin Login
                     <div class="inputBox " tabindex="4">
                         <input type="submit" value="Entrar">
                     </div>
+                </form>
             </div>
         </div>
     </div>
