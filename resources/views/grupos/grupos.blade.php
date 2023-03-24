@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <style>
     .select2-container {
-        z-index: 999999 !important;
+        z-index: 1060 !important;
     }
 </style>
 @section('content')
@@ -125,7 +125,7 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
-                        <select name="id_servicio" class="form-control select2" required>
+                        <select name="id_profesor" class="form-control select2" required>
                             <option value="">Seleccione el codigo del profesor</option>
                             @foreach($maestros as $row)
                             <option value="{{$row->id}}">{{$row->codigo}}</option>

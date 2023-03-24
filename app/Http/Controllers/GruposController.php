@@ -59,7 +59,8 @@ class GruposController extends Controller
         $asignaturas = Asignaturas::all();
         $matriculas = Matriculas::all();
         $carreras = Carreras::all();
-        return view('grupos.editarGrupos',compact('grupo','asignaturas','matriculas','carreras'));
+        $maestros = Maestros::all();
+        return view('grupos.editarGrupos',compact('grupo','asignaturas','matriculas','carreras','maestros'));
     }
 
     /**

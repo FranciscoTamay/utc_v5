@@ -1,6 +1,11 @@
 @extends('layouts.app')
+<style>
+    .select2-container {
+        z-index: 1060 !important;
+    }
+</style>
 @section('content')
-<div class="row mt-3">
+<div class="row mt-4">
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header bg-dark text-white text-center">
@@ -12,12 +17,14 @@
                         @method('PUT')
                         @csrf
                        
+
+                        
  
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <select class="form-control" name="id_matricula" id="" value="{{ $grupo->matricula}}" required>
+                            <select class="select2 form-control" multiple="multiple" name="id_matricula" id="" value="{{ $grupo->matricula}}" required>
                             @foreach($matriculas as $row)
                             @if ($row->id == $grupo->id_matricula)
                             <option selected value="{{$row->id}}">{{$row->matricula}}</option>
@@ -33,7 +40,7 @@
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <select class="form-control" name="id_carrera" id="" value="{{ $grupo->codigo_asignatura}}" required>
+                            <select class="form-control select2" name="id_carrera" id="" value="{{ $grupo->codigo_asignatura}}" required>
                             @foreach($asignaturas as $row)
                             @if ($row->id == $grupo->id_asignatura)
                             <option selected value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
@@ -45,35 +52,35 @@
                         </div>
 
 
-
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="number" name="num_unidades" class="form-control" value="{{ $grupo->id_profesor}}" maxlength="50" placeholder="Número de las unidades" required>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            </span>
-                            <select class="form-control" name="id_profesor" id="" value="{{ $grupo->profesor}}" required>
-                            @foreach($carreras as $row)
-                            @if ($row->id == $grupo->id_carrera)
-                            <option selected value="{{$row->id}}">{{$row->carrera}}</option>
+                            <select class="form-control select2" name="id_profesor" id="" value="{{ $grupo->codigo}}" required>
+                            @foreach($maestros as $row)
+                            @if ($row->id == $grupo->id_profesor)
+                            <option selected value="{{$row->id}}">{{$row->codigo}}</option>
                             @else
-                            <option value="{{$row->id}}">{{$row->carrera}}</option>
+                            <option value="{{$row->id}}">{{$row->codigo}}</option>
                             @endif
                             @endforeach
                             </select>
                         </div>
 
+
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="number" name="horas" class="form-control" value="{{ $grupo->id_carrera}}" maxlength="50" placeholder="Número de las unidades" required>
+                            <select class="form-control select2" name="id_carrera" id="" value="{{ $grupo->nombre_carrera}}" required>
+                            @foreach($carreras as $row)
+                            @if ($row->id == $grupo->id_carrera)
+                            <option selected value="{{$row->id}}">{{$row->nombre_carrera}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->nombre_carrera}}</option>
+                            @endif
+                            @endforeach
+                            </select>
                         </div>
                         
                         <div class="row">
@@ -99,6 +106,10 @@
         </div>
     </div>
 @endsection
-
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @section('page_js')
 @endsection()

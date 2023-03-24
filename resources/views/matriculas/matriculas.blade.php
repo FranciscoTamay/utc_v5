@@ -94,7 +94,7 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select class="form-control" name="id_plan" id="">
+                        <select class="form-control" name="id_alumno" id="">
                             <option value="">Alumnos</option>
                             @foreach($alumnos as $row)
                             <option value="{{$row->id}}">{{$row->curp}}</option>
