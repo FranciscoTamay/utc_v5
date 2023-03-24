@@ -170,7 +170,7 @@
                         <td>{{$row->rfc}}</td>
                         <td>{{$row->grado_nombre}}</td>
                         
-                        
+                            
                         
                         <td>
                             <div class="row">

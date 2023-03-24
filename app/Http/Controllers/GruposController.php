@@ -7,6 +7,7 @@ use App\Models\Grupos;
 use App\Models\Matriculas;
 use App\Models\Asignaturas;
 use App\Models\Carreras;
+use App\Models\Maestros;
 
 class GruposController extends Controller
 {
@@ -26,7 +27,8 @@ class GruposController extends Controller
         $carreras = Carreras::all();
         $asignaturas = Asignaturas::all();
         $matriculas = Matriculas::all();
-        return view('grupos.grupos',compact('grupos','carreras','asignaturas'));
+        $maestros = Maestros::all();
+        return view('grupos.grupos',compact('grupos','carreras','asignaturas','matriculas','maestros'));
 
     }
 
