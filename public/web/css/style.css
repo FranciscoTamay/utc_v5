@@ -4504,3 +4504,15 @@ body {
 .select2-container {
     z-index: 1060 !important;
 }
+
+.title-2 {
+    margin-left: 3%;
+    margin-right: 2%;
+    padding: 0.5em;
+    text-align: center;
+    background: #292f33;
+    width: 94.5%;
+    border-radius: 16px;
+    text-align: center;
+    color: #fff;
+}

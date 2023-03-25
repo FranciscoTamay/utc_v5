@@ -1,6 +1,8 @@
 @extends('layouts.app')
 <style>
-
+    .select2-container {
+        z-index: 1060 !important;
+    }
 </style>
 
 @section('content')
