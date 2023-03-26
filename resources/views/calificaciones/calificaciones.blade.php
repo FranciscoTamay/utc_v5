@@ -45,7 +45,6 @@
             <span class="texto_simbo3">R:remedial &nbsp; E:especial</span>
             <span class="texto_simbo3_1">AU:autonomo &nbsp; NA:no acreditado</span>
         </form>
-
     </div>
 </body>
 </html>
