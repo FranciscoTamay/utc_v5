@@ -10,10 +10,12 @@
 </head>
 <body>
     <div class="contenedor">
+        <div class="encabezado">
         <div class="title">
             Universidad Tecnologica del Centro
             <p></p>
             Acta de calificaciones finales
+        </div>
         </div>
 
         <form action="">
@@ -45,6 +47,35 @@
             <span class="texto_simbo3">R:remedial &nbsp; E:especial</span>
             <span class="texto_simbo3_1">AU:autonomo &nbsp; NA:no acreditado</span>
         </form>
+
+        <table id="pro" class="xd display responsive nowrap" style="width:95%">
+                <thead class="bg-respon text-center">
+                    <tr>
+                        <th scope="col" class="text-center text-black">FOLIO</th>
+                        <th scope="col" class="text-center text-black">NOMBRES</th>
+                        <th scope="col" class="text-center text-black">APELLIDOS PATERNO</th>
+                        <th scope="col" class="text-center text-black">APELLIDOS MATERNO</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td class="text-center  fw-bold text-black"></td>
+                        <td class="text-center  fw-bold text-black"></td>
+                        <td class="text-center  fw-bold text-black"></td>
+                        <td class="text-center  fw-bold text-black"></td>
+                        <td class="text-center">
+                            <div class="d-inline-block me-2">
+                                <a href="" class="btn bg-warning"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
+                            </div>
+                            <div class="d-inline-block">
+                                <form method="POST" action="">
+                                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
 </body>
 </html>
