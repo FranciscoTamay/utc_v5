@@ -1,59 +1,62 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="section">
-  <div class="section-header">
-      <h3 class="page__heading">Usuarios</h3>
-  </div>
-      <div class="section-body">
-          <div class="row">
-              <div class="col-lg-12">
-                  <div class="card">
-                      <div class="card-body">                           
-                          <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>        
-                         
-                            <table class="table table-striped mt-2">
-                              <thead style="background-color:#6777ef">                                     
-                                  <th style="display: none;">ID</th>
-                                  <th style="color:#fff;">Nombre</th>
-                                  <th style="color:#fff;">E-mail</th>
-                                  <th style="color:#fff;">Rol</th>
-                                  <th style="color:#fff;">Acciones</th>                                                                   
-                              </thead>
-                              <tbody>
-                                @foreach ($usuarios as $usuario)
-                                  <tr>
-                                    <td style="display: none;">{{ $usuario->id }}</td>
-                                    <td>{{ $usuario->name }}</td>
-                                    <td>{{ $usuario->email }}</td>
-                                    <td>
-                                      @if(!empty($usuario->getRoleNames()))
-                                        @foreach($usuario->getRoleNames() as $rolNombre)                                       
-                                          <h5><span class="badge badge-dark">{{ $rolNombre }}</span></h5>
-                                        @endforeach
-                                      @endif
-                                    </td>
+<section class="section mt-4">
+  <div class="card-body">
+    <h2 class="title-2">Usuarios</h2>
 
-                                    <td>                                  
-                                      <a class="btn btn-info" href="{{ route('usuarios.edit',$usuario->id) }}">Editar</a>
-
-                                      {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy', $usuario->id],'style'=>'display:inline']) !!}
-                                          {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
-                                      {!! Form::close() !!}
-                                    </td>
-                                  </tr>
-                                @endforeach
-                              </tbody>
-                            </table>
-                            <!-- Centramos la paginacion a la derecha -->
-                          <div class="pagination justify-content-end">
-                            {!! $usuarios->links() !!}
-                          </div>     
-                            
-                      </div>
-                  </div>
-              </div>
-          </div>
+    <div class="row mt-1 mt-4 mb-4">
+      <div class="col-md-4 offset-md-4">
+        <div class="d-grid mx-auto">
+          <a href="{{ route('usuarios.create') }}" class="btn btn-dark">
+            <i class="fa-solid fa-circle-plus"></i> Nuevo
+          </a>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <div class="respon">
+      <table id="pro" class="xd display responsive nowrap" style="width:95%">
+        <thead class="bg-darck text-center">
+          <th  class="text-center text-wiela">Nombre</th>
+          <th class="text-center text-black">E-mail</th>
+          <th  class="text-center text-black">Rol</th>
+          <th  class="text-center text-black">Acciones</th>
+        </thead>
+        <tbody>
+          @foreach ($usuarios as $usuario)
+          <tr>
+            <td class="text-center  fw-bold text-black">{{ $usuario->name }}</td>
+
+            <td class="text-center  fw-bold text-black">{{ $usuario->email }}</td>
+            <td class="text-center  fw-bold text-black">
+              @if(!empty($usuario->getRoleNames()))
+              @foreach($usuario->getRoleNames() as $rolNombre)
+              <h5><span class="badge badge-dark">{{ $rolNombre }}</span></h5>
+              @endforeach
+              @endif
+            </td>
+
+            <td>
+              <a class="btn btn-info" href="{{ route('usuarios.edit',$usuario->id) }}">Editar</a>
+
+              {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy', $usuario->id],'style'=>'display:inline']) !!}
+              {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+              {!! Form::close() !!}
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 @endsection
+
+@section('scripts')
+<script>
+  $(document).ready(function() {
+    $('#pro').DataTable();
+  });
+</script>
+@endsection()

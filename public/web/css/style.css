@@ -4516,3 +4516,9 @@ body {
     text-align: center;
     color: #fff;
 }
+
+.bg-darck{
+    background:#2d3438;
+    color: #fff;
+    border-radius: 10px !important;
+}

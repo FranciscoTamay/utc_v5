@@ -3,6 +3,7 @@
 <!-- Aqui comienza el contenido -->
 
 <div class="section">
+
     <div class="row mt-1">
         <div class="col-md-4 offset-md-4 mt-4">
             <div class="d-grid mx-auto">
@@ -13,64 +14,54 @@
         </div>
     </div>
 
-    <div class="row mt-3">
-        <div class="col-10 col-lg-10 offset-0 offset-lg-1">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>CODIGO</th>
-                            <th>NOMBRE ASIGNATURA</th>
-                            <th>NUMERO DE UNIDADES</th>
-                            <th>HORAS</th>
-                            <th>ACCIONES</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                        @php $i=1; @endphp
-                        @foreach($asignaturas as $run)
-                        <tr>
-                            <td>{{$i++}}</td>
-                            <td>{{$run->codigo_asignatura}}</td>
-                            <td>{{$run->nombre_asignatura}}</td>
-                            <td>{{$run->num_unidades}}</td>
-                            <td>{{$run->horas}}</td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <a href="{{ url('asignaturas',[$run]) }}" class="btn btn-warning">
-                                            <i class="fa-solid fa-pencil"></i>
-                                        </a>
-                                    </div>
-                                    <!-- boton de editar -->
+    <div class="card-body">
+        <h2 class="title-2">Aspirantes</h2>
+        <div class="respon">
+            <table id="pro3" class="xd display responsive nowrap" style="width:95%">
+                <thead class="bg-darck text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>CODIGO</th>
+                        <th>NOMBRE ASIGNATURA</th>
+                        <th>NUMERO DE UNIDADES</th>
+                        <th>HORAS</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @php $i=1; @endphp
+                    @foreach($asignaturas as $run)
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td>{{$run->codigo_asignatura}}</td>
+                        <td>{{$run->nombre_asignatura}}</td>
+                        <td>{{$run->num_unidades}}</td>
+                        <td>{{$run->horas}}</td>
+                        <td>
 
-                                    <div class="col-4">
-                                        <form method="POST" action="{{ url('asignaturas',[$run] )}}">
-                                            @method("delete")
-                                            @csrf
-                                            <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
-                                        </form>
-                                    </div>
-                                    <!-- boton de eliminar -->
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                            <div class="d-inline-block me-2">
+                                <a href="{{ url('asignaturas',[$run]) }}" class="btn btn-warning">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                            </div>
+                            <!-- boton de editar -->
+
+                            <div class="d-inline-block">
+                                <form method="POST" action="{{ url('asignaturas',[$run] )}}">
+                                    @method("delete")
+                                    @csrf
+                                    <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="section-header">
-        <div class="col-lg-12">
-            <div class="card-body">
-                <div class="row">
 
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="modal fade" id="modalCarreras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,9 +115,6 @@
                 </form>
                 <!-- final del formulario -->
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
         </div>
     </div>
 </div>
@@ -134,5 +122,17 @@
 <!-- Aqui finaliza el contenido -->
 @endsection
 
-@section('page_js')
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $('#pro3').DataTable();
+    });
+
+    //  TERMINA DATATABLES
+
+    // Empieza select 2
+    $(document).ready(function() {
+        $('.aspirante').select2();
+    });
+</script>
 @endsection()

@@ -14,52 +14,49 @@
         </div>
     </div>
     <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
+    <div class="card-body">
+        <h2 class="title-2">Aspirantes</h2>
+        <div class="respon">
+            <table id="pro2" class="xd display responsive nowrap" style="width:95%">
+                <thead class="bg-darck text-center">
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">CODIGO</th>
+                        <th class="text-center">NOMBRE CARRERA</th>
+                        <th class="text-center">PLAN ESTUDIO</th>
+                        <th class="text-center">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @php $i=1; @endphp
+                    @foreach($carreras as $run)
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td>{{$run->codigo_carrera}}</td>
+                        <td>{{$run->nombre_carrera}}</td>
+                        <td>{{$run->nombre_plan}}</td>
+                        <td class="text-center">
 
-    <div class="row mt-3">
-        <div class="col-10 col-lg-10 offset-0 offset-lg-1">
-            <div class="table-responsive">
-                <table id="example" class="table table-striped display dataTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>CODIGO</th>
-                            <th>NOMBRE CARRERA</th>
-                            <th>PLAN ESTUDIO</th>
-                            <th>ACCIONES</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                        @php $i=1; @endphp
-                        @foreach($carreras as $run)
-                        <tr>
-                            <td>{{$i++}}</td>
-                            <td>{{$run->codigo_carrera}}</td>
-                            <td>{{$run->nombre_carrera}}</td>
-                            <td>{{$run->nombre_plan}}</td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
-                                            <i class="fa-solid fa-pencil"></i>
-                                        </a>
-                                    </div>
-                                    <!-- boton de editar -->
+                            <div class="d-inline-block me-2">
+                                <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                            </div>
+                            <!-- boton de editar -->
 
-                                    <div class="col-6">
-                                        <form method="POST" action="{{ url('carreras',[$run] )}}">
-                                            @method("delete")
-                                            @csrf
-                                            <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
-                                        </form>
-                                    </div>
-                                    <!-- boton de eliminar -->
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                            <div class="d-inline-block">
+                                <form method="POST" action="{{ url('carreras',[$run] )}}">
+                                    @method("delete")
+                                    @csrf
+                                    <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -122,14 +119,17 @@
 <!-- Aqui termina la ventana modal -->
 <!-- Aqui finaliza el contenido -->
 @endsection
-@section('page_js')
+@section('scripts')
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
-            language: {
-                url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/es_es.lang.js'
-            }
-        });
+        $('#pro2').DataTable();
+    });
+
+    //  TERMINA DATATABLES
+
+    // Empieza select 2
+    $(document).ready(function() {
+        $('.aspirante').select2();
     });
 </script>
 @endsection()

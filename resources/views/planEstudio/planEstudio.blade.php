@@ -13,53 +13,46 @@
         </div>
     </div>
 
-    <div class="row mt-3">
-        <div class="col-10 col-lg-10 offset-0 offset-lg-1">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center text-black">NOMBRE PLAN</th>
-                            <th scope="col" class="text-center text-black">AÑO</th>
-                            <th scope="col" class="text-center text-black">CUATRIMESTRES</th>
-                            <th scope="col" class="text-center text-black">HORAS</th>
-                            <th scope="col" class="text-center text-black">ACCIONES</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
+    <div class="card-body">
+        <h2 class="title-2">Aspirantes</h2>
+        <div class="respon">
+            <table id="pro3" class="xd display responsive nowrap" style="width:95%">
+                <thead class="bg-darck text-center">
+                    <tr>
+                        <th scope="col" class="text-center text-black">NOMBRE PLAN</th>
+                        <th scope="col" class="text-center text-black">AÑO</th>
+                        <th scope="col" class="text-center text-black">CUATRIMESTRES</th>
+                        <th scope="col" class="text-center text-black">HORAS</th>
+                        <th scope="col" class="text-center text-black">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach($planEstudios as $run)
+                    <tr>
+                        <td scope="col" class="text-center text-black fw-bold">{{$run->nombre_plan}}</td>
+                        <td scope="col" class="text-center text-black fw-bold">{{$run->anio}}</td>
+                        <td scope="col" class="text-center text-black fw-bold">{{$run->cuatrimestres}}</td>
+                        <td scope="col" class="text-center text-black fw-bold">{{$run->horas}}</td>
+                        <td>
+                            <div class="d-inline-block me-2">
+                                <a href="{{ url('planEstudio',[$run]) }}" class="btn btn-warning">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                            </div>
+                            <!-- boton de editar -->
 
-                        @foreach($planEstudios as $run)
-                        <tr>
-
-                            <td scope="col" class="text-center text-black fw-bold">{{$run->nombre_plan}}</td>
-                            <td scope="col" class="text-center text-black fw-bold">{{$run->anio}}</td>
-                            <td scope="col" class="text-center text-black fw-bold">{{$run->cuatrimestres}}</td>
-                            <td scope="col" class="text-center text-black fw-bold">{{$run->horas}}</td>
-
-                            <td>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <a href="{{ url('planEstudio',[$run]) }}" class="btn btn-warning">
-                                            <i class="fa-solid fa-pencil"></i>
-                                        </a>
-                                    </div>
-                                    <!-- boton de editar -->
-
-                                    <div class="col-md-6">
-                                        <form method="POST" action="{{ url('planEstudio',[$run] )}}">
-                                            @method("delete")
-                                            @csrf
-                                            <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
-                                        </form>
-                                    </div>
-                                    <!-- boton de eliminar -->
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                            <div class="d-inline-block">
+                                <form method="POST" action="{{ url('planEstudio',[$run] )}}">
+                                    @method("delete")
+                                    @csrf
+                                    <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -118,75 +111,17 @@
 @livewireStyles
 @endsection
 
-@section('page_js')
+@section('scripts')
 <script>
     $(document).ready(function() {
-        var table = $('#id_asignatura').DataTable({
-            orderCellsTop: true,
-            fixedHeader: true,
-            dom: "Bfrtip",
-            buttons: {
-                dom: {
-                    button: {
-                        className: 'btn'
-                    }
-                },
-                buttons: [{
-                    //definimos estilos del boton de excel
-                    extend: "excel",
-                    text: '<i class="fa-solid fa-file-invoice"></i>  EXPORTAR LISTA DE LIBROS A EXCEL',
-                    className: 'btn btn-outline-success',
+        $('#pro3').DataTable();
+    });
 
-                    // 1 - ejemplo básico - uso de templates pre-definidos
-                    //definimos los parametros al exportar a excel
+    //  TERMINA DATATABLES
 
-                    excelStyles: {
-                        //template: "header_blue",  // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
-                        //template:"green_medium" 
-
-                        "template": [
-                            "blue_medium",
-                            "header_green",
-                            "title_medium"
-                        ]
-
-                    },
-                }]
-            },
-            "destroy": true,
-            "language": {
-                "lengthMenu": "Mostrar _MENU_ Registro por Pagina",
-                "zeroRecords": " No se encontro el Registro Disculpe",
-                "info": "Mostrando la Pagina _PAGE_ de _PAGES_",
-                "infoEmpty": "No records available",
-                "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                'search': '<i class="fa-solid fa-magnifying-glass"></i> BUSCAR UN SERVICIO',
-                'paginate': {
-                    'next': 'Siguiente',
-                    'previous': 'Anterior',
-                }
-            }
-
-
-        });
-
-        //Creamos una fila en el head de la tabla y lo clonamos para cada columna
-        $('#example230 thead tr').clone(true).appendTo('#example230 thead');
-
-        $('#example230 thead tr:eq(1) th').each(function(i) {
-            var title = $(this).text(); //es el nombre de la columna
-            $(this).html('<input class="text-center" type="text" placeholder="FILTRAR REGISTRO" />');
-
-            $('input', this).on('keyup change', function() {
-                if (table.column(i).search() !== this.value) {
-                    table
-                        .column(i)
-                        .search(this.value)
-                        .draw();
-                }
-            });
-        });
+    // Empieza select 2
+    $(document).ready(function() {
+        $('.aspirante').select2();
     });
 </script>
-
 @endsection()
