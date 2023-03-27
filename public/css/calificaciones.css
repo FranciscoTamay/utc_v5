@@ -4,7 +4,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+.body{
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -24,8 +25,8 @@ body{
 }
 
 .contenedor{
-    height: 85%;
-    width: 95%;
+    height: 92%;
+    width: 96%;
     background-color: #fff;
     border-radius: 20px;
 }
@@ -113,3 +114,12 @@ body{
     margin-inline: 2.8%;
 
 }
+
+.tabla{
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 60%;
+    width: 96%;
+    background-color: #fff;
+}
+
