@@ -3,22 +3,22 @@
 <section class="section mt-4">
     <div class="card-body">
         <h2 class="title-2">Aspirantes</h2>
-        <div class="respon table-responsive">
+        <div class="respon">
             <table id="pro" class="xd display responsive nowrap" style="width:95%">
-                <thead class="bg-respon text-center">
+                <thead class="bg-darck text-center">
                     <tr>
-                        <th scope="col" class="text-center text-black">FOLIO</th>
-                        <th scope="col" class="text-center text-black">NOMBRES</th>
-                        <th scope="col" class="text-center text-black">APELLIDOS PATERNO</th>
-                        <th scope="col" class="text-center text-black">APELLIDOS MATERNO</th>
-                        <th scope="col" class="text-center text-black">CURP</th>
-                        <th scope="col" class="text-center text-black">CORREO</th>
-                        <th scope="col" class="text-center text-black">TELEFONO</th>
-                        <th scope="col" class="text-center text-black">LOCALIDAD</th>
-                        <th scope="col" class="text-center text-black">GENERO</th>
-                        <th scope="col" class="text-center text-black">PROCEDENCIA</th>
-                        <th scope="col" class="text-center text-black">CARRERA</th>
-                        <th scope="col" class="text-center text-black">ACCIONES</th>
+                        <th class="text-center ">FOLIO</th>
+                        <th class="text-center">NOMBRES</th>
+                        <th class="text-center">APELLIDOS PATERNO</th>
+                        <th class="text-center">APELLIDOS MATERNO</th>
+                        <th class="text-center">CURP</th>
+                        <th class="text-center">CORREO</th>
+                        <th class="text-center">TELEFONO</th>
+                        <th class="text-center">LOCALIDAD</th>
+                        <th class="text-center">GENERO</th>
+                        <th class="text-center">PROCEDENCIA</th>
+                        <th class="text-center">CARRERA</th>
+                        <th class="text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -37,14 +37,17 @@
                         <td class="text-center  fw-bold text-black">{{ $row->nombre_carrera }}</td>
                         <td class="text-center">
                             <div class="d-inline-block me-2">
-                                <a href="{{ url('asp', [$row]) }}" class="btn bg-warning"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
+                                <a href="{{ url('asp', [$row]) }}" class="btn btn-success"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
                             </div>
-                            <div class="d-inline-block">
+                            <div class="d-inline-block me-2">
                                 <form method="POST" action="{{ url('asp', [$row]) }}">
                                     @method("delete")
                                     @csrf
                                     <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                 </form>
+                            </div>
+                            <div class="d-inline-block">
+                                <a href="http://127.0.0.1:8000/nota/{{$row->id}}" class="btn btn-info"><i class="fa-solid fa-file"></i></a>
                             </div>
                         </td>
                     </tr>

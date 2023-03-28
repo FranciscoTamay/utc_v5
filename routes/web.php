@@ -77,6 +77,11 @@ Route::get('calificaciones', function () {
     return view('calificaciones.calificaciones');
 });
 
+// 
+Route::get('nota/{folio}',[Aspirantes2Controller::class,'nota'])->name('nota');
+
+Route::get('ticket/{folio}', ['as'=>'ticket', 'uses'=>'ventaController@ticket']);
+
 
 
 

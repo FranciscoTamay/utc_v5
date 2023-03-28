@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\GradoProfesor;
 
+use function PHPUnit\Framework\returnValue;
+
 class GradoProfesorController extends Controller
 {
     /**
@@ -28,6 +30,9 @@ class GradoProfesorController extends Controller
     public function store(Request $request)
     {
         //
+        $grados = new GradoProfesor($request->input());
+        $grados->saveOrFail();
+        return redirect('grados');
     }
 
     /**
@@ -39,6 +44,8 @@ class GradoProfesorController extends Controller
     public function show($id)
     {
         //
+        $grado = GradoProfesor::find($id);
+        return view('gradoProfe.editarGrado', compact('grado'));
     }
 
     /**
@@ -51,6 +58,9 @@ class GradoProfesorController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $grado = GradoProfesor::find($id);
+        $grado->fill($request->input())->saveOrFail();
+        return redirect('grados');
     }
 
     /**

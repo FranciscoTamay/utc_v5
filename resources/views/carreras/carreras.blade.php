@@ -2,10 +2,14 @@
 @section('content')
 <!-- Aqui comienza el contenido -->
 
-<div class="section">
+<div class="section mt-4">
     <!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
-    <div class="row mt-1">
-        <div class="col-md-4 offset-md-4 mt-4">
+
+    <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
+    <div class="card-body">
+        <h2 class="title-2">Aspirantes</h2>
+        <div class="row mt-4">
+        <div class="col-md-4 offset-md-4">
             <div class="d-grid mx-auto">
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
                     <i class="fa-solid fa-circle-plus"></i> Añadir
@@ -13,53 +17,47 @@
             </div>
         </div>
     </div>
-    <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
+        <div class="respon">
+            <table id="pro2" class="xd display responsive nowrap" style="width:95%">
+                <thead class="bg-darck text-center">
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">CODIGO</th>
+                        <th class="text-center">NOMBRE CARRERA</th>
+                        <th class="text-center">PLAN ESTUDIO</th>
+                        <th class="text-center">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @php $i=1; @endphp
+                    @foreach($carreras as $run)
+                    <tr>
+                        <td>{{$i++}}</td>
+                        <td>{{$run->codigo_carrera}}</td>
+                        <td>{{$run->nombre_carrera}}</td>
+                        <td>{{$run->nombre_plan}}</td>
+                        <td class="text-center">
 
-    <div class="row mt-3">
-        <div class="col-10 col-lg-10 offset-0 offset-lg-1">
-            <div class="table-responsive">
-                <table id="example" class="table table-striped display dataTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>CODIGO</th>
-                            <th>NOMBRE CARRERA</th>
-                            <th>PLAN ESTUDIO</th>
-                            <th>ACCIONES</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                        @php $i=1; @endphp
-                        @foreach($carreras as $run)
-                        <tr>
-                            <td>{{$i++}}</td>
-                            <td>{{$run->codigo_carrera}}</td>
-                            <td>{{$run->nombre_carrera}}</td>
-                            <td>{{$run->nombre_plan}}</td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
-                                            <i class="fa-solid fa-pencil"></i>
-                                        </a>
-                                    </div>
-                                    <!-- boton de editar -->
+                            <div class="d-inline-block me-2">
+                                <a href="{{ url('carreras',[$run]) }}" class="btn btn-warning">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                            </div>
+                            <!-- boton de editar -->
 
-                                    <div class="col-6">
-                                        <form method="POST" action="{{ url('carreras',[$run] )}}">
-                                            @method("delete")
-                                            @csrf
-                                            <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
-                                        </form>
-                                    </div>
-                                    <!-- boton de eliminar -->
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                            <div class="d-inline-block">
+                                <form method="POST" action="{{ url('carreras',[$run] )}}">
+                                    @method("delete")
+                                    @csrf
+                                    <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -77,23 +75,23 @@
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-qrcode"></i>
                         </span>
-                        <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" required>
+                        <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                        <i class="fa-solid fa-file-signature"></i>
+                        </span>
+                        <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" required>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </span>
-                        <select class="form-control" name="id_plan" id="">
+                        <select class="form-control careras" name="id_plan" id="" required style="width: 25rem;" >
                             <option value="">Plan de Estudios</option>
                             @foreach($planEstudios as $row)
                             <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
@@ -101,20 +99,12 @@
                         </select>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6 mx-auto">
-                            <button class="btn btn-outline-success btn-lg">
-                                <i class="fa-solid fa-floppy-disk"></i> Guardar
-                            </button>
-                            <!-- boton de guardar -->
-                        </div>
+                    <div class="d-grid col-6 mx-auto">
+                        <button type="submit" class="btn btn-info"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
+
                 </form>
                 <!-- final del formulario -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -122,14 +112,17 @@
 <!-- Aqui termina la ventana modal -->
 <!-- Aqui finaliza el contenido -->
 @endsection
-@section('page_js')
+@section('scripts')
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
-            language: {
-                url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/es_es.lang.js'
-            }
-        });
+        $('#pro2').DataTable();
+    });
+
+    //  TERMINA DATATABLES
+
+    // Empieza select 2
+    $(document).ready(function() {
+        $('.careras').select2();
     });
 </script>
 @endsection()
