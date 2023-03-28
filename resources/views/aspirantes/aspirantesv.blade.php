@@ -46,6 +46,9 @@
                                     <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </div>
+                            <div class="d-inline-block me-2">
+                                <a href="http://127.0.0.1:8000/nota/{{$row->id}}" class="btn btn-info"><i class="fa-solid fa-file"></i></a>
+                            </div>
                         </td>
                     </tr>
                     @endforeach()

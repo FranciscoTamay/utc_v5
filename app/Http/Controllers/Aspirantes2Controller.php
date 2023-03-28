@@ -71,8 +71,11 @@ class Aspirantes2Controller extends Controller
         return redirect('aspirante');
     }
 
-    public function nota()
+    public function nota($id)
     {
+        $aspirante = Aspirantes::find($id);
+        $procedencia = Procedencias::all();
+        $carrera = Carreras::all();
         $pdf=new Fpdf('p','mm','Letter');
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 18);
@@ -86,7 +89,7 @@ class Aspirantes2Controller extends Controller
 
 
         //insertamos de logo
-        $pdf->Image(public_path().'/img/utc.jpg', 11, 5 ,32);
+        $pdf->Image(public_path().'/img/LogoOf.png', 11, 5 ,32);
         $pdf->Ln(20);
 
         // Aqui empezaremos a hacer el formato para que se rellenen los campos
@@ -107,10 +110,10 @@ class Aspirantes2Controller extends Controller
         $pdf->SetFont('Arial', 'B', 9);
        
         
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,0,'L');
+        $pdf->Cell(80,10,$aspirante->folio,1,0,'L');
         //Celda vacia alado del titulo de la tabla
         $pdf->Cell(24,5,'',0,0);
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,1,'L');
+        $pdf->Cell(80,10,$aspirante->nombres,1,1,'L');
         
 
         $pdf->Cell(4,5,'',0,0);
@@ -126,10 +129,10 @@ class Aspirantes2Controller extends Controller
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 9);
 
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,0,'L');
+        $pdf->Cell(80,10,$aspirante->apellido_p,1,0,'L');
         //Celda vacia alado del titulo de la tabla
         $pdf->Cell(24,5,'',0,0);
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,1,'L');
+        $pdf->Cell(80,10,$aspirante->apellido_m,1,1,'L');
 
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 10);
@@ -144,10 +147,10 @@ class Aspirantes2Controller extends Controller
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 9);
 
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,0,'L');
+        $pdf->Cell(80,10,$aspirante->curp,1,0,'L');
         //Celda vacia alado del titulo de la tabla
         $pdf->Cell(24,5,'',0,0);
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,1,'L');
+        $pdf->Cell(80,10,$aspirante->correo,1,1,'L');
 
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 10);
@@ -162,29 +165,11 @@ class Aspirantes2Controller extends Controller
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 9);
 
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,0,'L');
+        $pdf->Cell(80,10,$aspirante->telefono,1,0,'L');
         //Celda vacia alado del titulo de la tabla
         $pdf->Cell(24,5,'',0,0);
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,1,'L');
+        $pdf->Cell(80,10,$aspirante->localidad,1,1,'L');
         
-
-        $pdf->Cell(4,5,'',0,0);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(100,15,'Telefono:',0,0,'L');
-
-        $pdf->Cell(4,5,'',0,0);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(100,15,'Localidad:',0,1,'L');
-        $pdf->Ln(2);
-
-        // campo en donde se va a llenar con datos de la DB
-        $pdf->Cell(4,5,'',0,0);
-        $pdf->SetFont('Arial', 'B', 9);
-
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,0,'L');
-        //Celda vacia alado del titulo de la tabla
-        $pdf->Cell(24,5,'',0,0);
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,1,'L');
 
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 10);
@@ -192,18 +177,23 @@ class Aspirantes2Controller extends Controller
 
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(100,15,'Procedencia:',0,1,'L');
+        $pdf->Cell(100,15,'Escuela de Procedencia:',0,1,'L');
         $pdf->Ln(2);
 
         // campo en donde se va a llenar con datos de la DB
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 9);
 
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,0,'L');
+        $pdf->Cell(80,10,$aspirante->genero,1,0,'L');
         //Celda vacia alado del titulo de la tabla
         $pdf->Cell(24,5,'',0,0);
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,1,'L');
-
+        
+        foreach ($procedencia as $row){
+            if($row->id == $aspirante->id_procedencia){
+                $pdf->Cell(80,10,$row->nombre_esc,1,1,'L');
+            }
+       
+    }
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(100,15,'Carrera:',0,1,'L');
@@ -213,8 +203,13 @@ class Aspirantes2Controller extends Controller
         // campo en donde se va a llenar con datos de la DB
         $pdf->Cell(4,5,'',0,0);
         $pdf->SetFont('Arial', 'B', 9);
-
-        $pdf->Cell(80,10,'DATOS DEL ALUMNO',1,0,'L');
+        foreach ($carrera as $row){
+            if($row->id == $aspirante->id_carrera){
+                $pdf->Cell(80,10,$row->nombre_carrera,1,1,'L');
+            }
+       
+    }
+        
         
 
         $pdf->Output();
