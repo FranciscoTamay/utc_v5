@@ -103,7 +103,6 @@
                         <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Ingrese las horas de la asignatura" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
-
                     <div class="d-grid col-6 mx-auto">
                         <button type="submit" class="btn btn-info"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
@@ -125,7 +124,6 @@
             "language": {
                 "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
             }
-
         });
     });
 

@@ -37,7 +37,7 @@
                         <td class="text-center  fw-bold text-black">{{ $row->nombre_carrera }}</td>
                         <td class="text-center">
                             <div class="d-inline-block me-2">
-                                <a href="{{ url('asp', [$row]) }}" class="btn bg-warning"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
+                                <a href="{{ url('asp', [$row]) }}" class="btn btn-success"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
                             </div>
                             <div class="d-inline-block me-2">
                                 <form method="POST" action="{{ url('asp', [$row]) }}">

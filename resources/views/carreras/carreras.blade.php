@@ -2,10 +2,14 @@
 @section('content')
 <!-- Aqui comienza el contenido -->
 
-<div class="section">
+<div class="section mt-4">
     <!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
-    <div class="row mt-1">
-        <div class="col-md-4 offset-md-4 mt-4">
+
+    <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
+    <div class="card-body">
+        <h2 class="title-2">Aspirantes</h2>
+        <div class="row mt-4">
+        <div class="col-md-4 offset-md-4">
             <div class="d-grid mx-auto">
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
                     <i class="fa-solid fa-circle-plus"></i> Añadir
@@ -13,9 +17,6 @@
             </div>
         </div>
     </div>
-    <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
-    <div class="card-body">
-        <h2 class="title-2">Aspirantes</h2>
         <div class="respon">
             <table id="pro2" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
