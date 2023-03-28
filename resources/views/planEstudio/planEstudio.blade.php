@@ -71,37 +71,34 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="nombre_plan" class="form-control" maxlength="120" placeholder="Nombre del plan" required>
+                        <input type="text" name="nombre_plan" class="form-control" maxlength="120" placeholder="Nombre del plan" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="anio" class="form-control" maxlength="50" placeholder="Año del Plan de Estudio" required>
+                        <input type="number" name="anio" class="form-control" maxlength="50" placeholder="Año del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="cuatrimestres" class="form-control" maxlength="50" placeholder="Cuatrimestres del Plan de Estudio" required>
+                        <input type="number" name="cuatrimestres" class="form-control" maxlength="50" placeholder="Cuatrimestres del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Horas del Plan de Estudio" required>
+                        <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Horas del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="d-grid col-6 mx-auto">
                         <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

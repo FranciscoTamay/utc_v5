@@ -79,28 +79,28 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="codigo_asignatura" class="form-control" maxlength="50" placeholder="Codigo de la Asignatura" required>
+                        <input type="number" name="codigo_asignatura" class="form-control" maxlength="50" placeholder="Codigo de la Asignatura" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="nombre_asignatura" class="form-control" maxlength="120" placeholder="Nombre de la Asignatura" required>
+                        <input type="text" name="nombre_asignatura" class="form-control" maxlength="120" placeholder="Nombre de la Asignatura" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="num_unidades" class="form-control" maxlength="50" placeholder="Número de Unidades" required>
+                        <input type="number" name="num_unidades" class="form-control" maxlength="50" placeholder="Número de Unidades" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Ingrese las horas de la asignatura" required>
+                        <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Ingrese las horas de la asignatura" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="row">

@@ -76,21 +76,21 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" required>
+                        <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" required>
+                        <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select class="form-control" name="id_plan" id="">
+                        <select class="form-control careras" name="id_plan" id="" required style="width: 90%;" >
                             <option value="">Plan de Estudios</option>
                             @foreach($planEstudios as $row)
                             <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
@@ -110,9 +110,6 @@
                 </form>
                 <!-- final del formulario -->
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
         </div>
     </div>
 </div>
@@ -129,7 +126,7 @@
 
     // Empieza select 2
     $(document).ready(function() {
-        $('.aspirante').select2();
+        $('.careras').select2();
     });
 </script>
 @endsection()
