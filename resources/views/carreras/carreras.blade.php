@@ -74,14 +74,14 @@
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-qrcode"></i>
                         </span>
                         <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-signature"></i>
                         </span>
                         <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                     </div>
@@ -90,7 +90,7 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select class="form-control careras" name="id_plan" id="" required style="width: 90%;" >
+                        <select class="form-control careras" name="id_plan" id="" required style="width: 25rem;" >
                             <option value="">Plan de Estudios</option>
                             @foreach($planEstudios as $row)
                             <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
@@ -98,15 +98,10 @@
                         </select>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6 mx-auto">
-                            <button class="btn btn-outline-success btn-lg">
-                                <i class="fa-solid fa-floppy-disk"></i> Guardar
-                            </button>
-                            <!-- boton de guardar -->
-                        </div>
+                    <div class="d-grid col-6 mx-auto">
+                        <button type="submit" class="btn btn-info"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
+
                 </form>
                 <!-- final del formulario -->
             </div>

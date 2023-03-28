@@ -76,21 +76,21 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-calendar-days"></i>
                         </span>
                         <input type="number" name="anio" class="form-control" maxlength="50" placeholder="Año del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-calendar-check"></i>
                         </span>
                         <input type="number" name="cuatrimestres" class="form-control" maxlength="50" placeholder="Cuatrimestres del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-arrow-down-9-1"></i>
                         </span>
                         <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Horas del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>

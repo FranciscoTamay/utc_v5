@@ -2,9 +2,6 @@
 @section('content')
 <section class="section mt-3">
 
-    <!-- FIN DEL CARD DEL SECTION (ES PARA QUE NO SE VEA TAN PEGADO AL HEADER ) -->
-
-
     <div class="card-body">
         <h2 class="title-2">Aspirantes</h2>
         <div class="row mt-3 mb-4">
@@ -17,6 +14,7 @@
                 </div>
             </div>
         </div>
+
         <div class="respon">
             <table id="pro4" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
