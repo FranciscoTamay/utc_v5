@@ -76,6 +76,9 @@ Route::get('calificaciones', function () {
     return view('calificaciones.calificaciones');
 });
 
+// 
+Route::get('nota',[Aspirantes2Controller::class,'nota']);
+
 
 
 
