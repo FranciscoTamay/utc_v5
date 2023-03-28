@@ -77,41 +77,37 @@
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i class="fa-solid fa-qrcode"></i>
                         </span>
                         <input type="number" name="codigo_asignatura" class="form-control" maxlength="50" placeholder="Codigo de la Asignatura" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i class="fa-solid fa-file-signature"></i>
                         </span>
                         <input type="text" name="nombre_asignatura" class="form-control" maxlength="120" placeholder="Nombre de la Asignatura" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i class="fa-solid fa-list-ol"></i>
                         </span>
                         <input type="number" name="num_unidades" class="form-control" maxlength="50" placeholder="Número de Unidades" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i class="fa-solid fa-arrow-down-9-1"></i>
                         </span>
                         <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Ingrese las horas de la asignatura" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6 mx-auto">
-                            <button class="btn btn-outline-success btn-lg">
-                                <i class="fa-solid fa-floppy-disk"></i> Guardar
-                            </button>
-                            <!-- boton de guardar -->
-                        </div>
+
+                    <div class="d-grid col-6 mx-auto">
+                        <button type="submit" class="btn btn-info"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
+
                 </form>
                 <!-- final del formulario -->
             </div>
@@ -125,7 +121,12 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        $('#pro3').DataTable();
+        $('#pro3').DataTable({
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
+            }
+
+        });
     });
 
     //  TERMINA DATATABLES
