@@ -39,14 +39,14 @@
                             <div class="d-inline-block me-2">
                                 <a href="{{ url('asp', [$row]) }}" class="btn bg-warning"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
                             </div>
-                            <div class="d-inline-block">
+                            <div class="d-inline-block me-2">
                                 <form method="POST" action="{{ url('asp', [$row]) }}">
                                     @method("delete")
                                     @csrf
                                     <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </div>
-                            <div class="d-inline-block me-2">
+                            <div class="d-inline-block">
                                 <a href="http://127.0.0.1:8000/nota/{{$row->id}}" class="btn btn-info"><i class="fa-solid fa-file"></i></a>
                             </div>
                         </td>
