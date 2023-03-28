@@ -122,48 +122,6 @@
     </div>
 
 </section>
-<section class="section">
-    <!-- COMIENZO DE LA CARD  TABLA -->
-    <div class="card-body">
-        <h2 class="title-2">REGISTRO DE PAGOS</h2>
-        <div class="respon table-responsive">
-            <table id="example230" class="xd display responsive nowrap" style="width:95%">
-                <thead class="bg-respon text-center">
-
-                                    <th scope="col" class="text-center text-black">SERVICIO</th>
-                                    <th scope="col" class="text-center text-black">MATRICULA</th>
-                                    <th scope="col" class="text-center text-black">FECHA DE PAGO SERVICIO</th>
-                                    <th scope="col" class="text-center text-black">ACCIONES</th>
-                                </tr>
-                            </thead>
-                            <tbody class="table-group-divider">
-                                @foreach($registro_pagos as $row)
-                                <tr>
-
-                                    <td class="text-center  fw-bold text-black">{{ $row->nombre_serv }}</td>
-                                    <td class="text-center  fw-bold text-black">{{ $row->id_matricula}}</td>
-                                    <td class="text-center  fw-bold text-black">{{ $row->estado }}</td>
-
-
-                                    <td class="text-center">
-
-                                        <a href="{{ url('registrop', [$row]) }}" class="btn bg-warning"><i class="fa-solid fa-pencil"></i></a>
-
-                                        <form method="POST" action="{{ url('registrop', [$row]) }}">
-                                            @method("delete")
-                                            @csrf
-                                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-
-                                        </form>
-                                    </td>
-                                </tr>
-
-                                @endforeach()
-                            </tbody>
-                        </table>
-                    </div>
-
-@section('content')
 <section class="section mt-3">
 
 
