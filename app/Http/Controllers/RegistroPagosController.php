@@ -29,9 +29,19 @@ class RegistroPagosController extends Controller
     public function store(Request $request)
     {
         //
-        $registro_pago = new Registro_pagos($request->input());
-        $registro_pago->saveOrFail();
-        return redirect('registrop');
+        $request->validate([
+
+            'id_servicio'  => 'required',
+            'id_matricula'  => 'required',
+            'estado'  => 'required',
+        ]);
+
+        $registro_pago = new Registro_pagos();
+        $registro_pago->id_servicio = $request->get('id_servicio');
+        $registro_pago->id_matricula = $request->get('id_matricula');
+        $registro_pago->estado = $request->get('estado');
+        $registro_pago->save();
+        return redirect('registrop')->with('success', '¡SERVICIO GUARDADO DE MANERA EXITOSA!');
 
     }
 
@@ -55,7 +65,7 @@ class RegistroPagosController extends Controller
         // 
         $registro_pago = Registro_pagos::find($id);
         $registro_pago->fill($request->input())->saveOrFail();
-        return redirect('registrop');
+        return redirect('registrop')->with('warning', '¡SERVICIO EDITADO DE MANERA EXITOSA!');;
     }
 
  

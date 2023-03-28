@@ -15,7 +15,7 @@ class Registro_pagos extends Model
         'id_servicio',
         'id_matricula',
         'estado',
-        'created_at',
+  
     ];
 
 }

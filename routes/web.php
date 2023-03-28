@@ -9,6 +9,7 @@ use App\Http\Controllers\AspirantesController;
 use Illuminate\Support\Facades\Route;
 //agregamos los siguientes controladores
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\ShowPago;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\GradoProfesorController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\MaestrosController;
 use App\Http\Controllers\MatriculasController;
-
+use App\Http\Livewire\Asignaturas;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ use App\Http\Controllers\MatriculasController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -62,12 +65,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('grupos', GruposController::class);
     Route::resource('maestros', MaestrosController::class);
     Route::resource('procedencias', ProcedenciasController::class);
-    
+    Route::get('pedos', Asignaturas::class);
     Route::resource('grados', GradoProfesorController::class);
 
 // RUTAs DE HECTOR
-
-
 // FIN DE LAS RUTAS DE HECTOR
 });
 Route::resource('aspirante', Aspirantes2Controller::class);
@@ -75,7 +76,6 @@ Route::resource('aspirante', Aspirantes2Controller::class);
 Route::get('calificaciones', function () {
     return view('calificaciones.calificaciones');
 });
-
 
 
 
