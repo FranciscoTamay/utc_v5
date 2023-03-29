@@ -64,7 +64,10 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
+        var table = $('#example').DataTable({
+            responsive: true,
+            orderCellsTop: true,
+               fixedHeader: true, 
             dom: "Bfrtip",
             buttons: {
                 dom: {
@@ -115,16 +118,17 @@
       
         $('#example thead tr').clone(true).appendTo( '#example thead' );
 
-        $('#example thead tr:eq(1) th').each(function(i) {
-            var title = $(this).text(); //es el nombre de la columna
-            $(this).html('<input class="text-center" type="text" placeholder="FILTRAR REGISTRO" />');
 
-            $('input', this).on('keyup change', function() {
-                if (table.column(i).search() !== this.value) {
-                    table
-                        .column(i)
-                        .search(this.value)
-                        .draw();
+        $('#example thead tr:eq(1) th').each( function (i) {
+                var title = $(this).text(); //es el nombre de la columna
+                $(this).html( '<input class="text-center" type="text" placeholder="FILTRAR REGISTRO" />' );
+         
+                $( 'input', this ).on( 'keyup change', function () {
+                    if ( table.column(i).search() !== this.value ) {
+                        table
+                            .column(i)
+                            .search( this.value )
+                            .draw();
                 }
             });
         });
