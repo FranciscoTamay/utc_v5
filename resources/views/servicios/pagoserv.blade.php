@@ -131,7 +131,7 @@
             <div class="col-md-4 offset-md-4">
                 <div class="d-grid mx-auto">
                     <br>
-                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
+                    <button class="btn btn-primo" data-bs-toggle="modal" data-bs-target="#modalCarreras">
                         <i class="fa-solid fa-circle-plus"></i> Añadir
                     </button>
                 </div>

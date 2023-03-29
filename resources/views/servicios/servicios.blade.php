@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
-@livewire('show-servicios')
+
 <!-- COMIENZO DE LA CARD  TABLA -->
 <section class="section">
     <div class="card-body">
         <h2 class="title-2">Servicios</h2>
         <div class="respon">
+        @livewire('show-servicios')
             <table id="pro4" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
                     <tr>
@@ -53,7 +54,7 @@
     //  EMPIEZA DATATABLES
 
     $(document).ready(function() {
-        $('#pro4').DataTable();
+        var table = $('#pro4').DataTable();
 
 
         //Creamos una fila en el head de la tabla y lo clonamos para cada columna

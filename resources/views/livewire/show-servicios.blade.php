@@ -1,6 +1,6 @@
 <div>
    <section class="section">
-        <div class="section-header">
+   
                 <div class="col-lg-12">
                         <div class="card-body">                          
                                 <div class="row">
@@ -109,7 +109,7 @@
         <!-- FIN FORMULARIO PARA AGREGARR-->
 
       </div>
-    </div>
+  
   </div>
 </div>
                                     
