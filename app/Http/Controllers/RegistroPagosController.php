@@ -13,13 +13,12 @@ class RegistroPagosController extends Controller
     {
         //
         $servicios = Servicios::all();
-        $registro_pagos = Registro_pagos::select('registro_pagos.id','id_servicio','id_matricula','estado','nombre_serv')
+        $registro_pagos = Registro_pagos::select('registro_pagos.id','id_servicio','id_matricula','estado','registro_pagos.created_at','nombre_serv')
         ->join('servicios','servicios.id','=','registro_pagos.id_servicio')->get();
         return view('servicios.pagoserv',compact('registro_pagos','servicios'));
-        
+    
     }
 
-  
     public function create()
     {
         //

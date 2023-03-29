@@ -49,7 +49,7 @@
                              <!-- AGREGAR SERVICIO -->
 <div class="row"></div>                  
  <div class="accordion-item ">
-    <h2 class="accordion-header bg-success" id="headingTwo">
+    <h2 class="accordion-header bg-primo" id="headingTwo">
 
       <button class="accordion-button text-center " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne"><i class="fa-solid fa-wallet"></i>
                     AGREGAR UN SERVICIO

@@ -4,7 +4,7 @@
     <div class="card-body">
         <h2 class="title-2">Aspirantes</h2>
         <div class="respon">
-            <table id="pro" class="xd display responsive nowrap" style="width:95%">
+            <table id="example" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
                     <tr>
                         <th class="text-center ">FOLIO</th>
@@ -64,9 +64,7 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        $('#pro').DataTable({
-            orderCellsTop: true,
-            fixedHeader: true,
+        $('#example').DataTable({
             dom: "Bfrtip",
             buttons: {
                 dom: {
@@ -96,6 +94,7 @@
                     },
                 }]
             },
+   
             "destroy": true,
             "language": {
                 "lengthMenu": "Mostrar _MENU_ Registro por Pagina",
@@ -113,10 +112,10 @@
 
         });
 
-        $('#pro thead tr').clone(true).appendTo('#pro thead');
-        
+      
+        $('#example thead tr').clone(true).appendTo( '#example thead' );
 
-        $('#pro thead tr:eq(1) th').each(function(i) {
+        $('#example thead tr:eq(1) th').each(function(i) {
             var title = $(this).text(); //es el nombre de la columna
             $(this).html('<input class="text-center" type="text" placeholder="FILTRAR REGISTRO" />');
 

@@ -142,6 +142,7 @@
             <table id="pro4" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
                     <tr>
+                        <th scope="col" class="text-center text-black">FOLIO</th>
                         <th scope="col" class="text-center text-black">SERVICIO</th>
                         <th scope="col" class="text-center text-black">MATRICULA</th>
                         <th scope="col" class="text-center text-black">FECHA DE PAGO SERVICIO</th>
@@ -151,9 +152,10 @@
                 <tbody class="table-group-divider">
                     @foreach($registro_pagos as $row)
                     <tr>
+                        <td class="text-center  fw-bold text-black">{{ $row->estado }}</td>
                         <td class="text-center  fw-bold text-black">{{ $row->nombre_serv }}</td>
                         <td class="text-center  fw-bold text-black">{{ $row->id_matricula}}</td>
-                        <td class="text-center  fw-bold text-black">{{ $row->estado }}</td>
+                        <td class="text-center  fw-bold text-black">{{ $row->created_at }}</td>
                         <td class="text-center">
 
                             <div class="d-inline-block me-2">

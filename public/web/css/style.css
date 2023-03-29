@@ -41,7 +41,7 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 }
 
 .bg-success {
-    background-color: #fff352 !important;
+    background-color: #83ff52 !important;
 }
 
 .bg-info {
@@ -62,6 +62,11 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 
 .bg-dark {
     background-color: #191d21 !important;
+}
+
+.bg-primo {
+    background-color: #1bcf0b6d !important;
+
 }
 
 .text-primary,
@@ -4473,6 +4478,7 @@ body {
     border-radius: 16px;
     text-align: center;
     color: #fff;
+    font-size:1.2rem;
 }
 
 .bg-darck{
