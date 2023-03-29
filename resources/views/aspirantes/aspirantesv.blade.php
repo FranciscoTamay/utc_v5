@@ -63,75 +63,40 @@
 
 @section('scripts')
 <script>
-    $(document).ready(function() {
-        $('#example').DataTable({
-            dom: "Bfrtip",
-            buttons: {
-                dom: {
-                    button: {
-                        className: 'btn'
-                    }
-                },
-                buttons: [{
-                    //definimos estilos del boton de excel
-                    extend: "excel",
-                    text: ' <i class="fa-solid fa-file-invoice"></i> EXPORTAR LISTA DE LIBROS A EXCEL',
-                    className: 'btn btn-outline-success',
-
-                    // 1 - ejemplo básico - uso de templates pre-definidos
-                    //definimos los parametros al exportar a excel
-
-                    excelStyles: {
-                        //template: "header_blue",  // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
-                        //template:"green_medium" 
-
-                        "template": [
-                            "blue_medium",
-                            "header_green",
-                            "title_medium"
-                        ]
-
-                    },
-                }]
-            },
-   
-            "destroy": true,
-            "language": {
-                "lengthMenu": "Mostrar _MENU_ Registro por Pagina",
-                "zeroRecords": " No se encontro el Registro Disculpe",
-                "info": "Mostrando la Pagina _PAGE_ de _PAGES_",
-                "infoEmpty": "No records available",
-                "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                'search': '<i class="fa-solid fa-magnifying-glass"></i> BUSCAR UN ASPIRANTE',
-                'paginate': {
-                    'next': 'Siguiente',
-                    'previous': 'Anterior',
-                }
+$(document).ready(function() {
+  $('#example').DataTable({
+    language: {
+      searchPlaceholder: "Buscar",
+      search: "Buscar:",
+      zeroRecords: "No se encontraron resultados",
+      emptyTable: "No hay datos disponibles en la tabla",
+      infoEmpty: "Mostrando 0 registros de un total de 0",
+      infoFiltered: "(filtrado de un total de _MAX_ registros)",
+      lengthMenu: "Mostrar _MENU_ registros por página",
+      paginate: {
+        previous: "Anterior",
+        next: "Siguiente"
+      }
+    },
+    columnDefs: [{
+      targets: '_all',
+      searchable: true
+    }],
+    initComplete: function() {
+      this.api().columns().every(function() {
+        var column = this;
+        var header = $(column.header());
+        var input = $('<input type="text" class="form-control form-control-sm mb-2" placeholder="Buscar">')
+          .appendTo(header)
+          .on('keyup change clear', function() {
+            if (column.search() !== this.value) {
+              column.search(this.value).draw();
             }
-
-
-        });
-
-      
-        $('#example thead tr').clone(true).appendTo( '#example thead' );
-
-        $('#example thead tr:eq(1) th').each(function(i) {
-            var title = $(this).text(); //es el nombre de la columna
-            $(this).html('<input class="text-center" type="text" placeholder="FILTRAR REGISTRO" />');
-
-            $('input', this).on('keyup change', function() {
-                if (table.column(i).search() !== this.value) {
-                    table
-                        .column(i)
-                        .search(this.value)
-                        .draw();
-                }
-            });
-        });
-    });
-
-
-    //  TERMINA DATATABLES
+          });
+      });
+    }
+  });
+});
 
     // Empieza select 2
     $(document).ready(function() {
