@@ -62,7 +62,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modalCarreras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCarreras"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -91,8 +91,8 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select class="form-control careras" name="id_plan" id="" required style="width: 25rem;" >
-                            <option value="">Plan de Estudios</option>
+                        <select name="id_servicio" class="select2 form-control " required style="width: 89%;">
+                            <option class="select-wit" value="">Plan de Estudios</option>
                             @foreach($planEstudios as $row)
                             <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
                             @endforeach
@@ -122,7 +122,7 @@
 
     // Empieza select 2
     $(document).ready(function() {
-        $('.careras').select2();
+        $('.select2').select2();
     });
 </script>
 @endsection()
