@@ -1,15 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
 <section class="section mt-3">
     <div class="card-body">
-        <h2 class="title-2">Aspirantes</h2>
+        <h2 class="title-2">REGISTRO DE PAGOS</h2>
         <div class="row mt-3 mb-4">
             <div class="col-md-4 offset-md-4">
-                <div class="d-grid mx-auto">
-                    <br>
-                    
+                <div class="d-grid mx-auto">        
 @if(Session::has('success'))
 
 <div class="alert alert-success text-center"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
@@ -49,10 +46,8 @@
 
  <!-- FIN ALERTA DE BORRAR CON EXITO -->
 
-
-                    <button class="btn alert-success" data-bs-toggle="modal" data-bs-target="#modalCarreras">
-                        <i class="fa-solid fa-circle-plus"></i> Añadir
-                    </button>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalCarreras">
+                      <i class="fa-solid fa-circle-plus"></i>PAGO NUEVO</button>
                 </div>
             </div>
         </div>
@@ -109,7 +104,7 @@
             </div>
             <div class="modal-body">
 
-                <form id="frmServicios" method="POST" action="{{url("registrop")}}">
+                <form id="my-form" method="POST" action="{{url("registrop")}}">
                     @csrf
                       <!-- CASILLA DE DATO -->
                       <div class="input-group mb-3">
@@ -163,7 +158,7 @@
                    {
                        //definimos estilos del boton de excel
                        extend: "excel",
-                       text:'EXPORTAR LISTA DE PRESTAMOS A EXCEL',
+                       text:'EXPORTAR LISTA DE PAGOS A EXCEL',
                        className:'btn btn-outline-success',
        
                        // 1 - ejemplo básico - uso de templates pre-definidos
@@ -183,17 +178,17 @@
            }
        ]            
    } , 
-    language: {
-      searchPlaceholder: "Buscar",
-      search: "Buscar:",
-      zeroRecords: "No se encontraron resultados",
-      emptyTable: "No hay datos disponibles en la tabla",
-      infoEmpty: "Mostrando 0 registros de un total de 0",
-      infoFiltered: "(filtrado de un total de MAX registros)",
-      lengthMenu: "Mostrar MENU registros por página",
-      paginate: {
-        previous: "Anterior",
-        next: "Siguiente"
+   "destroy": true,
+               "language": {
+                   "lengthMenu": "Mostrar _MENU_ Registro por Pagina",
+                   "zeroRecords": " No se encontro el Registro Disculpe",
+                   "info": "Mostrando la Pagina _PAGE_ de _PAGES_",
+                   "infoEmpty": "No records available",
+                   "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+               'search': "BUSCAR UN REGISTRO DE PRESTAMO",
+               'paginate': {
+                   'next': 'Siguiente',
+                   'previous': 'Anterior',
       }
     },
     columnDefs: [{
@@ -212,8 +207,11 @@
             }
           });
       });
+
     }
+    
   });
+  
 });
 
     //  TERMINA DATATABLES
@@ -222,6 +220,9 @@
     $(document).ready(function() {
         $('.aspirante').select2();
     });
+   // Empieza select 2 TERMINA
+
+   
 </script>
 
 @endsection()

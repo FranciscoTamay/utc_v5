@@ -35,13 +35,6 @@
         
     </div>
     <!-- FIN DE DATO -->
-     <!-- CASILLA DE DATO -->
-     <div class="input-group mb-3">
-        <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
-        <input type="date" name="estado"  value="{{ $registro_pago->estado }}"class="form-control" maxlength="50" placeholder="ESTATO DEL PAGO" required>
-        
-    </div>
-    <!-- FIN DE DATO -->
     <div class="d-grid col-6 mx-auto">
     <button  class="btn btn-outline-warning"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
 </div>

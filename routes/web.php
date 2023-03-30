@@ -67,7 +67,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('procedencias', ProcedenciasController::class);
     Route::get('pedos', Asignaturas::class);
     Route::resource('grados', GradoProfesorController::class);
-
 // RUTAs DE HECTOR
 // FIN DE LAS RUTAS DE HECTOR
 });
@@ -76,7 +75,6 @@ Route::resource('aspirante', Aspirantes2Controller::class);
 Route::get('calificaciones', function () {
     return view('calificaciones.calificaciones');
 });
-
 // 
 Route::get('nota/{folio}',[Aspirantes2Controller::class,'nota'])->name('nota');
 

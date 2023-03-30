@@ -8,7 +8,18 @@ use Illuminate\Http\Request;
 
 class RegistroPagosController extends Controller
 {
-  
+    public function verificarEstado(Request $request) {
+        $estado = $request->input('estado');
+      
+        // Verifica si el estado ya está registrado dentro de la tabla registro_pagos
+        $existeEstado = Registro_Pagos::where('estado', $estado)->exists();
+      
+        if ($existeEstado) {
+          return 'existe';
+        } else {
+          return 'disponible';
+        }
+      }
     public function index()
     {
         //
@@ -32,7 +43,7 @@ class RegistroPagosController extends Controller
 
             'id_servicio'  => 'required',
             'id_matricula'  => 'required',
-            'estado'  => 'required',
+            'estado'  => 'required| unique:registro_pagos',
         ]);
 
         $registro_pago = new Registro_pagos();
