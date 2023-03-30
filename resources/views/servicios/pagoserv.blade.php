@@ -2,16 +2,14 @@
 
 @section('content')
 
-<section class="section">
-        <div class="section-header">
-                <div class="col-lg-12">
-                        <div class="card-body">                          
-                                <div class="row">
-                                    <div class="col-md-4"></div> 
-                                    <!-- esta madre nada mas es una espacio en blanco para centrar col-md- y el perro tamaño que quieras jsjsjjs -->
-                                    <div class="col-md-4 col-sm-1">
-                                    <div class="accordion" id="accordionExample">
-                                             <!-- ALERTA DE AGREGADO CON EXITO -->
+<section class="section mt-3">
+    <div class="card-body">
+        <h2 class="title-2">Aspirantes</h2>
+        <div class="row mt-3 mb-4">
+            <div class="col-md-4 offset-md-4">
+                <div class="d-grid mx-auto">
+                    <br>
+                    
 @if(Session::has('success'))
 
 <div class="alert alert-success text-center"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
@@ -37,6 +35,7 @@
  <!-- FIN ALERTA DE EDITAR CON EXITO -->
 
    <!-- ALERTA DE BORRAR CON EXITO -->
+
 @if(Session::has('danger'))
 
 <div class="alert alert-danger text-center"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
@@ -46,92 +45,12 @@
  {{Session::get('danger')}}
 </div>
 @endif
+
+
  <!-- FIN ALERTA DE BORRAR CON EXITO -->
 
 
-                             <!-- AGREGAR SERVICIO -->
-<div class="row"></div>                  
- <div class="accordion-item ">
-    <h2 class="accordion-header bg-success" id="headingTwo">
-
-      <button class="accordion-button text-center " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne"><i class="fa-solid fa-wallet"></i>
-                    AGREGAR UN SERVICIO
-      </button>
-      
-    </h2>
-
-    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body ">
-       <!-- FORMULARIO PARA AGREGAR -->
-       <div class="modal-body">
-                <form id="frmServicios" method="POST" action="{{url("registrop")}}">
-                    @csrf
-                    <!-- CASILLA DE DATO -->
-                    <div class="input-group mb-3 d-flex justify-content-center align-items-center">
-                        <span class="input-group-text"><i class="fa-solid fa-wallet"></i></span>
-                        <select wire:model="id_servicio" name="id_servicio" class="select2 form-control " required style="width: 90%;">
-                            <option class="select-wit " value="">SELECCIONA EL SERVICIO</option>
-                            @foreach($servicios as $row)
-                            <option value="{{$row->id}}">{{$row->nombre_serv}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <!-- FIN DE DATO -->
-                    <!-- CASILLA DE DATO -->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
-                        <input type="text" wire:model="id_matricula" name="id_matricula" class="form-control @error('id_matricula') is-invalid @enderror" maxlength="50" placeholder="SELECIONA LA MATRICULA" required>
-                        @error('id_matricula')
-             <span class="invalid-feedback">
-            <strong>{{$message}}</strong>
-         </span>
-           @enderror
-                    </div>
-                    <!-- FIN DE DATO -->
-                    <!-- CASILLA DE DATO -->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
-                        <input type="date"  wire:model="estado" name="estado" class="form-control @error('estado') is-invalid @enderror" maxlength="50" placeholder="ESTATO DEL PAGO" required>
-                        @error('estado')
-             <span class="invalid-feedback">
-            <strong>{{$message}}</strong>
-         </span>
-           @enderror
-                    </div>
-                
-                    <!-- FIN DE DATO -->
-                    <div class="d-grid col-6 mx-auto">
-                        <button class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
-                    </div>
-                </form>
-            
-</div>
-
-<!-- FIN FORMULARIO PARA AGREGARR-->
-
-</div>
-</div>
-</div>
-</div>
-                            
-                       
-                        </div>                        
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
-<section class="section mt-3">
-
-
-    <div class="card-body">
-        <h2 class="title-2">Aspirantes</h2>
-        <div class="row mt-3 mb-4">
-            <div class="col-md-4 offset-md-4">
-                <div class="d-grid mx-auto">
-                    <br>
-                    <button class="btn btn-primo" data-bs-toggle="modal" data-bs-target="#modalCarreras">
+                    <button class="btn alert-success" data-bs-toggle="modal" data-bs-target="#modalCarreras">
                         <i class="fa-solid fa-circle-plus"></i> Añadir
                     </button>
                 </div>
@@ -139,7 +58,7 @@
         </div>
 
         <div class="respon">
-            <table id="pro4" class="xd display responsive nowrap" style="width:95%">
+            <table id="pagos" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
                     <tr>
                         <th scope="col" class="text-center text-black">FOLIO</th>
@@ -192,6 +111,12 @@
 
                 <form id="frmServicios" method="POST" action="{{url("registrop")}}">
                     @csrf
+                      <!-- CASILLA DE DATO -->
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
+                        <input type="number" name="estado" class="form-control" maxlength="50" placeholder="FOLIO" required>
+                    </div>
+                    <!-- FIN DE DATO -->
                     <!-- CASILLA DE DATO -->
                     <div class="input-group mb-3 d-flex justify-content-center align-items-center">
                         <span class="input-group-text"><i class="fa-solid fa-wallet"></i></span>
@@ -209,12 +134,7 @@
                         <input type="text" name="id_matricula" class="form-control" maxlength="50" placeholder="SELECIONA LA MATRICULA" required>
                     </div>
                     <!-- FIN DE DATO -->
-                    <!-- CASILLA DE DATO -->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-calendar-check"></i></span>
-                        <input type="date" name="estado" class="form-control" maxlength="50" placeholder="ESTATO DEL PAGO" required>
-                    </div>
-                    <!-- FIN DE DATO -->
+                  
                     <div class="d-grid col-6 mx-auto">
                         <button class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
                     </div>
@@ -228,9 +148,73 @@
 @endsection
 @section('scripts')
 <script>
-    $(document).ready(function() {
-        $('#pro4').DataTable();
-    });
+   $(document).ready(function() {
+  $('#pagos').DataTable({
+    orderCellsTop: true,
+               fixedHeader: true, 
+               dom: "Bfrtip",
+               buttons:{
+                   dom: {
+                       button: {
+                           className: 'btn'
+                       }
+                   },
+                   buttons: [
+                   {
+                       //definimos estilos del boton de excel
+                       extend: "excel",
+                       text:'EXPORTAR LISTA DE PRESTAMOS A EXCEL',
+                       className:'btn btn-outline-success',
+       
+                       // 1 - ejemplo básico - uso de templates pre-definidos
+                       //definimos los parametros al exportar a excel
+                       
+                       excelStyles: {                
+                           //template: "header_blue",  // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
+                           //template:"green_medium" 
+                           
+                           "template": [
+                               "blue_medium",
+                               "header_green",
+                               "title_medium"
+                           ] 
+                           
+                       },
+           }
+       ]            
+   } , 
+    language: {
+      searchPlaceholder: "Buscar",
+      search: "Buscar:",
+      zeroRecords: "No se encontraron resultados",
+      emptyTable: "No hay datos disponibles en la tabla",
+      infoEmpty: "Mostrando 0 registros de un total de 0",
+      infoFiltered: "(filtrado de un total de MAX registros)",
+      lengthMenu: "Mostrar MENU registros por página",
+      paginate: {
+        previous: "Anterior",
+        next: "Siguiente"
+      }
+    },
+    columnDefs: [{
+      targets: '_all',
+      searchable: true
+    }],
+    initComplete: function() {
+      this.api().columns().every(function() {
+        var column = this;
+        var header = $(column.header());
+         var input = $('<input type="text" class="text-center form-control form-control-sm mb-2" placeholder="Buscar ">')
+          .appendTo(header)
+          .on('keyup change clear', function() {
+            if (column.search() !== this.value) {
+              column.search(this.value).draw();
+            }
+          });
+      });
+    }
+  });
+});
 
     //  TERMINA DATATABLES
 

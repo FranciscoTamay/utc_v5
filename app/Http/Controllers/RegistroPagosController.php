@@ -73,6 +73,6 @@ class RegistroPagosController extends Controller
         //
         $registro_pago = Registro_pagos::find($id);
         $registro_pago->delete();
-        return redirect('registrop');
+        return redirect('registrop')->with('danger', '¡SERVICIO ELIMINADO CON EXITO!');
     }
 }

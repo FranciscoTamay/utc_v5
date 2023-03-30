@@ -52,29 +52,72 @@
 @section('scripts')
 <script>
     //  EMPIEZA DATATABLES
-
     $(document).ready(function() {
-        var table = $('#pro4').DataTable();
-
-
-        //Creamos una fila en el head de la tabla y lo clonamos para cada columna
-        $('#pro4 thead tr').clone(true).appendTo('#pro4 thead');
-
-        $('#pro4 thead tr:eq(1) th').each(function(i) {
-            var title = $(this).text(); //es el nombre de la columna
-            $(this).html('<input class="text-center" type="text" placeholder="FILTRAR REGISTRO" />');
-
-            $('input', this).on('keyup change', function() {
-                if (table.column(i).search() !== this.value) {
-                    table
-                        .column(i)
-                        .search(this.value)
-                        .draw();
-                }
-            });
-        });
-    });
-
-    //  TERMINA DATATABLES
+  $('#pro4').DataTable({
+    orderCellsTop: true,
+               fixedHeader: true, 
+               dom: "Bfrtip",
+               buttons:{
+                   dom: {
+                       button: {
+                           className: 'btn'
+                       }
+                   },
+                   buttons: [
+                   {
+                       //definimos estilos del boton de excel
+                       extend: "excel",
+                       text:'EXPORTAR LISTA DE PRESTAMOS A EXCEL',
+                       className:'btn btn-outline-success',
+       
+                       // 1 - ejemplo básico - uso de templates pre-definidos
+                       //definimos los parametros al exportar a excel
+                       
+                       excelStyles: {                
+                           //template: "header_blue",  // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
+                           //template:"green_medium" 
+                           
+                           "template": [
+                               "blue_medium",
+                               "header_green",
+                               "title_medium"
+                           ] 
+                           
+                       },
+           }
+       ]            
+   } , 
+    language: {
+      searchPlaceholder: "Buscar",
+      search: "Buscar:",
+      zeroRecords: "No se encontraron resultados",
+      emptyTable: "No hay datos disponibles en la tabla",
+      infoEmpty: "Mostrando 0 registros de un total de 0",
+      infoFiltered: "(filtrado de un total de MAX registros)",
+      lengthMenu: "Mostrar MENU registros por página",
+      paginate: {
+        previous: "Anterior",
+        next: "Siguiente"
+      }
+    },
+    columnDefs: [{
+      targets: '_all',
+      searchable: true
+    }],
+    initComplete: function() {
+      this.api().columns().every(function() {
+        var column = this;
+        var header = $(column.header());
+        var input = $('<input type="text" class="text-center form-control form-control-sm mb-2" placeholder="Buscar ">')
+          .appendTo(header)
+          .on('keyup change clear', function() {
+            if (column.search() !== this.value) {
+              column.search(this.value).draw();
+            }
+          });
+      });
+    }
+  });
+});
 </script>
 @endsection()

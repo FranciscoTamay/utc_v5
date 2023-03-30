@@ -64,6 +64,6 @@ class ServiciosController extends Controller
         //
         $servicio = Servicios::find($id);
         $servicio->delete();
-        return redirect('servicios')->with('danger', '¡SERVICIO ELIMINADO CON EXITO!');;
+        return redirect('servicios')->with('danger', '¡SERVICIO ELIMINADO CON EXITO!');
     }
 }
