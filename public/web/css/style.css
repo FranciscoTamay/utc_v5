@@ -4478,11 +4478,11 @@ body {
     border-radius: 16px;
     text-align: center;
     color: #fff;
-    font-size:1.2rem;
+    font-size: 1.2rem;
 }
 
-.bg-darck{
-    background:#2d3438;
+.bg-darck {
+    background: #2d3438;
     color: #fff;
     border-radius: 10px !important;
 }
@@ -4490,4 +4490,28 @@ body {
 .dataTables_filter {
     margin-top: 1rem;
     margin-right: 1.5rem;
-  }
+}
+
+.dataTables_paginate .paginate_button .page-link {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dataTables_paginate .paginate_button:hover:not(.disabled) a {
+    border: 2px solid #1a1616;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #fff;
+    border: 1px solid #ffffff;
+}
