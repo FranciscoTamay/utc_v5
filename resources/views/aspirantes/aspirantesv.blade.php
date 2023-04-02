@@ -63,73 +63,67 @@
 
 @section('scripts')
 <script>
-$(document).ready(function() {
-  $('#example').DataTable({
-    orderCellsTop: true,
-               fixedHeader: true, 
-               dom: "Bfrtip",
-               buttons:{
-                   dom: {
-                       button: {
-                           className: 'btn'
-                       }
-                   },
-                   buttons: [
-                   {
-                       //definimos estilos del boton de excel
-                       extend: "excel",
-                       text:'EXPORTAR LISTA DE PRESTAMOS A EXCEL',
-                       className:'btn btn-outline-success',
-       
-                       // 1 - ejemplo básico - uso de templates pre-definidos
-                       //definimos los parametros al exportar a excel
-                       
-                       excelStyles: {                
-                           //template: "header_blue",  // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
-                           //template:"green_medium" 
-                           
-                           "template": [
-                               "blue_medium",
-                               "header_green",
-                               "title_medium"
-                           ] 
-                           
-                       },
-           }
-       ]            
-   } , 
-    language: {
-      searchPlaceholder: "Buscar",
-      search: "Buscar:",
-      zeroRecords: "No se encontraron resultados",
-      emptyTable: "No hay datos disponibles en la tabla",
-      infoEmpty: "Mostrando 0 registros de un total de 0",
-      infoFiltered: "(filtrado de un total de MAX registros)",
-      lengthMenu: "Mostrar MENU registros por página",
-      paginate: {
-        previous: "Anterior",
-        next: "Siguiente"
-      }
-    },
-    columnDefs: [{
-      targets: '_all',
-      searchable: true
-    }],
-    initComplete: function() {
-      this.api().columns().every(function() {
-        var column = this;
-        var header = $(column.header());
-        var input = $('<input type="text" class="text-center form-control form-control-sm mb-2" placeholder="Buscar ">')
-          .appendTo(header)
-          .on('keyup change clear', function() {
-            if (column.search() !== this.value) {
-              column.search(this.value).draw();
+    $(document).ready(function() {
+        $('#example').DataTable({
+            orderCellsTop: true,
+            fixedHeader: true,
+            dom: "Bfrtip",
+            buttons: {
+                dom: {
+                    button: {
+                        className: 'btn btn-success offset-md-3 mb-4 mt-2 '
+                    }
+                },
+                buttons: [{
+                    //definimos estilos del boton de excel
+                    extend: "excel",
+                    text: 'Descargar',
+                    className: 'btn btn-outline-success',
+                    excelStyles: {
+
+                        "template": [
+                            "blue_medium",
+                            "header_green",
+                            "title_medium"
+                        ]
+
+                    },
+                }]
+            },
+            language: {
+                searchPlaceholder: "Buscar",
+                search: "Buscar:",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "No hay datos disponibles en la tabla",
+                infoEmpty: "Mostrando 0 registros de un total de 0",
+                infoFiltered: "(filtrado de un total de MAX registros)",
+                lengthMenu: "Mostrar MENU registros por página",
+                example_info:"Se muestran 0 de 0 un total de 0",
+                sInfo: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                paginate: {
+                    previous: "Anterior",
+                    next: "Siguiente"
+                }
+            },
+            columnDefs: [{
+                targets: '_all',
+                searchable: true
+            }],
+            initComplete: function() {
+                this.api().columns().every(function() {
+                    var column = this;
+                    var header = $(column.header());
+                    var input = $('<input type="text" class="text-center form-control form-control-sm mb-2" placeholder="Buscar ">')
+                        .appendTo(header)
+                        .on('keyup change clear', function() {
+                            if (column.search() !== this.value) {
+                                column.search(this.value).draw();
+                            }
+                        });
+                });
             }
-          });
-      });
-    }
-  });
-});
+        });
+    });
 
     // Empieza select 2
     $(document).ready(function() {

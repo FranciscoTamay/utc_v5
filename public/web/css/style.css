@@ -4486,3 +4486,8 @@ body {
     color: #fff;
     border-radius: 10px !important;
 }
+
+.dataTables_filter {
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+  }
