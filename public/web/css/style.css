@@ -4508,9 +4508,9 @@ body {
 }
 
 .dataTables_paginate .paginate_button:hover:not(.disabled) a {
-    border: 2px solid #10a3cf;
-    color: #10a3cf;
-    box-shadow: 2px 2px 20px 2px #10a3cf;
+    border: 2px solid #47c363;
+    color: #47c363;
+    box-shadow: 2px 2px 20px 2px #47c363;
     border-radius: 4px;
 }
 
@@ -4522,6 +4522,24 @@ body {
     background: #fff;
     border: 1px solid #ffffff;
 }
+
 .dataTables_paginate {
     margin-right: 2rem !important;
+}
+
+.marco {
+    background: #47c363;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 1rem;
+}
+
+.rounded-table {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+}
+
+.inicio-tabla{
+    border-top-left-radius: 20px;
 }
