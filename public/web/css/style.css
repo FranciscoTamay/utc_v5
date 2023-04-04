@@ -4388,6 +4388,16 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     background: #e2c20c;
 }
 
+.border-darck {
+    border: 3px solid #202020;
+
+}
+
+.border-darck:hover {
+    color: var(--var-text);
+    background: #202020;
+}
+
 .border-verde {
     border: 3px solid #2ed8b6;
 }

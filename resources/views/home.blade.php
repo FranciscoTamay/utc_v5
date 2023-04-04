@@ -64,7 +64,7 @@
                 <!-- FIN CARD DE PAGOS SERVICIOS -->
 
                 <!-- CARD DE carreras -->
-                <div class="col-md-4 col-xl-4">
+                <!-- <div class="col-md-4 col-xl-4">
                     <a href="carreras" class="text-home">
                         <div class="home border-rosado">
                             <div class="card-block">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
                 <!-- FIN CARD DE carreras -->
 
                 <div class="col-md-4 col-xl-4">
@@ -118,7 +118,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-4 col-xl-4">
+                <!-- <div class="col-md-4 col-xl-4">
                     <a href="procedencias" class="text-home">
                         <div class="home border-morado">
                             <div class="card-block">
@@ -133,9 +133,9 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
 
-                <div class="col-md-4 col-xl-4">
+                <!-- <div class="col-md-4 col-xl-4">
                     <a href="/blogs" class="text-home">
                         <div class="home border-azulf">
                             <div class="card-block">
@@ -150,7 +150,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
 
                 <div class="col-md-4 col-xl-4">
                     <a href="/asp" class="text-home">
@@ -164,6 +164,114 @@
                                 @endphp
                                 <h2 class="text-right"><i class="fa-solid fa-person"></i><span> {{$cant_aspirantes}}</span></h2>
                             </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-xl-4">
+                    <a href="/carreras" class="text-home">
+                        <div class="home border-rojo">
+                            <div class="card-block">
+
+                                <h5>Carreras</h5>
+                                @php
+                                $cant_carreras = Carreras::count();
+                                @endphp
+                                <h2 class="text-right"><i class="fa-solid fa-person"></i><span> {{$cant_carreras}}</span></h2>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-xl-4">
+                    <a href="/asignaturas" class="text-home">
+                        <div class="home border-verde">
+                            <div class="card-block">
+
+                                <h5>Asignaturas</h5>
+                                <!-- use App\Models\Asignaturas;
+                                $cant_asignaturas = Asignaturas::count();
+                                @endphp -->
+                                <h2 class="text-right"><i class="fa-solid fa-person"></i><span></span></h2>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-xl-4">
+                    <a href="/alumnos" class="text-home">
+                        <div class="home border-azul">
+
+                            <div class="card-block">
+
+                                <h5>Usuarios</h5>
+                                @php
+                                use App\Models\Alumnos;
+                                $cant_alumnos = Alumnos::count();
+                                @endphp
+                                <h2 class="text-right"><i class="fa-solid fa-users"></i><span> {{$cant_alumnos}}</span></h2>
+
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-xl-4">
+                    <a href="/matriculas" class="text-home">
+                        <div class="home border-azulf">
+
+                            <div class="card-block">
+
+                                <h5>Matriculas</h5>
+                                @php
+                                use App\Models\Matriculas;
+                                $cant_matriculas = Matriculas::count();
+                                @endphp
+                                <h2 class="text-right"><i class="fa-solid fa-users"></i><span> {{$cant_matriculas}}</span></h2>
+
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-xl-4">
+                    <a href="/grupos" class="text-home">
+                        <div class="home border-gris">
+
+                            <div class="card-block">
+
+                                <h5>grupos</h5>
+                                @php
+                                use App\Models\Grupos;
+                                $cant_grupos = Grupos::count();
+                                @endphp
+                                <h2 class="text-right"><i class="fa-solid fa-users"></i><span> {{$cant_grupos}}</span></h2>
+
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 col-xl-4">
+                    <a href="/maestros" class="text-home">
+                        <div class="home border-darck">
+
+                            <div class="card-block">
+
+                                <h5>maestros</h5>
+                                @php
+                                use App\Models\Maestros;
+                                $cant_maestros = Maestros::count();
+                                @endphp
+                                <h2 class="text-right"><i class="fa-solid fa-users"></i><span> {{$cant_maestros}}</span></h2>
+
+                            </div>
+
                         </div>
                     </a>
                 </div>
