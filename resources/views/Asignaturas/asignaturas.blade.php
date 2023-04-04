@@ -2,9 +2,10 @@
 @section('content')
 <!-- Aqui comienza el contenido -->
 
-<div class="section">
+<div class="section mt-4">
 
-    <div class="row mt-1">
+    <div class="card-body">
+        <h2 class="title-2">Asignaturas</h2>
         <div class="col-md-4 offset-md-4 mt-4">
             <div class="d-grid mx-auto">
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
@@ -12,20 +13,16 @@
                 </button>
             </div>
         </div>
-    </div>
-
-    <div class="card-body">
-        <h2 class="title-2">Aspirantes</h2>
         <div class="respon">
             <table id="pro3" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
                     <tr>
-                        <th>ID</th>
-                        <th>CODIGO</th>
-                        <th>NOMBRE ASIGNATURA</th>
-                        <th>NUMERO DE UNIDADES</th>
-                        <th>HORAS</th>
-                        <th>ACCIONES</th>
+                        <th class="inico text-center">ID</th>
+                        <th class="text-center">CODIGO</th>
+                        <th class="text-center">NOMBRE ASIGNATURA</th>
+                        <th class="text-center">NUMERO DE UNIDADES</th>
+                        <th class="fin text-center">HORAS</th>
+                        <th class="accion text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -40,7 +37,7 @@
                         <td>
 
                             <div class="d-inline-block me-2">
-                                <a href="{{ url('asignaturas',[$run]) }}" class="btn btn-warning">
+                                <a href="{{ url('asignaturas',[$run]) }}" class="btn btn-success">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
                             </div>
@@ -121,12 +118,71 @@
 <script>
     $(document).ready(function() {
         $('#pro3').DataTable({
-            "language": {
-                "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
+            orderCellsTop: true,
+            fixedHeader: true,
+            dom: "Bfrtip",
+            buttons: {
+                dom: {
+                    button: {
+                        className: 'btn btn-success offset-md-4 mb-4 mt-4 '
+                    }
+                },
+                buttons: [{
+                    //definimos estilos del boton de excel
+                    extend: "excel",
+                    text: 'Descargar',
+                    className: 'btn btn-success',
+                    excelStyles: {
+
+                        "template": [
+                            "blue_medium",
+                            "header_green",
+                            "title_medium"
+                        ]
+
+                    },
+                }]
+            },
+            language: {
+                searchPlaceholder: "Buscar",
+                search: "Buscar:",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "No hay datos disponibles en la tabla",
+                infoEmpty: "Mostrando 0 registros de un total de 0",
+                infoFiltered: "(filtrado de un total de MAX registros)",
+                lengthMenu: "Mostrar MENU registros por página",
+                example_info: "Se muestran 0 de 0 un total de 0",
+                sInfo: "<span style='margin-left: 2rem;'>Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros</span>",
+                paginate: {
+                    previous: "Anterior",
+                    next: "Siguiente"
+                }
+            },
+            columnDefs: [{
+                targets: -1,
+                className: 'actions',
+                searchable: false
+            }],
+            initComplete: function() {
+                this.api().columns().every(function(index) {
+                    var column = this;
+                    var header = $(column.header());
+                    if (header.hasClass('actions')) {
+                        // No hacer nada si es la columna de acciones
+                        return;
+                    }
+                    var input = $('<input type="text" class="text-center form-control form-control-sm mb-2" placeholder="Buscar ">')
+                        .appendTo(header)
+                        .on('keyup change clear', function() {
+                            if (column.search() !== this.value) {
+                                column.search(this.value).draw();
+                            }
+                        });
+                });
             }
         });
-    });
 
+    });
     //  TERMINA DATATABLES
 
     // Empieza select 2

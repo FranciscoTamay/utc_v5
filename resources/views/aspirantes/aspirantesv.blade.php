@@ -18,7 +18,7 @@
                         <th class="text-center">GENERO</th>
                         <th class="text-center">PROCEDENCIA</th>
                         <th class="fin text-center">CARRERA</th>
-                        <th class="fin2 accion text-center">ACCIONES</th>
+                        <th class="accion text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
