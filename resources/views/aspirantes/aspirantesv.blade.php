@@ -100,7 +100,7 @@
                 infoFiltered: "(filtrado de un total de MAX registros)",
                 lengthMenu: "Mostrar MENU registros por página",
                 example_info: "Se muestran 0 de 0 un total de 0",
-                sInfo: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                sInfo: "<span style='padding-left: 2rem;'>Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros</span>",
                 paginate: {
                     previous: "Anterior",
                     next: "Siguiente"
