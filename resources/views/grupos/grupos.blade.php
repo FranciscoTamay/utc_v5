@@ -20,16 +20,16 @@
         </div>
         <div class="respon table-responsive">
             <table id="pro" class="xd display responsive nowrap" style="width:95%">
-                <thead>
+                <thead class="bg-darck text-center">
                     <tr>
-                        <th>ID</th>
-                        <th>ID MATRICULAS</th>
-                        <th>ID ASIGNATURA</th>
-                        <th>PROFESOR NOMBRES</th>
-                        <th>APELLIDO PATERNO</th>
-                        <th>APELLIDO MATERNO</th>
-                        <th>ID CARRERA</th>
-                        <th>ACCIONES</th>
+                        <th class="inico text-center">ID</th>
+                        <th class="text-center">ID MATRICULAS</th>
+                        <th class="text-center">ID ASIGNATURA</th>
+                        <th class="text-center">PROFESOR NOMBRES</th>
+                        <th class="text-center">APELLIDO PATERNO</th>
+                        <th class="text-center">APELLIDO MATERNO</th>
+                        <th class="fin text-center">ID CARRERA</th>
+                        <th class="accion text-center">ACCIONES</th>
 
                     </tr>
                 </thead>
@@ -49,7 +49,7 @@
                         <td>
                             <div class="row">
                                 <div class="col-6">
-                                    <a href="{{ url('grupos',[$run]) }}" class="btn btn-warning">
+                                    <a href="{{ url('grupos',[$run]) }}" class="btn btn-success">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                 </div>
@@ -157,9 +157,75 @@
 
 @section('scripts')
 <script>
-    $(document).ready(function() {
-        $('#pro2').DataTable();
+
+$(document).ready(function() {
+        $('#pro').DataTable({
+            orderCellsTop: true,
+            fixedHeader: true,
+            dom: "Bfrtip",
+            buttons: {
+                dom: {
+                    button: {
+                        className: 'btn btn-success offset-md-4 mb-4 mt-4 '
+                    }
+                },
+                buttons: [{
+                    //definimos estilos del boton de excel
+                    extend: "excel",
+                    text: 'Descargar',
+                    className: 'btn btn-success',
+                    excelStyles: {
+
+                        "template": [
+                            "blue_medium",
+                            "header_green",
+                            "title_medium"
+                        ]
+
+                    },
+                }]
+            },
+            language: {
+                searchPlaceholder: "Buscar",
+                search: "Buscar:",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "No hay datos disponibles en la tabla",
+                infoEmpty: "Mostrando 0 registros de un total de 0",
+                infoFiltered: "(filtrado de un total de MAX registros)",
+                lengthMenu: "Mostrar MENU registros por página",
+                example_info: "Se muestran 0 de 0 un total de 0",
+                sInfo: "<span style='margin-left: 2rem;'>Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros</span>",
+                paginate: {
+                    previous: "Anterior",
+                    next: "Siguiente"
+                }
+            },
+            columnDefs: [{
+                targets: -1,
+                className: 'actions',
+                searchable: false
+            }],
+            initComplete: function() {
+                this.api().columns().every(function(index) {
+                    var column = this;
+                    var header = $(column.header());
+                    if (header.hasClass('actions')) {
+                        // No hacer nada si es la columna de acciones
+                        return;
+                    }
+                    var input = $('<input type="text" class="text-center form-control form-control-sm mb-2" placeholder="Buscar ">')
+                        .appendTo(header)
+                        .on('keyup change clear', function() {
+                            if (column.search() !== this.value) {
+                                column.search(this.value).draw();
+                            }
+                        });
+                });
+            }
+        });
+
     });
+
     // Empieza select 2
     $(document).ready(function() {
         $('.select2').select2();

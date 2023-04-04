@@ -5,9 +5,9 @@
         <h2 class="title-2">Aspirantes</h2>
         <div class="respon">
             <table id="example" class="xd display responsive nowrap rounded-table" style="width:95%">
-                <thead class="bg-darck text-center ">
+                <thead class="bg-darck text-center">
                     <tr>
-                        <th class="inico text-center ">FOLIO</th>
+                        <th class="inico text-center">FOLIO</th>
                         <th class="text-center">NOMBRES</th>
                         <th class="text-center">APELLIDOS PATERNO</th>
                         <th class="text-center">APELLIDOS MATERNO</th>
