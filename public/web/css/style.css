@@ -4559,3 +4559,12 @@ body {
 .accion{
     border-radius: 10px;
 }
+
+body::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #ffffffa6;
+    border-radius: 10px;
+}
