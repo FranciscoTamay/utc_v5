@@ -32,7 +32,7 @@
                         <td class="fin text-center">
 
                             <div class="d-inline-block me-2">
-                                <a href="{{ url('grados',[$row]) }}" class="btn btn-warning">
+                                <a href="{{ url('grados',[$row]) }}" class="btn btn-success">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
                             </div>

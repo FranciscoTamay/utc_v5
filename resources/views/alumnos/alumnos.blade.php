@@ -60,7 +60,7 @@
                             </div>
                             <!-- boton de editar -->
 
-                            <div >
+                            <div class="d-inline-block me-2">
                                 <form method="POST" action="{{ url('alumnos',[$run] )}}">
                                     @method("delete")
                                     @csrf

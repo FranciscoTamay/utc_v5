@@ -73,7 +73,7 @@
                         <td class="text-center">
 
                             <div class="d-inline-block me-2">
-                                <a href="{{ url('registrop', [$row]) }}" class="btn bg-success"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
+                                <a href="{{ url('registrop', [$row]) }}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
                             </div>
                             <div class="d-inline-block">
                                 <form method="POST" action="{{ url('registrop', [$row]) }}">
