@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="section">
-    <div class="section-header">
-        <h3 class="text-center">Inicio</h3>
-    </div>
+<div class="section mt-4">
     <div class="section-body">
 
         <div class="card-body">

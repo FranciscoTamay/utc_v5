@@ -30,7 +30,6 @@
                         <th class="text-center">APELLIDO MATERNO</th>
                         <th class="fin text-center">ID CARRERA</th>
                         <th class="accion text-center">ACCIONES</th>
-
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -44,26 +43,22 @@
                         <td>{{$run->apellido_paterno}}</td>
                         <td>{{$run->apellido_materno}}</td>
                         <td>{{$run->nombre_carrera}}</td>
-
-
                         <td>
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="{{ url('grupos',[$run]) }}" class="btn btn-success">
-                                        <i class="fa-solid fa-pencil"></i>
-                                    </a>
-                                </div>
-                                <!-- boton de editar -->
 
-                                <div class="col-6">
-                                    <form method="POST" action="{{ url('grupos',[$run] )}}">
-                                        @method("delete")
-                                        @csrf
-                                        <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
-                                    </form>
-                                </div>
-                                <!-- boton de eliminar -->
+                            <div class="d-inline-block me-2">
+                                <a href="{{ url('grupos',[$run]) }}" class="btn btn-success">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
                             </div>
+
+                            <div class="d-inline-block me-2">
+                                <form method="POST" action="{{ url('grupos',[$run] )}}">
+                                    @method("delete")
+                                    @csrf
+                                    <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+
                         </td>
                     </tr>
                     @endforeach
@@ -157,8 +152,7 @@
 
 @section('scripts')
 <script>
-
-$(document).ready(function() {
+    $(document).ready(function() {
         $('#pro').DataTable({
             orderCellsTop: true,
             fixedHeader: true,

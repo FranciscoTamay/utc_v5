@@ -27,7 +27,7 @@
         <i class="fas fa-book"></i><span>Asignaturas</span>
     </a>
 
-    <a class="nav-link" href="/alumno">
+    <a class="nav-link" href="/alumnos">
         <i class="fas fa-user-graduate"></i><span>Alumnos</span>
     </a>
 
