@@ -18,18 +18,18 @@
         </div>
         <div class="respon">
             <table id="pro4" class="xd display responsive nowrap" style="width:95%">
-                <thead class="bg-secondary text-center">
+                <thead class="bg-darck text-center">
                     <tr>
-                        <th>CODIGO</th>
-                        <th>SEXO</th>
-                        <th>APELLIDO PATERNO</th>
-                        <th>APELLIDO MATERNO</th>
-                        <th>NOMBRES</th>
-                        <th>CURP</th>
-                        <th>NSS</th>
-                        <th>RFC</th>
-                        <th>ID GRADO</th>
-                        <th>ACCIONES</th>
+                        <th class="inico text-center">CODIGO</th>
+                        <th class="text-center">SEXO</th>
+                        <th class="text-center">APELLIDO PATERNO</th>
+                        <th class="text-center">APELLIDO MATERNO</th>
+                        <th class="text-center">NOMBRES</th>
+                        <th class="text-center">CURP</th>
+                        <th class="text-center">NSS</th>
+                        <th class="text-center">RFC</th>
+                        <th class="fin text-center">ID GRADO</th>
+                        <th class="accion text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -44,25 +44,22 @@
                         <td>{{$row->num_seguro}}</td>
                         <td>{{$row->rfc}}</td>
                         <td>{{$row->grado_nombre}}</td>
-
                         <td>
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="{{ url('maestros',[$row]) }}" class="btn btn-warning">
-                                        <i class="fa-solid fa-pencil"></i>
-                                    </a>
-                                </div>
-                                <!-- boton de editar -->
 
-                                <div class="col-6">
-                                    <form method="POST" action="{{ url('maestros',[$row] )}}">
-                                        @method("delete")
-                                        @csrf
-                                        <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
-                                    </form>
-                                </div>
-                                <!-- boton de eliminar -->
+                            <div class="d-inline-block me-2">
+                                <a href="{{ url('maestros',[$row]) }}" class="btn btn-success">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
                             </div>
+
+                            <div class="d-inline-block me-2">
+                                <form method="POST" action="{{ url('maestros',[$row] )}}">
+                                    @method("delete")
+                                    @csrf
+                                    <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+
                         </td>
                     </tr>
                     @endforeach
@@ -121,7 +118,7 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text"  name="nombres" class="form-control" maxlength="120" placeholder="Nombres" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ\s]/g, '')" required>
+                        <input type="text" name="nombres" class="form-control" maxlength="120" placeholder="Nombres" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ\s]/g, '')" required>
                     </div>
 
 
@@ -184,7 +181,71 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        $('#pro4').DataTable();
+        $('#pro4').DataTable({
+            orderCellsTop: true,
+            fixedHeader: true,
+            dom: "Bfrtip",
+            buttons: {
+                dom: {
+                    button: {
+                        className: 'btn btn-success offset-md-4 mb-4 mt-4 '
+                    }
+                },
+                buttons: [{
+                    //definimos estilos del boton de excel
+                    extend: "excel",
+                    text: 'Descargar',
+                    className: 'btn btn-success',
+                    excelStyles: {
+
+                        "template": [
+                            "blue_medium",
+                            "header_green",
+                            "title_medium"
+                        ]
+
+                    },
+                }]
+            },
+            language: {
+                searchPlaceholder: "Buscar",
+                search: "Buscar:",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "No hay datos disponibles en la tabla",
+                infoEmpty: "Mostrando 0 registros de un total de 0",
+                infoFiltered: "(filtrado de un total de MAX registros)",
+                lengthMenu: "Mostrar MENU registros por página",
+                example_info: "Se muestran 0 de 0 un total de 0",
+                sInfo: "<span style='margin-left: 2rem;'>Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros</span>",
+                paginate: {
+                    previous: "Anterior",
+                    next: "Siguiente"
+                }
+            },
+            columnDefs: [{
+                targets: -1,
+                className: 'actions',
+                searchable: false
+            }],
+            initComplete: function() {
+                this.api().columns().every(function(index) {
+                    var column = this;
+                    var header = $(column.header());
+                    if (header.hasClass('actions')) {
+                        // No hacer nada si es la columna de acciones
+                        return;
+                    }
+                    var input = $('<input type="text" class="text-center form-control form-control-sm mb-2" placeholder="Buscar ">')
+                        .appendTo(header)
+                        .on('keyup change clear', function() {
+                            if (column.search() !== this.value) {
+                                column.search(this.value).draw();
+                            }
+                        });
+                });
+            }
+        });
+
     });
     $(document).ready(function() {
         $('.aspirante').select2();
