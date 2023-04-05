@@ -49,8 +49,11 @@
         
         <div class="tabla">
         <table class="table table-bordered ">
+
+        <!--inicio de primer fila-->
           <thead class="thead-dark">
             <th>Composicion de la evalucacion de la unidad</th>
+            <th>Estatus</th>
             <th>Calificacion de unidades de aprendizaje</th> 
             <th>Calificaciones de unidades en ordinario y gobales</th>
             <th>Calificacion Asignatura</th>
@@ -59,8 +62,12 @@
             <th>Calificacion Asignatura</th>
             <th>Nivel de</th>
           </thead>
+        <!--fin de primer fila-->
+
+        <!--inicio de segunda fila-->
           <thead class="thead-dark">
             <th>Indicador</th>
+            <th></th>
             <th>
             <div class="container">
             <div class="row">
@@ -81,9 +88,6 @@
                 </div>
                 <div class="cold_2">
                   6
-                </div>
-                <div class="cold">
-                  7
                 </div>
             </div>
             </div>
@@ -108,9 +112,6 @@
                 </div>
                 <div class="cold_2">
                   6
-                </div>
-                <div class="cold">
-                  7
                 </div>
             </div>
             </div>
@@ -121,70 +122,269 @@
             <th>Promedio Final</th>
             <th>Desempeño</th>
           </thead>
+        <!--fin de segunda fila-->
 
+        <!--inicio de tercer fila-->
           <thead class="thead-dark">  
             <th>
             <div class="container">
             <div class="row">
-                <div class="cold">
+                <div class="col-4" style="background-color:white">
                   Matricula
                 </div>
-                <div class="cold">
+                <div class="col-8">
                   Nombre del alumno
                 </div>
             </div>
             </div>
             </th>
             <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>
+            <div class="container">
+            <div class="row">
+                <div class="col-2">
+                  20%
+                </div>
+                <div class="col-2">
+                  30%
+                </div>
+                <div class="col-2">
+                  50%
+                </div>
+                <div class="col-2">
+                  
+                </div>
+                <div class="col-2">
+                  
+                </div>
+                <div class="col-2">
+                  
+                </div>
+                <div class="cold">
+                  
+                </div>
+            </div>
+            </div>
+            </th>
+            <th>
+            <div class="container">
+            <div class="row">
+                <div class="col-2">
+                  20%
+                </div>
+                <div class="col-2">
+                  30%
+                </div>
+                <div class="col-2">
+                  50%
+                </div>
+                <div class="col-2">
+                  
+                </div>
+                <div class="col-2">
+                  
+                </div>
+                <div class="col-2">
+                  
+                </div>
+                <div class="col">
+                  
+                </div>
+            </div>
+            </div>
+            </th>
+            <th>U.A/ORD</th>
+            <th>Remedial</th>
+            <th>Remedial</th>
             <th></th>
             <th></th>
           </thead>
+        <!--fin de tercer fila-->
 
           <tbody>
             <tr>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col-4">20212295</div>
+                    <div class="col-8">David Azael Cutz Chan</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size: 10px;">A</td>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+              <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div> 
+              </td>
+              <td style="font-size: 10px;">9.0</td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td style="font-size: 10px;">9.0</td>
+              <td style="font-size: 10px;">DE</td>
             </tr>
           </tbody>
+
+
+          <!--pruebas-->
+          <tbody>
+            <tr>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col-4">20212294</div>
+                    <div class="col-8">Francisco Javier Tamay Canul</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size: 10px;">A</td>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+              <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div> 
+              </td>
+              <td style="font-size: 10px;">9.0</td>
+              <td></td>
+              <td></td>
+              <td style="font-size: 10px;">9.0</td>
+              <td style="font-size: 10px;">DE</td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col-4">20212290</div>
+                    <div class="col-8">Oscar Aldair Matu Miranda</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size: 10px;">A</td>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+              <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div> 
+              </td>
+              <td style="font-size: 10px;">9.0</td>
+              <td></td>
+              <td></td>
+              <td style="font-size: 10px;">9.0</td>
+              <td style="font-size: 10px;">DE</td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col-4">20212289</div>
+                    <div class="col-8">Hector Eduardo Ortiz Can</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size: 10px;">A</td>
+              <td>
+                <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+              <div class="container" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col">9.0</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                  </div>
+                </div> 
+              </td>
+              <td style="font-size: 10px;">9.0</td>
+              <td></td>
+              <td></td>
+              <td style="font-size: 10px;">9.0</td>
+              <td style="font-size: 10px;">DE</td>
+            </tr>
+          </tbody>
+          <!--fin de pruebas-->
         </table>
-
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                  Composicion de la evalucacion de la unidad
-                </div>
-                <div class="col">
-                  Calificacion de unidades de aprendizaje
-                </div>
-                <div class="col">
-                  Calificaciones de unidades en ordinario y gobales
-                </div>
-                <div class="col">
-                  Calificacion Asignatura
-                </div>
-                <div class="col">
-                  Calificacion Asignatura
-                </div>
-                <div class="col">
-                  Calificacion Asignatura
-                </div>
-                <div class="col">
-                  Calificacion Asignatura
-                </div>
-                <div class="col">
-                  Nivel de 
-                </div>
-            </div>
         </div>
-
-        </div>
-
-
     </div>
 </body>
 </html>

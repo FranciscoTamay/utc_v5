@@ -10924,6 +10924,8 @@ border
 
 .cold {
    flex: 1 0 0%;
+   background-color: #BDBDBD;
+   margin-left: 3px;
 }
 
 .cold_2 {
