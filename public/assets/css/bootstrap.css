@@ -10922,6 +10922,15 @@ border
   font-size: 10px;
 }
 
+.cold {
+   flex: 1 0 0%;
+}
+
+.cold_2 {
+  flex: 1 0 0%;
+  background-color: #fff;
+}
+
 /*colddd*/
 .col {
   flex: 1 0 0%;

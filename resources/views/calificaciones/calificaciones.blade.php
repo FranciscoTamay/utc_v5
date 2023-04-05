@@ -61,13 +61,86 @@
           </thead>
           <thead class="thead-dark">
             <th>Indicador</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>
+            <div class="container">
+            <div class="row">
+                <div class="cold">
+                  1
+                </div>
+                <div class="cold_2">
+                  2
+                </div>
+                <div class="cold">
+                  3
+                </div>
+                <div class="cold_2">
+                  4
+                </div>
+                <div class="cold">
+                  5
+                </div>
+                <div class="cold_2">
+                  6
+                </div>
+                <div class="cold">
+                  7
+                </div>
+            </div>
+            </div>
+            </th>
+            <th>
+            <div class="container">
+            <div class="row">
+                <div class="cold">
+                  1
+                </div>
+                <div class="cold_2">
+                  2
+                </div>
+                <div class="cold">
+                  3
+                </div>
+                <div class="cold_2">
+                  4
+                </div>
+                <div class="cold">
+                  5
+                </div>
+                <div class="cold_2">
+                  6
+                </div>
+                <div class="cold">
+                  7
+                </div>
+            </div>
+            </div>
+            </th>
+            <th>Final</th>
+            <th>Final</th>
+            <th>Final</th>
+            <th>Promedio Final</th>
             <th>Desempeño</th>
+          </thead>
+
+          <thead class="thead-dark">  
+            <th>
+            <div class="container">
+            <div class="row">
+                <div class="cold">
+                  Matricula
+                </div>
+                <div class="cold">
+                  Nombre del alumno
+                </div>
+            </div>
+            </div>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
           </thead>
 
           <tbody>
