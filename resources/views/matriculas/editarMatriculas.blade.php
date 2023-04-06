@@ -21,11 +21,21 @@
                                 name del imput -->
                         </div>
 
+
                         <div class="input-group mb-3">
                             <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
-                            <input type="text" name="id_alumno" class="form-control" value="{{ $matricula->id_alumno}}" maxlength="120" placeholder="Nombre de la carrera" required>
+                            
+                            <select class="form-control" name="id_plan" id="" value="{{ $matricula->id_alumno}}" required>
+                            @foreach($alumnos as $row)
+                            @if ($row->id == $matricula->id_alumnos)
+                            <option selected value="{{$row->id}}">{{$row->curp}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->curp}}</option>
+                            @endif
+                            @endforeach
+                            </select>
                         </div>
 
                         

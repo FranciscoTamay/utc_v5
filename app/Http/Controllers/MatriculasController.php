@@ -46,6 +46,7 @@ class MatriculasController extends Controller
     {
         //
         $matricula = Matriculas::find($id);
+        $alumnos = Alumnos::all();
         return view('matriculas.editarMatriculas',compact('matricula','alumnos'));
 
     }

@@ -10,7 +10,7 @@
             </div>
 
             <div class="card-body">
-                <form id="frmgrado" method="POST" action="{{ url('grado',[$grado] )}}">
+                <form id="frmgrado" method="POST" action="{{ url('grados',[$grado] )}}">
                     @method('PUT')
                     @csrf
                     <div class="input-group mb-3">

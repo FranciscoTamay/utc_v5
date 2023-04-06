@@ -190,10 +190,11 @@
                             <div class="card-block">
 
                                 <h5>Asignaturas</h5>
-                                <!-- use App\Models\Asignaturas;
-                                $cant_asignaturas = Asignaturas::count();
-                                @endphp -->
-                                <h2 class="text-right"><i class="fa-solid fa-person"></i><span></span></h2>
+                                @php
+                                use App\Models\Asignaturas;
+                                $cant_materias = Asignaturas::count();
+                                @endphp
+                                <h2 class="text-right"><i class="fa-solid fa-person"></i><span>{{$cant_materias}}</span></h2>
 
                             </div>
                         </div>
