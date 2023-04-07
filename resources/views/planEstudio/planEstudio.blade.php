@@ -14,7 +14,7 @@
     </div>
 
     <div class="card-body">
-        <h2 class="title-2">Aspirantes</h2>
+        <h2 class="title-2">Plan De Estudio</h2>
         <div class="respon">
             <table id="pro3" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
