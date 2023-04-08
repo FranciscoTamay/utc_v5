@@ -7,7 +7,7 @@
     @livewireStyles
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/all-css/bootstrap.css">
     <!-- Ionicons -->
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <!-- fin -->
@@ -22,17 +22,17 @@
 <!-- fin -->
 <!-- RESPONSIVE DATATABLES -->
 <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">	
-<link href="css/jquery.min.css" rel="stylesheet">
+<link href="all-css/jquery.min.css" rel="stylesheet">
 <!-- fin -->
     <link href="//fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link href="{{ asset('assets/css/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
-    <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('all-css/all.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('all-css/iziToast.min.css') }}">
+    <link href="{{ asset('all-css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://kit.fontawesome.com/270e7df619.css" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="img/utc.png">
 <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
+    <link rel="stylesheet" href="{{ asset('all-css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('all-css/components.css')}}">
     @yield('css')
 </head>
 <body>
@@ -65,11 +65,11 @@
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"></script>
     <!-- FIN DATATABLES RESPONSIVE -->
-<script src="{{ asset('assets/js/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
-<script src="{{ asset('assets/js/iziToast.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
+<script src="{{ asset('all-js/popper.min.js') }}"></script>
+<script src="{{ asset('all-js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('all-js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('all-js/iziToast.min.js') }}"></script>
+<script src="{{ asset('all-js/jquery.nicescroll.js') }}"></script>
 <script src="https://kit.fontawesome.com/270e7df619.js" crossorigin="anonymous"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
             <!-- Para usar los botones -->
@@ -82,10 +82,10 @@
             <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
             <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>  
 <!-- Template JS File -->
-<script src="{{ asset('web/js/stisla.js') }}"></script>
-<script src="{{ asset('web/js/scripts.js') }}"></script>
-<script src="{{ mix('assets/js/profile.js') }}"></script>
-<script src="{{ mix('assets/js/custom/custom.js') }}"></script>
+<script src="{{ asset('all-js/stisla.js') }}"></script>
+<script src="{{ asset('all-js/scripts.js') }}"></script>
+<script src="{{ asset('all-js/profile.js') }}"></script>
+<script src="{{ asset('all-js/custom.js') }}"></script>
 @livewireScripts
 @yield('scripts')
 <script>
@@ -104,6 +104,6 @@
     }(jQuery));
 </script>
 <!-- MOMENT JS -->
-<script src="{{ asset('js/moment.js') }}"></script>
-<script src="{{ asset('js/moment-with-locales.js') }}"></script>
+<script src="{{ asset('all-js/moment.js') }}"></script>
+<script src="{{ asset('all-js/moment-with-locales.js') }}"></script>
 </html>
