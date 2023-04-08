@@ -1,20 +1,21 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="section">
+<div class="section mt-4">
 
-    <div class="row mt-1">
-        <div class="col-md-4 offset-md-4 mt-4">
-            <div class="d-grid mx-auto">
-                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
-                    <i class="fa-solid fa-circle-plus"></i> Añadir
-                </button>
-            </div>
-        </div>
-    </div>
+
 
     <div class="card-body">
         <h2 class="title-2">Plan De Estudio</h2>
+        <div class="row mt-1">
+            <div class="col-md-4 offset-md-4 mt-3">
+                <div class="d-grid mx-auto">
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCarreras">
+                        <i class="fa-solid fa-circle-plus"></i> Añadir
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="respon">
             <table id="pro3" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
@@ -76,21 +77,21 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                        <i class="fa-solid fa-calendar-days"></i>
+                            <i class="fa-solid fa-calendar-days"></i>
                         </span>
                         <input type="number" name="anio" class="form-control" maxlength="50" placeholder="Año del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                        <i class="fa-solid fa-calendar-check"></i>
+                            <i class="fa-solid fa-calendar-check"></i>
                         </span>
                         <input type="number" name="cuatrimestres" class="form-control" maxlength="50" placeholder="Cuatrimestres del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                        <i class="fa-solid fa-arrow-down-9-1"></i>
+                            <i class="fa-solid fa-arrow-down-9-1"></i>
                         </span>
                         <input type="number" name="horas" class="form-control" maxlength="50" placeholder="Horas del Plan de Estudio" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                     </div>
@@ -110,8 +111,7 @@
 
 @section('scripts')
 <script>
-
-$(document).ready(function() {
+    $(document).ready(function() {
         $('#pro3').DataTable({
             orderCellsTop: true,
             fixedHeader: true,
