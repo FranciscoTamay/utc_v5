@@ -7,7 +7,7 @@
 
     <!-- aqui es en donde termina el boton para abrir el modal de carreras -->
     <div class="card-body">
-        <h2 class="title-2">Aspirantes</h2>
+        <h2 class="title-2">Carreras</h2>
         <div class="row mt-4">
             <div class="col-md-4 offset-md-4">
                 <div class="d-grid mx-auto">

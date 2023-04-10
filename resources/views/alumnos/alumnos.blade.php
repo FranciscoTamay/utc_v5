@@ -3,7 +3,7 @@
 <div class="section mt-4">
 
     <div class="card-body">
-        <h2 class="title-2">Escuelas de Prosedencias</h2>
+        <h2 class="title-2">Alumnos</h2>
         <div class="row mt-1 mb-5">
             <div class="col-md-4 offset-md-4">
                 <div class="d-grid mx-auto">
