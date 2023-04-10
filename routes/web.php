@@ -13,6 +13,7 @@ use App\Http\Livewire\ShowPago;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CalificacionController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\RegistroPagosController;
 use App\Http\Controllers\CarrerasController;
@@ -67,14 +68,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('procedencias', ProcedenciasController::class);
     Route::get('pedos', Asignaturas::class);
     Route::resource('grados', GradoProfesorController::class);
+    Route::resource('calificaciones', CalificacionController::class);
 // RUTAs DE HECTOR
 // FIN DE LAS RUTAS DE HECTOR
 });
 Route::resource('aspirante', Aspirantes2Controller::class);
 
-Route::get('calificaciones', function () {
-    return view('calificaciones.calificaciones');
-});
+// Route::get('calificaciones', function () {
+//     return view('calificaciones.calificaciones');
+// });
 // 
 Route::get('nota/{folio}',[Aspirantes2Controller::class,'nota'])->name('nota');
 

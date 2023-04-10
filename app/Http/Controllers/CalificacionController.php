@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Calificaciones;
+use App\Models\Asignaturas;
+use App\Models\Carreras;
+use App\Models\Maestros;
+use App\Models\Grupos;
 
 class CalificacionController extends Controller
 {
@@ -13,7 +18,11 @@ class CalificacionController extends Controller
      */
     public function index()
     {
-        //
+        $asignaturas = Asignaturas::all();
+        $carreras = Carreras::all();
+        $maestros = Maestros::all();
+        $grupos = Grupos::all();
+        return view('calificaciones.calificaciones',compact('asignaturas','maestros','grupos','carreras'));
     }
 
     /**

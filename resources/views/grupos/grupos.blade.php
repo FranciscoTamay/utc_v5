@@ -23,6 +23,7 @@
                 <thead class="bg-darck text-center">
                     <tr>
                         <th class="inico text-center">ID</th>
+                        <th class="inico text-center">GRUPO</th>
                         <th class="text-center">ID MATRICULAS</th>
                         <th class="text-center">ID ASIGNATURA</th>
                         <th class="text-center">PROFESOR NOMBRES</th>
@@ -37,6 +38,7 @@
                     @foreach($grupos as $run)
                     <tr>
                         <td>{{$i++}}</td>
+                        <td>{{$run->nombre_grupo}}</td>
                         <td>{{$run->matricula}}</td>
                         <td>{{$run->nombre_asignatura}}</td>
                         <td>{{$run->nombres}}</td>
@@ -82,6 +84,13 @@
 
                 <form id="frmGrupos" method="POST" action="{{ url('grupos') }}">
                     @csrf
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </span>
+                        <input type="text" name="nombre_grupo" class="form-control" maxlength="120" placeholder="Nombre del Grupo"  required>
+                    </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
