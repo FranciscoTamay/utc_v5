@@ -76,15 +76,16 @@ Route::group(['middleware' => ['auth']], function() {
 });
 Route::resource('aspirante', Aspirantes2Controller::class);
 
+Route::get('fpdfCalificaciones', [CalificacionesFpdfController::class, 'hojares']);
 // Route::get('calificaciones', function () {
 //     return view('calificaciones.calificaciones');
 // });
-// 
+//  
 Route::get('nota/{folio}',[Aspirantes2Controller::class,'nota'])->name('nota');
 
 Route::get('ticket/{folio}', ['as'=>'ticket', 'uses'=>'ventaController@ticket']);
 
-Route::get('fpdfCalificaciones', CalificacionesFpdfController::class);
+
 
 
 

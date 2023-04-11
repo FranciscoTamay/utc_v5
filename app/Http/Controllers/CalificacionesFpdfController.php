@@ -10,100 +10,519 @@ class CalificacionesFpdfController extends Controller
     ///
     public function hojares(){
         //    return 'hola rporte';
-         $fpdf = new FPDF();
+         $fpdf = new FPDF('L','mm','Letter');
             $fpdf->AddPage();
-            $fpdf->Image('images/LOGO.jpg', 10, 5, -300);
-            $fpdf->setfont('arial','B',10);
-            $fpdf->Cell(180, 3, utf8_decode('Departamento de Servicios Escolares'), 0, 1, 'C');
-            $fpdf->SetFont('Arial', 'B', 14);
-            $fpdf->Cell(180, 10, utf8_decode('CEDULA  DE PRESCRIPCIÓN'), 0, 1, 'C');
-            $fpdf->SetFont('Arial', 'B', 9);
-            $fpdf->Cell(150, 9, 'Folio:', 0,0, 'R');
-            $fpdf->Cell(40, 10, '', 'B',1, 'R');
-            $fpdf->SetFont('Arial', 'u', 9);
-            $fpdf->Cell(150, 9, 'Fecha:', 0,0, 'R');
-            $fpdf->Cell(40, 10, '', 'B',1, 'R');
-            $fpdf->setfont('Arial','B', 0);
-            $fpdf->Cell(20,10,  utf8_decode('Carrera de su elección:'),0,0,'L');
-             $fpdf->Cell(130,10,  utf8_decode('Como se enteró de la univercidad:'),0,1,'R');
-        
+            $fpdf->Image('img/utc.png', 10, 5, -300);    
+            $fpdf->setfont('arial','B',14);
+            $fpdf->Cell(180, 3, utf8_decode('UNIVERSIDAD TECNOLOGICA DEL CENTRO'), 0, 1, 'C');
+            $fpdf->SetFont('Arial', 'B', 10);
+            $fpdf->Cell(180, 10, utf8_decode('ACTA DE CALIFICACIONES FINALES'), 0, 1, 'C');
+
+            $fpdf->setfont('Arial','B',7);
+            $fpdf->Cell(20,8,  utf8_decode('Carrera:'),0,0,'L');
+            $fpdf->ln();
+            $fpdf->Cell(20,8,  utf8_decode('Grupo:'),0,0,'L');
+            $fpdf->ln();
+            $fpdf->Cell(20,8,  utf8_decode('Cuatrimestre:'),0,0,'L');
+            
+            $fpdf->Cell(95,8,  utf8_decode('Como se enteró de la univercidad:'),0,1,'R');
+
+            $fpdf->setfont('Arial','B', 6);
+            $fpdf->ln();
             // tabla de carreras
-             $fpdf->setfont('Arial','I', 6);
-             $fpdf->Cell(80,5,  utf8_decode('T.S.U Administraccion área Formulacion y Evaluación de Proyectos:'),1,0,'L');
-             $fpdf->Cell(10, 5, '',  1,0, 'C');
-             $fpdf->Cell(10, 5, '',  0,0, 'C');
-             $fpdf->Cell(40,5,  utf8_decode('Visita a mi plantel:'),1,0,'R');
-             $fpdf->Cell(10, 5, '',  1,1, 'C');   
-             $fpdf->Cell(80,5,  utf8_decode('T.S.U en Gastronomía:'),1,0,'L');
-             $fpdf->Cell(10, 5, '',  1,0, 'C');
-             $fpdf->Cell(10, 5, '',  0,0, 'C');
-             $fpdf->Cell(40,5,  utf8_decode('Redes sociales:'),1,0,'R');
-             $fpdf->Cell(10, 5, '',  1,1, 'C');   
-              $fpdf->Cell(80,5,  utf8_decode('T.S.U en mantenimiento área industrial:'),1,0,'L');
-             $fpdf->Cell(10, 5, '',  1,0, 'C');
-             $fpdf->Cell(10, 5, '',  0,0, 'C');
-             $fpdf->Cell(40,5,  utf8_decode('Volantes/lonas:'),1,0,'R');
-             $fpdf->Cell(10, 5, '',  1,1, 'C');  
-              $fpdf->Cell(80,5,  utf8_decode('T.S.U Tecnologias de la Informacion area de desarollo de software Multiplataforma'),1,0,'L');
-             $fpdf->Cell(10, 5, '',  1,0, 'C');
-             $fpdf->Cell(10, 5, '',  0,0, 'C');
-             $fpdf->Cell(40,5,  utf8_decode('Perifoneo:'),1,0,'R');
-             $fpdf->Cell(10, 5, '',  1,1, 'C');  
-              $fpdf->Cell(80,5,  utf8_decode('T.S.U en Turismo área Hoteleria'),1,0,'L');
-             $fpdf->Cell(10, 5, '',  1,0, 'C');
-             $fpdf->Cell(10, 5, '',  0,0, 'C');
-             $fpdf->Cell(40,5,  utf8_decode('Alumno/&Docente de la UTC'),1,0,'R');
-             $fpdf->Cell(10, 5, '',  1,1, 'C');  
-             $fpdf->Cell(10, 4, '',  0,1, 'C');  
-            //  DATOS GENMERALES
-             $fpdf->setfont('Arial','B', 8);
-            $fpdf->Cell(20,10,  utf8_decode('DATOS GENERALES:'),0,1,'L');
-            $fpdf->setfont('Arial','B', 8);
-            $fpdf->Cell(15, 5,'NOMBRE',0,0);
-            $fpdf->Cell(60, 3,'', 'B',0, 'L');
-            $fpdf->Cell(10, 5,'EDAD',0,0);
-            $fpdf->Cell(20, 3,'', 'B',0, 'L');
-            $fpdf->Cell(15, 5,'GENERO',0,0);
-            $fpdf->Cell(5, 5,'H',0,0);
-            $fpdf->Cell(5, 5,'',1,0);
-            $fpdf->Cell(5, 5,'M',0,0);
-            $fpdf->Cell(5, 5,'',1,0);
-            $fpdf->Cell(18, 5,'FECHA NAC.',0,0);
-            $fpdf->Cell(20, 3,'', 'B',1, 'L');
-            $fpdf->setfont('Arial','B', 4);
-            $fpdf->Cell(28, 3,'PATERNO',0,0, 'R');
-            $fpdf->Cell(20, 3,'MATERNO',0,0, 'R');
-            $fpdf->Cell(20, 3,'NOMBRE(S)',0,0, 'R');
-            $fpdf->Cell(95, 3,'DIA',0,0, 'R');
-            $fpdf->Cell(5, 3,'MES',0,0, 'R');
-            $fpdf->Cell(5, 3,'AÑO',0,1, 'R');
-            $fpdf->setfont('Arial','B', 8);
-            $fpdf->Cell(10, 10,'CURP',0,0);
-            $fpdf->Cell(70, 7,'', 'B',0, 'L');
-            $fpdf->Cell(10, 10,'NSS',0,0);
-            $fpdf->Cell(70, 7,'', 'B',1, 'L');
-            $fpdf->Cell(15, 10,'Dirreccion',0,0);
-            $fpdf->Cell(70, 7,'', 'B',0, 'L');
-            $fpdf->Cell(15, 10,'Localidad:',0,0);
-            $fpdf->Cell(30, 7,'', 'B',0, 'L');
-            $fpdf->Cell(15, 10,'Municipio:',0,0);
-            $fpdf->Cell(30, 7,'', 'B',1, 'L');
-            $fpdf->Cell(15, 10,'Telefono',0,0);
-            $fpdf->Cell(50, 7,'', 'B',0, 'L');
-            $fpdf->Cell(28, 10,'Correo electronico',0,0);
-            $fpdf->Cell(80, 7,'', 'B',1, 'L');
-            $fpdf->Cell(40, 10,'Habla maya ou otro dialecto',0,0);
-            $fpdf->Cell(10, 7,'', 'B',0, 'L');
-            $fpdf->Cell(10, 10,utf8_decode('¿Cual?'),0,0);
-            $fpdf->Cell(30, 7,'', 'B',0, 'L');
-            $fpdf->Cell(45, 10,'Presentas alguna discapacidad',0,0);
-            $fpdf->Cell(10, 7,'', 'B',0, 'L');
-            $fpdf->Cell(20, 10,'De que tipo',0,0);
-            $fpdf->Cell(15, 7,'', 'B',0, 'L');
+            $fpdf->Cell(5,4.5,"",1);
+            $fpdf->Cell(54,4.5,"Composicion de la evaluacion de la unidad",1);
+            $fpdf->Cell(15,4.5,"Estatus",1);
+            $fpdf->Cell(42,4.5,"Clificacion de unidades",1);
+            $fpdf->Cell(42,4.5,"Clificacion de unidades",1);
+            $fpdf->Cell(20,4.5,"Clificacion",1);
+            $fpdf->Cell(20,4.5,"Clificacion",1);
+            $fpdf->Cell(20,4.5,"Clificacion",1);
+            $fpdf->Cell(20,4.5,"Clificacion",1);
+            $fpdf->Cell(23,4.5,"Nivel de desempeno",1);
+            $fpdf->Ln();
+
+            $fpdf->Cell(5,4.5,"",1);
+            $fpdf->Cell(54,4.5,"Indicador",1);
+            $fpdf->Cell(15,4.5,"Estatus",1);
+            $fpdf->Cell(6,4.5,"1",1);
+            $fpdf->Cell(6,4.5,"2",1);
+            $fpdf->Cell(6,4.5,"3",1);
+            $fpdf->Cell(6,4.5,"4",1);
+            $fpdf->Cell(6,4.5,"5",1);
+            $fpdf->Cell(6,4.5,"6",1);
+            $fpdf->Cell(6,4.5,"7",1);
+
+            $fpdf->Cell(6,4.5,"1",1);
+            $fpdf->Cell(6,4.5,"2",1);
+            $fpdf->Cell(6,4.5,"3",1);
+            $fpdf->Cell(6,4.5,"4",1);
+            $fpdf->Cell(6,4.5,"5",1);
+            $fpdf->Cell(6,4.5,"6",1);
+            $fpdf->Cell(6,4.5,"7",1);
+            $fpdf->Ln();
+
+            $fpdf->Cell(5,4.5,"",1);
+            $fpdf->Cell(20,4.5,"Matricula",1);
+            $fpdf->Cell(34,4.5,"Nombre del alumno",1);
+            $fpdf->Cell(15,4.5,"Estatus",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"1",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"2",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"3",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"4",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"5",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"6",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"7",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"8",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"9",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"10",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"11",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"12",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"13",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"14",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"15",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"16",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"17",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"18",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"19",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Ln();
+
+
+            $fpdf->Cell(5,4,"20",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(34,4,"",1);
+            $fpdf->Cell(15,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(6,4,"",1);
         
-        
-        
-                 $fpdf->Output();
-        exit;
+         $fpdf->Output();
+    exit;
     }
 }
