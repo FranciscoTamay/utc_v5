@@ -22,7 +22,9 @@ use App\Http\Controllers\GruposController;
 use App\Http\Controllers\MaestrosController;
 use App\Http\Controllers\MatriculasController;
 use App\Http\Livewire\Asignaturas;
+
 use App\Http\Controllers\CalificacionesFpdfController;
+use App\Http\Controllers\CedulaInscripcionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +78,8 @@ Route::group(['middleware' => ['auth']], function() {
 });
 Route::resource('aspirante', Aspirantes2Controller::class);
 
-Route::get('fpdfCalificaciones', [CalificacionesFpdfController::class, 'hojares']);
+Route::get('fpdfCalificaciones', [CalificacionesFpdfController::class, 'calificacion']);
+Route::get('fpdfCedula', [CedulaInscripcionController::class, 'hojares']);
 // Route::get('calificaciones', function () {
 //     return view('calificaciones.calificaciones');
 // });

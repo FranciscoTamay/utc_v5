@@ -8,7 +8,7 @@ use Codedge\Fpdf\Fpdf\Fpdf;
 class CalificacionesFpdfController extends Controller
 {
     ///
-    public function hojares(){
+    public function calificacion(){
         //    return 'hola rporte';
          $fpdf = new FPDF('L','mm','Letter');
             $fpdf->AddPage();
@@ -27,6 +27,7 @@ class CalificacionesFpdfController extends Controller
             
             $fpdf->Cell(95,8,  utf8_decode('Como se enteró de la univercidad:'),0,1,'R');
 
+            $fpdf->SetFillColor(208, 211, 212);
             $fpdf->setfont('Arial','B', 6);
             $fpdf->ln();
             // tabla de carreras
@@ -60,27 +61,37 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4.5,"5",1);
             $fpdf->Cell(6,4.5,"6",1);
             $fpdf->Cell(6,4.5,"7",1);
+            $fpdf->Cell(20,4.5,"Final",1);
+            $fpdf->Cell(20,4.5,"Final",1);
+            $fpdf->Cell(20,4.5,"Final",1);
+            $fpdf->Cell(20,4.5,"",1);
+            $fpdf->Cell(23,4.5,"",1);
             $fpdf->Ln();
 
             $fpdf->Cell(5,4.5,"",1);
             $fpdf->Cell(20,4.5,"Matricula",1);
             $fpdf->Cell(34,4.5,"Nombre del alumno",1);
             $fpdf->Cell(15,4.5,"Estatus",1);
-            $fpdf->Cell(6,4.5,"",1);
-            $fpdf->Cell(6,4.5,"",1);
-            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(6,4.5,"20%",1);
+            $fpdf->Cell(6,4.5,"30%",1);
+            $fpdf->Cell(6,4.5,"50%",1);
             $fpdf->Cell(6,4.5,"",1);
             $fpdf->Cell(6,4.5,"",1);
             $fpdf->Cell(6,4.5,"",1);
             $fpdf->Cell(6,4.5,"",1);
 
+            $fpdf->Cell(6,4.5,"20%",1);
+            $fpdf->Cell(6,4.5,"30%",1);
+            $fpdf->Cell(6,4.5,"50%",1);
             $fpdf->Cell(6,4.5,"",1);
             $fpdf->Cell(6,4.5,"",1);
             $fpdf->Cell(6,4.5,"",1);
             $fpdf->Cell(6,4.5,"",1);
-            $fpdf->Cell(6,4.5,"",1);
-            $fpdf->Cell(6,4.5,"",1);
-            $fpdf->Cell(6,4.5,"",1);
+            $fpdf->Cell(20,4.5,"U.A/ORD",1);
+            $fpdf->Cell(20,4.5,"Remedial",1);
+            $fpdf->Cell(20,4.5,"Especial",1);
+            $fpdf->Cell(20,4.5,"Promedio final",1);
+            $fpdf->Cell(23,4.5,"",1);
             $fpdf->Ln();
 
 
@@ -103,6 +114,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -125,6 +141,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -147,6 +168,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -169,6 +195,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -191,6 +222,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -213,6 +249,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -235,6 +276,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -257,6 +303,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -279,6 +330,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -301,6 +357,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -323,6 +384,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -345,6 +411,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -367,6 +438,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -389,6 +465,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -411,6 +492,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -433,6 +519,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -455,6 +546,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -477,6 +573,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -499,6 +600,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
             $fpdf->Ln();
 
 
@@ -521,6 +627,11 @@ class CalificacionesFpdfController extends Controller
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
             $fpdf->Cell(6,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(20,4,"",1);
+            $fpdf->Cell(23,4,"",1);
         
          $fpdf->Output();
     exit;
