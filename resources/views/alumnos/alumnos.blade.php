@@ -20,11 +20,11 @@
                 <thead class="bg-darck text-center">
                     <tr>
                         <th class="inico ext-center">ID</th>
-                        <th class="text-center">CURP</th>
-                        <th class="text-center">NSS</th>
+                        <th class="text-center">NOMBRES</th>
                         <th class="text-center">APELLIDO PATERNO</th>
                         <th class="text-center">APELLIDO MATERNO</th>
-                        <th class="text-center">NOMBRES</th>
+                        <th class="text-center">CURP</th>
+                        <th class="text-center">NSS</th>
                         <th class="text-center">GENERO</th>
                         <th class="text-center">TELEFONO</th>
                         <th class="text-center">CORREO</th>
@@ -39,11 +39,11 @@
                     @foreach($alumnos as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->curp}}</td>
-                        <td>{{$run->num_seguro}}</td>
+                        <td>{{$run->nombres}}</td>
                         <td>{{$run->apellido_paterno}}</td>
                         <td>{{$run->apellido_materno}}</td>
-                        <td>{{$run->nombres}}</td>
+                        <td>{{$run->curp}}</td>
+                        <td>{{$run->num_seguro}}</td>
                         <td>{{$run->sexo}}</td>
                         <td>{{$run->telefono}}</td>
                         <td>{{$run->correo}}</td>
@@ -215,6 +215,10 @@
 
                     },
                 }]
+            },
+            fixedHeader: {
+                header: false,
+                footer: false
             },
             language: {
                 searchPlaceholder: "Buscar",

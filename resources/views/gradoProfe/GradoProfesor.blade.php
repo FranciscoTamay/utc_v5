@@ -120,6 +120,10 @@
                     },
                 }]
             },
+            fixedHeader: {
+                header: false,
+                footer: false
+            },
             language: {
                 searchPlaceholder: "Buscar",
                 search: "Buscar:",
