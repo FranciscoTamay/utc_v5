@@ -24,7 +24,7 @@
             <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger" onclick="event.preventDefault(); localStorage.clear();  document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
             </a>
-            <a href="Manula_De_Usuario.pdf" download class="dropdown-item has-icon text-success">
+            <a href="Manual_de_Usuario.pdf" download class="dropdown-item has-icon text-success">
                 <i class="fa-solid fa-cloud-arrow-down"></i>Manual Usuario
             </a>
             <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
