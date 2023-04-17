@@ -57,6 +57,14 @@
 
 
 
+<div id="miModal" class="modal3">
+  <div class="modal-contenido3">
+    <span class="cerrar3" onclick="cerrarModal()">&times;</span>
+    <iframe id="miIframe" width="100%" height="100%"></iframe>
+  </div>
+</div>
+
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <!-- DATATABLES RESPONSIVE -->
@@ -102,6 +110,58 @@
             }
         };
     }(jQuery));
+
+    function abrirModal() {
+  var modal = document.getElementById("miModal");
+  var iframe = document.getElementById("miIframe");
+  iframe.src = "Manual_de_Usuario.pdf";
+  modal.style.display = "block";
+}
+
+function cerrarModal() {
+  var modal = document.getElementById("miModal");
+  modal.style.display = "none";
+  var iframe = document.getElementById("miIframe");
+  iframe.src = "";
+}
+// Obtener la ventana modal
+var modal = document.getElementById("miModal");
+
+// Obtener la ubicación del cursor en el momento en que se hace clic
+var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+modal.onmousedown = dragMouseDown;
+
+function dragMouseDown(e) {
+  e = e || window.event;
+  e.preventDefault();
+  // Obtener la posición del cursor en el momento en que se hace clic
+  pos3 = e.clientX;
+  pos4 = e.clientY;
+  document.onmouseup = closeDragElement;
+  // Llamar a la función para mover la ventana modal cada vez que el cursor se mueve
+  document.onmousemove = elementDrag;
+}
+
+function elementDrag(e) {
+  e = e || window.event;
+  e.preventDefault();
+  // Calcular la nueva posición de la ventana modal
+  pos1 = pos3 - e.clientX;
+  pos2 = pos4 - e.clientY;
+  pos3 = e.clientX;
+  pos4 = e.clientY;
+  // Establecer la nueva posición de la ventana modal
+  modal.style.top = (modal.offsetTop - pos2) + "px";
+  modal.style.left = (modal.offsetLeft - pos1) + "px";
+}
+
+function closeDragElement() {
+  // Detener el movimiento de la ventana modal cuando el usuario suelta el clic
+  document.onmouseup = null;
+  document.onmousemove = null;
+}
+
+
 </script>
 <!-- MOMENT JS -->
 <script src="{{ asset('all-js/moment.js') }}"></script>
