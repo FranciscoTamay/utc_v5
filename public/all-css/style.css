@@ -4595,9 +4595,10 @@ body::-webkit-scrollbar-thumb {
     border-radius: 24px;
 }
 
-.dropdown-item{
+.dropdown-item {
     cursor: pointer;
 }
+
 @media (max-width: 1024px) {
 
     .modal-contenido3 {
@@ -4620,4 +4621,14 @@ body::-webkit-scrollbar-thumb {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.side-menus a:last-child {
+    font-size: 1.5rem;
+    margin-top: 6rem;
+}
+.side-menus a:hover{
+    border-radius: 20px;
+    border: 2px solid #fff;
+    color: #dbdf0e;
 }
