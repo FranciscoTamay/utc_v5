@@ -14,6 +14,7 @@ class Matriculas extends Model
     protected $fillable=[
         'id',
         'matricula',
-        'id_alumno'        
+        'id_alumno',   
+        'id_grupo'     
     ];
 }

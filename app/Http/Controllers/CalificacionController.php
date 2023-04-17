@@ -8,6 +8,8 @@ use App\Models\Asignaturas;
 use App\Models\Carreras;
 use App\Models\Maestros;
 use App\Models\Grupos;
+use App\Models\Matriculas;
+use Illuminate\Support\Facades\DB;
 
 class CalificacionController extends Controller
 {
@@ -69,4 +71,16 @@ class CalificacionController extends Controller
     {
         //
     }
+
+    public function obtenerAlumnosPorGrupo(Request $request)
+{
+    // Obtener el id del grupo seleccionado
+    $grupoId = $request->input('id');
+
+    // Obtener los alumnos del grupo
+    $alumnos = Matriculas::where('id_grupo', $grupoId)->get();
+
+    // Devolver los alumnos en formato JSON
+    return response()->json($alumnos);
+}
 }

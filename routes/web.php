@@ -72,6 +72,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('pedos', Asignaturas::class);
     Route::resource('grados', GradoProfesorController::class);
     Route::resource('calificaciones', CalificacionController::class);
+    Route::post('/matriculas/obtener-alumnos', [CalificacionController::class,'obtenerAlumnosPorGrupo'])->name('alumnos.obtener-alumnos');
+
     
 // RUTAs DE HECTOR
 // FIN DE LAS RUTAS DE HECTOR
@@ -86,7 +88,9 @@ Route::get('fpdfCedula', [CedulaInscripcionController::class, 'hojares']);
 //  
 Route::get('nota/{folio}',[Aspirantes2Controller::class,'nota'])->name('nota');
 
-Route::get('ticket/{folio}', ['as'=>'ticket', 'uses'=>'ventaController@ticket']);
+// Route::get('ticket/{folio}', ['as'=>'ticket', 'uses'=>'ventaController@ticket']);
+
+
 
 
 
