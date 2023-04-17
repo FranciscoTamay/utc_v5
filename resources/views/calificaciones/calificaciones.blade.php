@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/all-css/bootstrap.css">
   <link rel="icon" type="image/png" href="img/utc.png">
 
   <title>UTC</title>
@@ -21,8 +21,6 @@
 
     <form action="">
       <label for="" class="label1">Carrera:</label>
-      <input type="text" class="form_input">
-
       <select name="" class="" required>
         <option class="" value="">Carrera</option>
         @foreach($carreras as $row)
@@ -44,6 +42,11 @@
       <span class="texto_simbol">SIMBOLOGIA NIVELES DE DESEMPEÑO</span>
     </form>
 
+
+
+
+
+
     <form action="">
       <label for="" class="label3">Grupo:</label>
       
@@ -51,13 +54,14 @@
       <select name="" class="" required>
         <option class="" value="">Grupos</option>
         @foreach($grupos as $row)
-        <option value="{{$row->id}}">{{$row->id}}</option>
+        <option value="{{$row->id}}">{{$row->nombre_grupo}}</option>
         @endforeach
       </select>
       <!-- fin del select -->
 
+      
+
       <label for="" class="label4">Docente:</label>
-      <input type="text" class="form_input">
       <select name="" class="" required>
         <option class="" value="">Asignaturas</option>
         @foreach($maestros as $row)
@@ -67,6 +71,36 @@
       <span class="texto_simbo2">O:ordinario &nbsp; G:ordinario global </span>
       <span class="texto_simbo2_1">SA:satisfactorio &nbsp; DE:destacado</span>
     </form>
+
+    <!-- form para seleecionar el grupo y traer alumnos  -->
+    <form action="{{ route('alumnos.obtener-alumnos') }}" method="POST">
+  @csrf <!-- Agrega el token CSRF para proteger la solicitud -->
+  <label for="select-grupo">Seleccione un grupo:</label>
+  <select name="grupo" id="select-grupo">
+    @foreach ($grupos as $grupo)
+      <option value="{{ $grupo->id }}">{{ $grupo->nombre_grupo }}</option>
+    @endforeach
+  </select>
+  <button type="submit">Buscar alumnos</button>
+</form>
+
+    <!-- fiin del form -->
+
+    <!-- aqui hare la prueba para la tabla de alumnos -->
+
+    <table id="tabla-alumnos">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+      <!-- fin de la prueba de la tabla de alumnos -->
 
     <form action="">
       <label for="" class="label5">Cuatrimestre:</label>
@@ -419,6 +453,43 @@
       </table>
     </div>
   </div>
+  <script src="">
+    $(document).ready(function() {
+  // Manejar el evento change del select de grupos
+  $('#grupo').on('change', function() {
+    // Obtener el ID del grupo seleccionado
+    var grupoId = $(this).val();
+
+    // Enviar la solicitud AJAX al servidor
+    $.ajax({
+      url: '{{ route("alumnos.obtener-alumnos") }}',
+      type: 'POST',
+      data: {
+        grupo: grupoId,
+        _token: '{{ csrf_token() }}'
+      },
+      dataType: 'json',
+      success: function(response) {
+        // Actualizar la tabla de alumnos
+        var tabla = $('#tabla-alumnos');
+        tabla.find('tbody').empty();
+        for (var i = 0; i < response.length; i++) {
+          var alumno = response[i];
+          var fila = $('<tr>');
+          fila.append($('<td>').text(alumno.id));
+          fila.append($('<td>').text(alumno.matricula));
+          
+          tabla.find('tbody').append(fila);
+        }
+      },
+      error: function(xhr, status, error) {
+        console.error(error);
+      }
+    });
+  });
+});
+
+  </script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@
                         <th class="text-center">APELLIDO PATERNO</th>
                         <th class="text-center">APELLIDO MATERNO</th>
                         <th class="fin text-center">NOMBRES</th>
-
+                        <th class="fin text-center">Grupo</th>
                         <th class="accion text-center">ACCIONES</th>
                     </tr>
                 </thead>
@@ -35,6 +35,7 @@
                         <td>{{$run->apellido_paterno}}</td>
                         <td>{{$run->apellido_materno}}</td>
                         <td>{{$run->nombres}}</td>
+                        <td>{{$run->nombre_grupo}}</td>
 
                         <td>
                             <div class="d-inline-block me-2">
@@ -91,6 +92,19 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </span>
+                        <select class="form-control" name="id_grupo" id="">
+                            <option value="">Grupos</option>
+                            @foreach($grupos as $row)
+                            <option value="{{$row->id}}">{{$row->nombre_grupo}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
 
                     <div class="row">
                         <div class="col-md-3"></div>
