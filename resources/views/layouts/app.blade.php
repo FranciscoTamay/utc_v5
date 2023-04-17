@@ -114,7 +114,7 @@
     function abrirModal() {
   var modal = document.getElementById("miModal");
   var iframe = document.getElementById("miIframe");
-  iframe.src = "Manual_de_Usuario.pdf";
+  iframe.src = "Manual de Usuario.pdf";
   modal.style.display = "block";
 }
 
