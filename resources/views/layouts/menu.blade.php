@@ -39,10 +39,10 @@
     <a class="nav-link" href="/registrop">
         <i class="fas fa-money-check-dollar" ></i><span>Pagos</span>
     </a>
-
+<!-- 
     <a class="nav-link" href="/planEstudio">
         <i class="fas fa-book" ></i><span>Plan Estudio</span>
-    </a>
+    </a> -->
 
     <a class="nav-link" href="/asp">
         <i class="fas fa-clipboard-question" ></i><span>Aspirantes</span>

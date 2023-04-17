@@ -1,10 +1,5 @@
-'use strict';
-let jsrender = require('jsrender');
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-    },
-});
+
+
 $(document).ajaxComplete(function () {
     // Required for Bootstrap tooltips in DataTables
     $('[data-toggle="tooltip"]').tooltip({
