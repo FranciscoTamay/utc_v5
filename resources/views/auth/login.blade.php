@@ -5,9 +5,9 @@
 Admin Login
 @endsection
 @section('content')
-<div class="container">
-    <div class="box">
-        <div class="content">
+<div class="container1">
+    <div class="box1">
+        <div class="content1">
             <div class="form">
                 <h3 class="logo"><img src='img/utc.png'></h3>
                 <h2>UTC</h2>

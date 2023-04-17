@@ -15,14 +15,14 @@ body {
     content: center;
 }
 
-.container {
-    margin-top: 5rem;
+.container1 {
+    margin-top: -1rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container .box {
+.container1 .box1 {
     position: relative;
     width: 100rem;
     height: 40rem;
@@ -31,7 +31,7 @@ body {
     align-items: center;
 }
 
-.container .box::before {
+.container1 .box1::before {
     content: '';
     position: absolute;
     top: 0;
@@ -43,7 +43,7 @@ body {
     z-index: 1;
 }
 
-.container .box::after {
+.container1 .box1::after {
     content: '';
     position: absolute;
     top: 1;
@@ -55,7 +55,7 @@ body {
     z-index: 1;
 }
 
-.container .box .shadow {
+.container1 .box1 .shadow {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -63,7 +63,7 @@ body {
 }
 
 
-.container .box .shadow::before {
+.container1 .box1 .shadow::before {
     content: '';
     position: absolute;
     top: 0;
@@ -74,7 +74,7 @@ body {
     transform: skewX(45deg);
 }
 
-.container .box .shadow::after {
+.container1 .box1 .shadow::after {
     content: '';
     position: absolute;
     bottom: -200%;
@@ -95,7 +95,7 @@ body {
     z-index: 10;
 }
 
-.content {
+.content1 {
     position: relative;
     width: 100%;
     height: 100%;
@@ -110,7 +110,7 @@ body {
     align-items: center;
 }
 
-.content .form {
+.content1 .form {
     position: relative;
     width: 260px;
     display: flex;
@@ -131,19 +131,19 @@ body {
     border-radius: 50%;
 }
 
-.content .form h2 {
+.content1 .form h2 {
     font-size: 2em;
     color: #54555a;
     margin-bottom: 20px;
 }
 
-.content .form .inputBox {
+.content1 .form .inputBox {
     position: relative;
     width: 100%;
     margin-top: 30px;
 }
 
-.content .form .inputBox input {
+.content1 .form .inputBox input {
     position: relative;
     width: 100%;
     padding: 10px 0 10px 25px;
@@ -156,7 +156,7 @@ body {
     color: #54555a;
 }
 
-.content .form .inputBox i {
+.content1 .form .inputBox i {
     position: absolute;
     left: 0;
     bottom: 15px;
@@ -164,7 +164,7 @@ body {
     color: #54555a;
 }
 
-.content .form .inputBox span {
+.content1 .form .inputBox span {
     position: absolute;
     left: 0;
     padding: 10px 0 10px 25px;
@@ -174,8 +174,8 @@ body {
     transition: 0.3s;
 }
 
-.content .form .inputBox input:focus~span,
-.content .form .inputBox input:valid~span {
+.content1 .form .inputBox input:focus~span,
+.content1 .form .inputBox input:valid~span {
     transform: translateY(-20px);
     font-size: 0.9em;
     background: #54555a;
@@ -184,19 +184,19 @@ body {
     border-radius: 5px;
 }
 
-.content .form .links {
+.content1 .form .links {
     width: 100%;
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
 }
 
-.content .form .links a {
+.content1 .form .links a {
     color: #54555a;
     text-decoration: none;
 }
 
-.content .form .inputBox input[type="submit"] {
+.content1 .form .inputBox input[type="submit"] {
     background: #54555a;
     border-bottom: 3px solid #54555a;
     color: #dbdae1;
@@ -205,7 +205,7 @@ body {
     border-radius: 10px;
 }
 
-.content .form .inputBox input[type="submit"]:hover {
+.content1 .form .inputBox input[type="submit"]:hover {
     background: #262729;
     border: 3px solid #262729;
 }
@@ -218,17 +218,14 @@ body {
     display: none;
 }
 
-.container mt-5 {
-    display: none;
-}
 
 .section {
     background: #202528 !important;
 }
 
-@media (max: 575px) {
+@media (min: 575px) {
 
-    .content .form {
+    .content1 .form {
         position: relative;
         width: 260px;
         display: flex;
@@ -249,19 +246,19 @@ body {
         border-radius: 50%;
     }
 
-    .content .form h2 {
+    .content1 .form h2 {
         font-size: 2em;
         color: #54555a;
         margin-bottom: 20px;
     }
 
-    .content .form .inputBox {
+    .content1 .form .inputBox {
         position: relative;
         width: 100%;
         margin-top: 30px;
     }
 
-    .content .form .inputBox input {
+    .content1 .form .inputBox input {
         position: relative;
         width: 100%;
         padding: 10px 0 10px 25px;
@@ -274,7 +271,7 @@ body {
         color: #54555a;
     }
 
-    .content .form .inputBox i {
+    .content1 .form .inputBox i {
         position: absolute;
         left: 0;
         bottom: 15px;
@@ -282,7 +279,7 @@ body {
         color: #54555a;
     }
 
-    .content .form .inputBox span {
+    .content1 .form .inputBox span {
         position: absolute;
         left: 0;
         padding: 10px 0 10px 25px;
@@ -292,8 +289,8 @@ body {
         transition: 0.3s;
     }
 
-    .content .form .inputBox input:focus~span,
-    .content .form .inputBox input:valid~span {
+    .content1 .form .inputBox input:focus~span,
+    .content1 .form .inputBox input:valid~span {
         transform: translateY(-20px);
         font-size: 0.9em;
         background: #54555a;
@@ -302,19 +299,19 @@ body {
         border-radius: 5px;
     }
 
-    .content .form .links {
+    .content1 .form .links {
         width: 100%;
         margin-top: 15px;
         display: flex;
         justify-content: space-between;
     }
 
-    .content .form .links a {
+    .content1 .form .links a {
         color: #54555a;
         text-decoration: none;
     }
 
-    .content .form .inputBox input[type="submit"] {
+    .content1 .form .inputBox input[type="submit"] {
         background: #54555a;
         border-bottom: 3px solid #54555a;
         color: #dbdae1;
@@ -323,7 +320,7 @@ body {
         border-radius: 10px;
     }
 
-    .content .form .inputBox input[type="submit"]:hover {
+    .content1 .form .inputBox input[type="submit"]:hover {
         background: #262729;
         border: 3px solid #262729;
     }
