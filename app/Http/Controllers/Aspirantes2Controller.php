@@ -33,9 +33,13 @@ class Aspirantes2Controller extends Controller
     public function store(Request $request)
     {
         //
+        $nuevoFolio = 'UTC' . now()->format('YmdHis') . uniqid();
+
         $aspirante = new Aspirantes($request->input());
+        $aspirante->folio = $nuevoFolio;
         $aspirante->saveOrFail();
-        return redirect('aspirante');
+        return redirect()->route('aspirante.agregado');
+
     }
 
 

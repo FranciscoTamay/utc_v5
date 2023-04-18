@@ -3,7 +3,16 @@
 <section class="section mt-4">
     <div class="card-body">
         <h2 class="title-2">Aspirantes</h2>
+        <div class="col-md-4 offset-md-4">
+            <div class="d-grid mx-auto">
+                <button class="btn btn-dark">
+                    <a href=""></a>
+                    <i class="fa-solid fa-circle-plus"></i> Añadir
+                </button>
+            </div>
+        </div>
         <div class="respon">
+            
             <table id="example" class="xd display responsive nowrap rounded-table" style="width:95%">
                 <thead class="bg-darck text-center">
                     <tr>

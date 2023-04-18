@@ -42,9 +42,7 @@ use App\Http\Controllers\CedulaInscripcionController;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('alumno', function () {
-    return view('aspirantes.aspiranteAm');
-});
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -78,7 +76,11 @@ Route::group(['middleware' => ['auth']], function() {
 // RUTAs DE HECTOR
 // FIN DE LAS RUTAS DE HECTOR
 });
-Route::resource('aspirante', Aspirantes2Controller::class);
+Route::resource('form', Aspirantes2Controller::class);
+Route::get('/aspirante/agregado', function () {
+    return view('nota/{folio}');
+})->name('aspirante.agregado');
+
 
 Route::get('fpdfCalificaciones', [CalificacionesFpdfController::class, 'calificacion']);
 Route::get('fpdfCedula', [CedulaInscripcionController::class, 'hojares']);

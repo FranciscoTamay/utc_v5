@@ -38,6 +38,22 @@
                             </select>
                         </div>
 
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            </span>
+                            
+                            <select class="form-control" name="id_grupo" id="" value="{{ $matricula->id_grupo}}" required>
+                            @foreach($grupos as $row)
+                            @if ($row->id == $matricula->id_grupo)
+                            <option selected value="{{$row->id}}">{{$row->nombre_grupo}}</option>
+                            @else
+                            <option value="{{$row->id}}">{{$row->nombre_grupo}}</option>
+                            @endif
+                            @endforeach
+                            </select>
+                        </div>
+
                         
                         
                         <div class="row">

@@ -36,7 +36,7 @@ class MatriculasController extends Controller
         //
         $matricula = new Matriculas($request->input());
         $matricula->saveOrFail();
-        return redirect('matriculas','alumnos');
+        return redirect('matriculas');
     }
 
     /**
@@ -50,7 +50,8 @@ class MatriculasController extends Controller
         //
         $matricula = Matriculas::find($id);
         $alumnos = Alumnos::all();
-        return view('matriculas.editarMatriculas',compact('matricula','alumnos'));
+        $grupos = Grupos::all();
+        return view('matriculas.editarMatriculas',compact('matricula','alumnos','grupos'));
 
     }
 
@@ -66,7 +67,7 @@ class MatriculasController extends Controller
         //
         $matricula = Matriculas::find($id);
         $matricula->fill($request->input())->saveOrFail();
-        return redirect('matriculas','alumnos');
+        return redirect('matriculas');
 
     }
 
