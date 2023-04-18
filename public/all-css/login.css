@@ -16,10 +16,11 @@ body {
 }
 
 .container1 {
-    margin-top: -1rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .container1 .box1 {
@@ -29,6 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .container1 .box1::before {
@@ -220,7 +222,7 @@ body {
 
 
 .section {
-    background: #1a2227 !important;
+    background: #23232e !important;
 }
 
 @media (min: 575px) {
@@ -236,8 +238,6 @@ body {
 
     .logo {
         margin-top: -5rem;
-        background: #54555a00;
-        color: #dbdae1;
         font-size: 1.75em;
         margin-bottom: 10px;
         display: flex;
@@ -248,7 +248,6 @@ body {
 
     .content1 .form h2 {
         font-size: 2em;
-        color: #54555a;
         margin-bottom: 20px;
     }
 
@@ -266,9 +265,7 @@ body {
         background: transparent;
         box-shadow: none;
         border: none;
-        border-bottom: 3px solid #54555a;
         outline: none;
-        color: #54555a;
     }
 
     .content1 .form .inputBox i {
@@ -276,7 +273,6 @@ body {
         left: 0;
         bottom: 15px;
         font-size: 1.25em;
-        color: #54555a;
     }
 
     .content1 .form .inputBox span {
@@ -285,7 +281,6 @@ body {
         padding: 10px 0 10px 25px;
         font-size: 1.25em;
         pointer-events: none;
-        color: #54555a;
         transition: 0.3s;
     }
 
@@ -293,8 +288,6 @@ body {
     .content1 .form .inputBox input:valid~span {
         transform: translateY(-20px);
         font-size: 0.9em;
-        background: #54555a;
-        color: #fff;
         padding: 2px 4px;
         border-radius: 5px;
     }
@@ -307,22 +300,13 @@ body {
     }
 
     .content1 .form .links a {
-        color: #54555a;
         text-decoration: none;
     }
 
     .content1 .form .inputBox input[type="submit"] {
-        background: #54555a;
-        border-bottom: 3px solid #54555a;
-        color: #dbdae1;
         cursor: pointer;
         padding: 10px;
         border-radius: 10px;
-    }
-
-    .content1 .form .inputBox input[type="submit"]:hover {
-        background: #262729;
-        border: 3px solid #262729;
     }
 
 }
