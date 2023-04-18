@@ -20,14 +20,19 @@ class CalificacionesFpdfController extends Controller
 
             $fpdf->setfont('Arial','B',7);
             $fpdf->Cell(20,8,  utf8_decode('Carrera:'),0,0,'L');
-            $fpdf->ln();
+            $fpdf->Cell(40,8,  utf8_decode(''),0,0,'L');
+            $fpdf->Cell(20,8,  utf8_decode('Asignatura:'),0,1,'L');
+          
             $fpdf->Cell(20,8,  utf8_decode('Grupo:'),0,0,'L');
-            $fpdf->ln();
+            $fpdf->Cell(40,8,  utf8_decode(''),0,0,'L');
+            $fpdf->Cell(20,8,  utf8_decode('Docente:'),0,1,'L');
+         
             $fpdf->Cell(20,8,  utf8_decode('Cuatrimestre:'),0,0,'L');
-            
-            $fpdf->Cell(95,8,  utf8_decode('Como se enteró de la univercidad:'),0,1,'R');
+            $fpdf->Cell(40,8,  utf8_decode(''),0,0,'L');
+            $fpdf->Cell(20,8,  utf8_decode('Año:'),0,1,'L');
 
-            $fpdf->SetFillColor(208, 211, 212);
+            $fpdf->SetDrawColor(0, 0,0);
+            $fpdf->SetFillColor(189, 189, 189);
             $fpdf->setfont('Arial','B', 6);
             $fpdf->ln();
             // tabla de carreras
