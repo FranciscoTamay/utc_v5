@@ -19,16 +19,10 @@ class GruposController extends Controller
     public function index()
     {
         //
-        $grupos = Grupos::select('grupos.id','id_matricula','id_asignatura','id_profesor','id_carrera','nombre_asignatura','nombre_carrera','matricula','apellido_paterno','apellido_materno','nombres')
-        ->join('asignaturas','asignaturas.id','=','grupos.id_asignatura')
-        ->join('carreras','carreras.id','=','grupos.id_carrera')
-        ->join('matriculas','matriculas.id','=','grupos.id_matricula')
-        ->join('maestros','maestros.id','=','grupos.id_profesor')->get();
+        $grupos = Grupos::select('grupos.id','id_carrera','nombre_carrera')
+        ->join('carreras','carreras.id','=','grupos.id_carrera')->get();
         $carreras = Carreras::all();
-        $asignaturas = Asignaturas::all();
-        $matriculas = Matriculas::all();
-        $maestros = Maestros::all();
-        return view('grupos.grupos',compact('grupos','carreras','asignaturas','matriculas','maestros'));
+        return view('grupos.grupos',compact('grupos','carreras'));
 
     }
 

@@ -23,13 +23,7 @@
                 <thead class="bg-darck text-center">
                     <tr>
                         <th class="inico text-center">ID</th>
-                        <th class="inico text-center">GRUPO</th>
-                        <th class="text-center">ID MATRICULAS</th>
-                        <th class="text-center">ID ASIGNATURA</th>
-                        <th class="text-center">PROFESOR NOMBRES</th>
-                        <th class="text-center">APELLIDO PATERNO</th>
-                        <th class="text-center">APELLIDO MATERNO</th>
-                        <th class="fin text-center">ID CARRERA</th>
+                        <th class="fin text-center">CARRERA</th>
                         <th class="accion text-center">ACCIONES</th>
                     </tr>
                 </thead>
@@ -38,12 +32,6 @@
                     @foreach($grupos as $run)
                     <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$run->nombre_grupo}}</td>
-                        <td>{{$run->matricula}}</td>
-                        <td>{{$run->nombre_asignatura}}</td>
-                        <td>{{$run->nombres}}</td>
-                        <td>{{$run->apellido_paterno}}</td>
-                        <td>{{$run->apellido_materno}}</td>
                         <td>{{$run->nombre_carrera}}</td>
                         <td>
 
@@ -92,40 +80,7 @@
                         <input type="text" name="nombre_grupo" class="form-control" maxlength="120" placeholder="Nombre del Grupo"  required>
                     </div>
 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </span>
-                        <select class="form-control select2" name="id_matricula" id="" required style="width: 85%;">
-                            <option value="">Seleccione la matricula</option>
-                            @foreach($matriculas as $row)
-                            <option value="{{$row->id}}">{{$row->matricula}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </span>
-                        <select class="form-control select2" name="id_asignatura" id="" required style="width: 85%;">
-                            <option value="">Seleccione la asignatura</option>
-                            @foreach($asignaturas as $row)
-                            <option value="{{$row->id}}">{{$row->nombre_asignatura}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
-                        <select name="id_profesor" class="form-control select2" required style="width: 85%;">
-                            <option value="">Seleccione el codigo del profesor</option>
-                            @foreach($maestros as $row)
-                            <option value="{{$row->id}}">{{$row->codigo}}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
+                   
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
