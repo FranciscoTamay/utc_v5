@@ -4622,13 +4622,26 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     cursor: pointer;
 }
-
+.side-menus a{
+    border: 20px;
+}
 .side-menus a:last-child {
     font-size: 1.5rem;
-    margin-top: 6rem;
+    color: #dfc00e !important;
+    background: var(--var-fondo) !important;
+    border-radius: 20px;
+    cursor: pointer;
 }
+
+.side-menus a:last-child:hover{
+    font-size: 1.5rem;
+    color: #fff !important;
+    background: var(--var-background) !important;
+    border-radius: 20px;
+}
+
 .side-menus a:hover{
     border-radius: 20px;
-    border: 2px solid #fff;
-    color: #dbdf0e;
+    border: 2px solid #dfc00e;
+    color: #dfc00e !important;
 }

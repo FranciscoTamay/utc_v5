@@ -71,8 +71,10 @@
         <i class="fas fa-envelope-open-text"></i></i><span>Calificaciones</span>
     </a>
 
-    <a onclick="abrirModal()" class="dropdown-item has-icon">
-    <i class="fa-solid fa-circle-info fa-beat fa-sm"></i> Ver Manual
+    <a onclick="abrirModal()" class="nav-link">
+
+        <i class="fas fa-circle-info fa-beat"></i><span>Ver Manual</span>
+
     </a>
 
 </li>

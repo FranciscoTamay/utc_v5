@@ -54,7 +54,7 @@
                         <td>
 
                             <div class="d-inline-block me-2">
-                                <a href="{class="d-inline-block me-2"{ url('alumnos',[$run]) }}" class="btn btn-success">
+                                <a href="{class=" d-inline-block me-2"{ url('alumnos',[$run]) }}" class="btn btn-success">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
                             </div>
@@ -91,14 +91,14 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="curp" class="form-control" maxlength="50" placeholder="CURP del Alumno" required>
+                        <input type="text" name="curp" class="form-control" maxlength="18" placeholder="CURP del Alumno" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="num_seguro" class="form-control" maxlength="120" placeholder="NSS del alumno" required>
+                        <input type="number" name="num_seguro" class="form-control" maxlength="10" placeholder="NSS del alumno" required>
                     </div>
 
                     <div class="input-group mb-3">
@@ -138,7 +138,7 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="telefono" class="form-control" maxlength="120" placeholder="Número del Alumno" required>
+                        <input type="number" name="telefono" class="form-control" maxlength="10" placeholder="Número del Alumno" required>
                     </div>
 
                     <div class="input-group mb-3">
@@ -260,5 +260,21 @@
         });
 
     });
+    const inputNumSeguro = document.querySelector('input[name="num_seguro"]');
+
+    inputNumSeguro.addEventListener('input', () => {
+        const maxLength = 10;
+        if (inputNumSeguro.value.length > maxLength) {
+            inputNumSeguro.value = inputNumSeguro.value.slice(0, maxLength);
+        }
+    });
+    const inputtelefono = document.querySelector('input[name="telefono"]');
+
+inputNumSeguro.addEventListener('input', () => {
+    const maxLength = 10;
+    if (inputNumSeguro.value.length > maxLength) {
+        inputNumSeguro.value = inputNumSeguro.value.slice(0, maxLength);
+    }
+});
 </script>
 @endsection()
