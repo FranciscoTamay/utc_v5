@@ -16,8 +16,7 @@ class CalificacionesFpdfController extends Controller
             $fpdf->setfont('arial','B',14);
             $fpdf->Cell(180, 3, utf8_decode('UNIVERSIDAD TECNOLOGICA DEL CENTRO'), 0, 1, 'C');
             $fpdf->SetFont('Arial', 'B', 10);
-            $fpdf->Cell(180, 10, utf8_decode('ACTA DE CALIFICACIONES FINALES'), 0, 1, 'C');
-
+            $fpdf->Cell(180, 8, utf8_decode('ACTA DE CALIFICACIONES FINALES'), 0, 1, 'C');
             $fpdf->setfont('Arial','B',7);
             $fpdf->Cell(20,8,  utf8_decode('Carrera:'),0,0,'L');
             $fpdf->Cell(40,8,  utf8_decode(''),0,0,'L');

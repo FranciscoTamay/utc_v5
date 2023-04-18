@@ -5,10 +5,12 @@
         <h2 class="title-2">Aspirantes</h2>
         <div class="col-md-4 offset-md-4">
             <div class="d-grid mx-auto">
-                <button class="btn btn-dark">
-                    <a href=""></a>
+            <a href="form" >
+                <button class="btn btn-dark col-md-4 offset-md-4">
+                    
                     <i class="fa-solid fa-circle-plus"></i> Añadir
                 </button>
+                </a>
             </div>
         </div>
         <div class="respon">
