@@ -43,7 +43,7 @@
         <i class="fas fa-book" ></i><span>Plan Estudio</span>
     </a> -->
 
-    <a class="nav-link" href="/asp">
+    <a class="nav-link" href="/form">
         <i class="fas fa-clipboard-question"></i><span>Aspirantes</span>
     </a>
 

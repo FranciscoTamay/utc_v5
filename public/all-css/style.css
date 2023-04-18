@@ -4631,6 +4631,7 @@ body::-webkit-scrollbar-thumb {
     background: var(--var-fondo) !important;
     border-radius: 20px;
     cursor: pointer;
+    width: 98% !important;
 }
 
 .side-menus a:last-child:hover{
