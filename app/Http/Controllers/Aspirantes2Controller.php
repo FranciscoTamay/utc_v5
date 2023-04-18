@@ -35,12 +35,12 @@ class Aspirantes2Controller extends Controller
     {
         //
 
-        $nuevoFolio = 'UTC' . now()->format('Ymd') . uniqid();
+        $nuevoFolio = 'UTC' . now()->format('m') . uniqid();
         $aspirante = new Aspirantes($request->input());
         $aspirante->folio = $nuevoFolio;
         $aspirante->saveOrFail();
 
-        return redirect('aspirante');
+        return redirect('aspirante')->with('nuevoFolio', $nuevoFolio);
     }
 
 
