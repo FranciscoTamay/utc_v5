@@ -39,13 +39,11 @@
     <a class="nav-link" href="/registrop">
         <i class="fas fa-money-check-dollar"></i><span>Pagos</span>
     </a>
-    <!--<a class="nav-link" href="/planEstudio">
-        <i class="fas fa-book" ></i><span>Plan Estudio</span>
-    </a> -->
 
-    <a class="nav-link" href="/form">
-        <i class="fas fa-clipboard-question"></i><span>Aspirantes</span>
+    <a class="nav-link" href="/asp">
+        <i class="fas fa-book" ></i><span>Aspirantes</span>
     </a>
+
 
     <a class="nav-link" href="/matriculas">
         <i class="fas fa-id-card-clip"></i><span>Matriculas</span>
@@ -69,6 +67,10 @@
 
     <a class="nav-link" href="/calificaciones">
         <i class="fas fa-envelope-open-text"></i></i><span>Calificaciones</span>
+    </a>
+
+    <a class="nav-link" href="/form">
+        <i class="fas fa-clipboard-question"></i><span>ASPIRANTES</span>
     </a>
 
     <a onclick="abrirModal()" class="nav-link">

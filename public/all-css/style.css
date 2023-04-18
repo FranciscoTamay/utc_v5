@@ -4626,6 +4626,7 @@ body::-webkit-scrollbar-thumb {
     border: 20px;
 }
 .side-menus a:last-child {
+    margin-top: 0.5rem;
     font-size: 1.5rem;
     color: #dfc00e !important;
     background: var(--var-fondo) !important;
