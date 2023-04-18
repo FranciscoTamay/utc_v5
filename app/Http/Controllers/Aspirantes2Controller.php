@@ -14,12 +14,13 @@ class Aspirantes2Controller extends Controller
     public function index()
     {
         //
+        $nuevoFolio = 'UTC-' . now()->format('m') . uniqid();
         $carreras = Carreras::all();
         $procedencias = Procedencias::all();
         $aspirantes = Aspirantes::select('aspirantes.id', 'folio', 'nombres', 'apellido_p', 'apellido_m', 'curp', 'correo', 'telefono', 'localidad', 'genero', 'id_procedencia', 'id_carrera', 'nombre_carrera', 'nombre_esc')
             ->join('carreras', 'carreras.id', '=', 'aspirantes.id_carrera',)
             ->join('procedencia', 'procedencia.id', '=', 'aspirantes.id_procedencia')->get();
-        return view('aspirantes.aspiranteAm', compact('aspirantes', 'procedencias', 'carreras'));
+        return view('aspirantes.aspiranteAm', compact('aspirantes', 'procedencias', 'carreras','nuevoFolio'));
     }
 
 
@@ -33,13 +34,10 @@ class Aspirantes2Controller extends Controller
     public function store(Request $request)
     {
         //
-        $nuevoFolio = 'UTC' . now()->format('YmdHis') . uniqid();
-
+       
         $aspirante = new Aspirantes($request->input());
-        $aspirante->folio = $nuevoFolio;
         $aspirante->saveOrFail();
-        return redirect()->route('aspirante.agregado');
-
+        return redirect('aspirante');
     }
 
 

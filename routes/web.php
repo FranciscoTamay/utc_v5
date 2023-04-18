@@ -77,9 +77,9 @@ Route::group(['middleware' => ['auth']], function() {
 // FIN DE LAS RUTAS DE HECTOR
 });
 Route::resource('form', Aspirantes2Controller::class);
-Route::get('/aspirante/agregado', function () {
-    return view('nota/{folio}');
-})->name('aspirante.agregado');
+// Route::get('/aspirante/agregado', function () {
+//     return view('nota/{folio}');
+// })->name('aspirante.agregado');
 
 
 Route::get('fpdfCalificaciones', [CalificacionesFpdfController::class, 'calificacion']);

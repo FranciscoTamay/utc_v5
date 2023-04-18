@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="all-css/aspirantes.css">
     <link rel="icon" type="image/png" href="img/utc.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <!-- SELECT 2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!-- fin -->
     <title>UTC</title>
 </head>
 <body>
@@ -15,19 +20,19 @@
         <div class="title">Bienvenido a la UTC
             <img class="logo" src="img/utc.png" alt="">
         </div>
-        <form id="frmServicios" method="POST" action="{{url('aspirante')}}">
+        <form id="frmServicios" method="POST" action="{{url('asp')}}">
         @csrf
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <span>Folio</span>
-                <input type="text" placeholder="Folio" required>
-            </div> -->
+                <input type="text" disabled value="{{$nuevoFolio}}" name="folio" placeholder="Folio" required>
+            </div>
             <div class="form-group">
                 <span>Nombre Completos</span>
                 <input type="text" name="nombres" placeholder="Nombres" required>
             </div>
             <div class="form-group">
                 <span>Apellido Paterno</span>
-                <input type="email" name="apellido_p" placeholder="Apellidos Paternos" required>
+                <input type="text" name="apellido_p" placeholder="Apellidos Paternos" required>
             </div>
             <div class="form-group">
                 <span>Apellido Materno</span>
@@ -51,7 +56,7 @@
             </div>
             <div class="form-group">
                 <span>Genero</span>
-                <select name="id_procedencia" class="form-control" required>
+                <select name="genero" class=" aspirante form-control" required>
                             <option value="">SELECCIONA UN GENERO</option>
                             <option value="MASCULINO">MASCULINO</option>
                             <option value="FEMENINO">FEMENINO</option>
@@ -79,9 +84,7 @@
 
                 </select>
             </div>
-            <div class="button">
-                <input type="button" value=" Regristar">
-            </div>
+            <button class="button"> Guardar</button>
         </form>
     </div>
     <script>
