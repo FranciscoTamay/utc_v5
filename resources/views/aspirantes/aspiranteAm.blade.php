@@ -24,7 +24,8 @@
         @csrf
             <div class="form-group">
                 <span>Folio</span>
-                <input type="text" disabled value="{{$nuevoFolio}}" name="folio" placeholder="Folio" required>
+                <input type="text" disabled value="{{ $nuevoFolio }}" name="folio" placeholder="Folio" required>
+
             </div>
             <div class="form-group">
                 <span>Nombre Completos</span>
