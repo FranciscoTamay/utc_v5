@@ -22,9 +22,13 @@
         </div>
         <form id="frmServicios" method="POST" action="{{url('asp')}}">
         @csrf
+        <!--en el formulario de aqui vemos que tiene el metodo post
+            este es el que se va a encarhar que una vez que el usuario llene
+            todo los campos los enviara al controlador para que sean guardados -->
             <div class="form-group">
                 <span>Folio</span>
                 <input type="text" disabled value="{{ $nuevoFolio }}" name="folio" placeholder="Folio" required>
+                <!-- vemos que cada uno de los input tiene un name  -->
 
             </div>
             <div class="form-group">

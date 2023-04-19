@@ -14,9 +14,16 @@ class AsignaturaController extends Controller
      */
     public function index()
     {
-        //
+         ////La funcion index es la que nos sirve para poder mostrar la vista en donde el controlador 
+        // podra mostrar los datos de una tabla de la base de datos, pero tambien podemos agregar 
+        // dentro de esta otras funciones o variables especificas como a continuacion:
         $asignaturas = Asignaturas::all();
+        // usamos la variable para hacer uso del modelo y poder usarla en la vista
         return view('Asignaturas.asignaturas',compact('asignaturas'));
+        // aqui solo retornamos la vista seleccionando la vista primero en caso de que este en un carpeta
+        // se puede hacer de esta manera ('nombre de la carpeta.nombre de la vista') y si solo e solo es
+        // una vista solo debemos de poner su nombre de la vista asegurandonos que este en la carpeta views de laravel
+        // al igual de la carpeta en caso de que este en la carpeta y con el compact pasamos la variable que creamos.
 
     }
 
@@ -28,10 +35,19 @@ class AsignaturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Esta funcion es la que usaremos para que podemos mandar los datos 
+        // que el usuario a ingresado en los campos de la vista, ya que esta 
+        // tiene como parametro el request que es el que se encargara de poder tomar
+        // todos los datos que el usuario ingreso o selecciono.
         $asignatura = new Asignaturas($request->input());
+        // en este parte le decimos que cree un nuevo registro primero haciendo
+        // referencia al modelo le decimos que por medio
+        // del request tome lo que haya en los input o select que tambien puede ser tomado de select
         $asignatura->saveOrFail();
+        // usamos el metodo saveOrFail para que una vez recibido todos los datos
+        // lo mande a la base de datos para ser guardados
         return redirect('asignaturas');
+        // por ultimo solo nos redireccionara a la vista antes declarada en el index 
     }
 
     /**
@@ -42,9 +58,16 @@ class AsignaturaController extends Controller
      */
     public function show($id)
     {
-        //
+        //la funcion show nos sirve para que podamos ver un registro en especifico
+        // caba recalcar que este registro ya debe de estar creado anteriormente 
+        // por eso es que tiene el parametro para que sepa que por medio del id se va a guiar
         $asignatura = Asignaturas::find($id);
+        // en esta parte es donde el controlador va a buscar cual es el registro que va 
+        // a tomar, esto lo hace con la metodo find y como parametro el id del registro
         return view('Asignaturas.editarAsignaturas',compact('asignatura'));
+        // ya en este parte lo que hace es que nos retornara una vista una vez de que el
+        // registro sea encontrado y con el compact usamos las variables antes declaradas
+        // para poder usarlas en la vista y presentar los datos.
     }
 
     /**
@@ -56,10 +79,19 @@ class AsignaturaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //la funcion update es la que nos servira para que podamos hacer actualizaciones 
+        // de los registros en la base de datos vemos que usa 2 parametros el request y el id
+        // el id es para saber que es uno en especifico y no todos y por parte de request
+        // es para que tome los datos que el usuario cambio.
         $asignatura = Asignaturas::find($id);
+        // primero busca en el modelo basandose del id
         $asignatura->fill($request->input())->saveOrFail();
+        // aqui una vez que el usuario capture sus datos en los input o select,
+        // por el metodo fill, este es para que no se genere un registro nuevo si no que se 
+        // conserve el mismo pero con los cambios y los cambios son efectuados por el metodo
+        // saveOrFile
         return redirect('asignaturas');
+         // y por ultimo solo redireccionamos a la vista del alumno del index
     }
 
     /**
@@ -70,9 +102,14 @@ class AsignaturaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //la funcion destoy es para eliminar un registro antes creado este al igual 
+        // que show y update tiene un parametro id que es para borrar uno es especifico 
         $asignatura = Asignaturas::find($id);
+        // primero buscamos al alumno por el id
         $asignatura -> delete();
+         // una ves que se encuentre lo que pasa es que ese alumno solo se eliminara 
+        // con el metodo delete y de esta forma todos sus registros ya no estara en la base de datos
         return redirect('asignaturas');
+         // al firnal solo redireccionamos a la vista del index
     }
 }
