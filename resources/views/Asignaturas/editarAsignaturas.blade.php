@@ -9,6 +9,9 @@
 
                 <div class="card-body">
                     <form id="frmCarrera" method="POST" action="{{ url('asignaturas',[$asignatura] )}}">
+                        <!-- aqui al igual que en la vista en donde agregamos los datos esta es la de editar
+                        en donde al principio tiene el method PUT el cual se va a encargar de que los datos 
+                        que el usuario se actualicen en la base de datos  -->
                         @method('PUT')
                         @csrf
                         <div class="input-group mb-3">
@@ -16,9 +19,8 @@
                             <i class="fa-solid fa-graduation-cap"></i>
                             </span>
                             <input type="number" name="codigo_asignatura" class="form-control" value="{{ $asignatura->codigo_asignatura}}" maxlength="50" placeholder="Código de la asignatura" required>
-                            <!-- lo que se tiene puesto en el value la variable $carrera es nuestro objeto y codigo carrera
-                                es del valor de la columna que se tiene en la tabla teniendo en cuenta que nos referimos al 
-                                name del imput -->
+                            <!-- los name del input hace referencia para que se pueda almacenar en su lugar indicado en la base de datos
+                                y todos y cada unos de estos se llenan con datos que se han creado ateriormente -->
                         </div>
 
                         <div class="input-group mb-3">

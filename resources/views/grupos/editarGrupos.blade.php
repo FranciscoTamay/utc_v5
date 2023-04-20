@@ -16,7 +16,9 @@
                 <form id="frmGrupo" method="POST" action="{{ url('grupos',[$grupo] )}}">
                     @method('PUT')
                     @csrf
-                    
+                    <!-- aqui al igual que en la vista en donde agregamos los datos esta es la de editar
+                        en donde al principio tiene el method PUT el cual se va a encargar de que los datos 
+                        que el usuario se actualicen en la base de datos  -->
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
@@ -30,6 +32,11 @@
                             <option value="{{$row->id}}">{{$row->nombre_carrera}}</option>
                             @endif
                             @endforeach
+                            <!-- aqui lo que vemos en el seelct es que tiene un if el cual lo que va a hacer
+                                es que si el id del objeto que esta recorriendo en el foreach a la llave foranea 
+                                es igual va a imprimir pero el nombre y no numeros cabe recalcar que pasa lo mismo
+                                con los demas si es un campo como un input este solo se vera llenado con datos que son traidos 
+                                de la base de datos  -->
                         </select>
                     </div>
 

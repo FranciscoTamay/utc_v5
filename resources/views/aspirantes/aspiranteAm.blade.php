@@ -28,7 +28,8 @@
             <div class="form-group">
                 <span>Folio</span>
                 <input type="text" disabled value="{{ $nuevoFolio }}" name="folio" placeholder="Folio" required>
-                <!-- vemos que cada uno de los input tiene un name  -->
+                <!-- vemos que cada uno de los input tiene un name ese es el que se manda al controlador
+                    para que pueda enviarlos a la base de datos y lo mismo para con el select  -->
 
             </div>
             <div class="form-group">
@@ -76,6 +77,9 @@
                             @foreach($procedencias as $row)
                             <option value="{{$row->id}}">{{$row->nombre_esc}}</option>
                             @endforeach
+                            <!-- al igual que en los input el select tiene un name y este pasa un id 
+                                porque asi es como se almacena en la base de datos ya que este pertenece 
+                                a una llave foranea -->
 
                 </select>
             </div>

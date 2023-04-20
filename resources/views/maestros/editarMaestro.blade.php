@@ -21,6 +21,9 @@
 
             <div class="card-body">
                 <form id="frmCarrera" method="POST" action="{{ url('maestros',[$maestro] )}}">
+                    <!-- aqui al igual que en la vista en donde agregamos los datos esta es la de editar
+                        en donde al principio tiene el method PUT el cual se va a encargar de que los datos 
+                        que el usuario se actualicen en la base de datos  -->
                     @method('PUT')
                     @csrf
                     <div class="input-group mb-3">
@@ -29,6 +32,8 @@
                         </span>
                         <input type="number" name="codigo_carrera" class="form-control" value="{{ $maestro->codigo}}" maxlength="50" placeholder="Código de la carrera" required>
                     </div>
+                    <!-- los name del input hace referencia para que se pueda almacenar en su lugar indicado en la base de datos
+                                y todos y cada unos de estos se llenan con datos que se han creado ateriormente -->
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
@@ -93,6 +98,11 @@
                             <option value="{{$row->id}}">{{$row->grado_nombre}}</option>
                             @endforeach
                         </select>
+                        <!-- aqui lo que vemos en el seelct es que tiene un if el cual lo que va a hacer
+                                es que si el id del objeto que esta recorriendo en el foreach a la llave foranea 
+                                es igual va a imprimir pero el nombre y no numeros cabe recalcar que pasa lo mismo
+                                con los demas si es un campo como un input este solo se vera llenado con datos que son traidos 
+                                de la base de datos  -->
                     </div>
 
 

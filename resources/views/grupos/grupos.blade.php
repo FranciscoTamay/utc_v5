@@ -31,13 +31,26 @@
                     @php $i=1; @endphp
                     @foreach($grupos as $run)
                     <tr>
+                        <!-- hay vistas como esta en donde se ve la tabla pero en los td
+                                estan unas llaves abiertas {{$run->dato}} es que en la parte de
+                                arriba en el foreach lo que hacemos es que por medio de lo que haya en 
+                                en la variable que tiene un signo de peso va a recorrer y llenar los datos
+                                de abajo nosotros tenemos puesto un $variable as $run ese as run es la forma
+                                en la que tu puedas llamar la variable por la que vas a imprimir en la tabla
+                                podrias ser otra cosa o el mismo nombre simplemnte es para generar instancia -->
+                            
                         <td>{{$i++}}</td>
                         <td>{{$run->nombre_carrera}}</td>
+                        <!-- aqui es como vemos $variable antes definida y apuntamos a que es lo que quieres
+                            que imprima, lo que este va a imprimir tiene que estar en la base de datos porque
+                            si a lo que apuntamos no esta en la base de datos o esta vacio no se mostrara nada en la tabla -->
                         <td>
 
                             <div class="d-inline-block me-2">
                                 <a href="{{ url('grupos',[$run]) }}" class="btn btn-success">
                                     <i class="fa-solid fa-pencil"></i>
+                                    <!-- esta es la variable que teniamos definidos en la funcion show para que 
+                                        pueda redirigirnos a la ventana de editar -->
                                 </a>
                             </div>
 
@@ -46,6 +59,8 @@
                                     @method("delete")
                                     @csrf
                                     <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
+                                    <!-- aqui simplemente llama a la funcion de destroy recordando que la logica esta en el
+                                        controlador y como este ve que el id es igual pues solo lo borrara de la base de datos -->
                                 </form>
                             </div>
 
@@ -72,15 +87,18 @@
 
                 <form id="frmGrupos" method="POST" action="{{ url('grupos') }}">
                     @csrf
+                    
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-file-signature"></i>
                         </span>
-                        <input type="text" name="nombre_grupo" class="form-control" maxlength="120" placeholder="Nombre del Grupo"  required>
+                        <input type="text" name="nombre_grupo" class="form-control" maxlength="120" placeholder="Nombre del Grupo" required>
+                        <!-- vemos que cada uno de los input tiene un name ese es el que se manda al controlador
+                    para que pueda enviarlos a la base de datos -->
                     </div>
 
-                   
+
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
@@ -91,6 +109,9 @@
                             @foreach($carreras as $row)
                             <option value="{{$row->id}}">{{$row->nombre_carrera}}</option>
                             @endforeach
+                            <!-- en el select le tenemos puesto un foreach para que este recorra el objeto
+                                una ves que lo haga mostrara todos los elementos que contenga para que el
+                                usuario pueda seleccionar -->
                         </select>
                     </div>
 

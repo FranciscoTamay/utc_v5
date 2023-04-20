@@ -36,6 +36,11 @@
                             @endif
                             @endforeach
                             </select>
+                            <!-- aqui lo que vemos en el seelct es que tiene un if el cual lo que va a hacer
+                                es que si el id del objeto que esta recorriendo en el foreach a la llave foranea 
+                                es igual va a imprimir pero el nombre y no numeros cabe recalcar que pasa lo mismo
+                                con los demas si es un campo como un input este solo se vera llenado con datos que son traidos 
+                                de la base de datos  -->
                         </div>
 
                         <div class="input-group mb-3">

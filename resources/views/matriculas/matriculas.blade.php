@@ -73,6 +73,9 @@
             <div class="modal-body">
 
                 <form id="frmMatriculas" method="POST" action="{{ url('matriculas') }}">
+                    <!--en el formulario de aqui vemos que tiene el metodo post
+                        este es el que se va a encarhar que una vez que el usuario llene
+                        todo los campos los enviara al controlador para que sean guardados -->
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">
@@ -90,6 +93,9 @@
                             @foreach($alumnos as $row)
                             <option value="{{$row->id}}">{{$row->curp}}</option>
                             @endforeach
+                             <!-- en el select le tenemos puesto un foreach para que este recorra el objeto
+                                una ves que lo haga mostrara todos los elementos que contenga para que el
+                                usuario pueda seleccionar -->
                         </select>
                     </div>
 
@@ -102,6 +108,9 @@
                             @foreach($grupos as $row)
                             <option value="{{$row->id}}">{{$row->nombre_grupo}}</option>
                             @endforeach
+                             <!-- en el select le tenemos puesto un foreach para que este recorra el objeto
+                                una ves que lo haga mostrara todos los elementos que contenga para que el
+                                usuario pueda seleccionar -->
                         </select>
                     </div>
 

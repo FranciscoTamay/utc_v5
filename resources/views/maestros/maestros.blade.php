@@ -79,12 +79,15 @@
             <div class="modal-body">
 
                 <form id="frmMaestros" method="POST" action="{{ url('maestros') }}">
+                    <!-- en este caso llenaremos } -->
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
                         <input type="number" name="codigo" class="form-control" maxlength="50" placeholder="Código del Profesor" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                        <!-- vemos que cada uno de los input tiene un name ese es el que se manda al controlador
+                    para que pueda enviarlos a la base de datos -->
                     </div>
 
                     <div class="input-group mb-3">
