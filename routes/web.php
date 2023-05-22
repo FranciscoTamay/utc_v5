@@ -72,6 +72,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('calificaciones', CalificacionController::class);
     Route::post('/matriculas/obtener-alumnos', [CalificacionController::class,'obtenerAlumnosPorGrupo'])->name('alumnos.obtener-alumnos');
 
+    // ruta de prueba de validacion de formulario
+    
+    Route::post('store', [AlumnosController::class, 'store']);
+
     
 // RUTAs DE HECTOR
 // FIN DE LAS RUTAS DE HECTOR
