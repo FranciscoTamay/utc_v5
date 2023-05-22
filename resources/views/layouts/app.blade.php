@@ -8,6 +8,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <link rel="stylesheet" href="/all-css/bootstrap.css">
+    
     <!-- Ionicons -->
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <!-- fin -->
@@ -29,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('all-css/iziToast.min.css') }}">
     <link href="{{ asset('all-css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://kit.fontawesome.com/270e7df619.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/all-css/all.min.css">
     <link rel="icon" type="image/png" href="img/utc.png">
 <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('all-css/style.css') }}">
@@ -55,15 +57,12 @@
     </div>
 </div>
 
-
-
 <div id="miModal" class="modal3">
   <div class="modal-contenido3">
     <span class="cerrar3" onclick="cerrarModal()">&times;</span>
     <iframe id="miIframe" width="100%" height="100%"></iframe>
   </div>
 </div>
-
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -78,6 +77,7 @@
 <script src="{{ asset('all-js/sweetalert.min.js') }}"></script>
 <script src="{{ asset('all-js/iziToast.min.js') }}"></script>
 <script src="{{ asset('all-js/jquery.nicescroll.js') }}"></script>
+<script src="all-js/all.min.js"></script>
 <script src="https://kit.fontawesome.com/270e7df619.js" crossorigin="anonymous"></script>
             <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
             <!-- Para usar los botones -->
