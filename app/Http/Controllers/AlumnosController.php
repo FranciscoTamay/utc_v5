@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alumnos;
+use Illuminate\Support\Facades\Validator;
 
 class AlumnosController extends Controller
 {
@@ -20,7 +21,7 @@ class AlumnosController extends Controller
         $alumnos = Alumnos::all();
         // Aqui por medio de la variable alumnos lo que hacemos es que haga uso del modelo alumnos
         // para que de esta forma en la vista lo podamos usar.
-        return view('alumnos.alumnos',compact('alumnos'));
+        return view('alumnos.alumnos', compact('alumnos'));
         // aqui solo retornamos la vista seleccionando la vista primero en caso de que este en un carpeta
         // se puede hacer de esta manera ('nombre de la carpeta.nombre de la vista') y si solo e solo es
         // una vista solo debemos de poner su nombre de la vista asegurandonos que este en la carpeta views de laravel
@@ -35,19 +36,39 @@ class AlumnosController extends Controller
      */
     public function store(Request $request)
     {
-        //Esta funcion es la que usaremos para que podemos mandar los datos 
-        // que el usuario a ingresado en los campos de la vista, ya que esta 
-        // tiene como parametro el request que es el que se encargara de poder tomar
-        // todos los datos que el usuario ingreso o selecciono.
-        $alumno = new Alumnos($request->input());
-         // en este parte le decimos que cree un nuevo registro primero haciendo
-        // referencia al modelo le decimos que por medio
-        // del request tome lo que haya en los input o select que tambien puede ser tomado de select
-        $alumno->saveOrFail();
-        // usamos el metodo saveOrFail para que una vez recibido todos los datos
-        // lo mande a la base de datos para ser guardados
-        return redirect('alumnos');
-        // por ultimo solo nos redireccionara a la vista antes declarada en el index 
+        $request->validate([
+            'curp' => 'required | unique:App\Models\Alumnos',
+            'num_seguro' => 'required|numeric|max:10',
+            'apellido_paterno' => 'required|max:50',
+            'apellido_materno' => 'required|max:50',
+            'nombres' => 'required|max:120',
+            'sexo' => 'required|max:10',
+            'telefono' => 'required|numeric|max:10',
+            'correo' => 'required|email',
+            'direccion' => 'required|max:200',
+            'localidad' => 'required|max:200',
+            'municipio' => 'required|max:200'
+
+        ]);
+
+        $alumno = new Alumnos;
+        $alumno->curp = $request->curp;
+        $alumno->num_seguro = $request->num_seguro;
+        $alumno->apellido_paterno = $request->apellido_paterno;
+        $alumno->apellido_materno = $request->apellido_materno;
+        $alumno->nombres = $request->nombres;
+        $alumno->sexo = $request->sexo;
+        $alumno->telefono = $request->telefono;
+        $alumno->correo = $request->correo;
+        $alumno->telefono = $request->telefono;
+        $alumno->correo = $request->correo;
+        $alumno->direccion = $request->direccion;
+        $alumno->localidad = $request->localidad;
+        $alumno->municipio = $request->municipio;
+
+        $alumno->save();
+        return back()->with('success','Alumno Validado con Exito');
+
     }
 
     /**
@@ -62,9 +83,9 @@ class AlumnosController extends Controller
         // caba recalcar que este registro ya debe de estar creado anteriormente 
         // por eso es que tiene el parametro para que sepa que por medio del id se va a guiar
         $alumno = Alumnos::find($id);
-         // en esta parte es donde el controlador va a buscar cual es el registro que va 
+        // en esta parte es donde el controlador va a buscar cual es el registro que va 
         // a tomar, esto lo hace con la metodo find y como parametro el id del registro
-        return view('alumnos.editarAlumno',compact('alumno'));
+        return view('alumnos.editarAlumno', compact('alumno'));
         // ya en este parte lo que hace es que nos retornara una vista una vez de que el
         // registro sea encontrado y con el compact usamos las variables antes declaradas
         // para poder usarlas en la vista y presentar los datos.
@@ -102,7 +123,7 @@ class AlumnosController extends Controller
      */
     public function destroy($id)
     {
-        ////la funcion destoy es para eliminar un registro antes creado este al igual 
+        ////la funcion destroy es para eliminar un registro antes creado este al igual 
         // que show y update tiene un parametro id que es para borrar uno es especifico 
         $alumno = Alumnos::find($id);
         // primero buscamos al alumno por el id
@@ -111,5 +132,34 @@ class AlumnosController extends Controller
         // con el metodo delete y de esta forma todos sus registros ya no estara en la base de datos
         return redirect('alumnos');
         // al firnal solo redireccionamos a la vista del index
+    }
+
+    public function validar($parametros)
+    {
+        $respuesta = [];
+        $validacion = Validator::make(
+            $parametros,
+            [
+                'curp' => 'required|unique:App\Models\Alumnos|max:18',
+                'num_seguro' => 'required|numeric|max:10',
+                'apellido_paterno' => 'required|max:50',
+                'apellido_materno' => 'required|max:50',
+                'nombres' => 'required|max:120',
+                'sexo' => 'required|max:10',
+                'telefono' => 'required|numeric|max:10',
+                'correo' => 'required|email',
+                'direccion' => 'required|max:200',
+                'localidad' => 'required|max:200',
+                'municipio' => 'required|max:200'
+
+            ]
+        );
+        if ($validacion->fails()) {
+            array_push($respuesta, ['status' => 'error']);
+            array_push($respuesta, ['errors' => $validacion->errors()]);
+            return $respuesta;
+        } else {
+            return true;
+        }
     }
 }

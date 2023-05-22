@@ -85,41 +85,68 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="frmAlumnos" method="POST" action="{{ url('alumnos') }}">
+                
+                <form id="frmAlumnos" method="POST" action="store" novalidate>
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="curp" class="form-control" maxlength="18" placeholder="CURP del Alumno" required>
+                        <input type="text" name="curp" class="form-control @error('curp') is-invalid @enderror" value="{{old('curp')}}" maxlength="18" placeholder="CURP del Alumno">
+                        @error('curp')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="num_seguro" class="form-control" maxlength="10" placeholder="NSS del alumno" required>
+                        <input type="number" name="num_seguro" class="form-control @error('num_seguro') is-invalid @enderror" value="{{old('num_seguro')}}" maxlength="10" placeholder="NSS del alumno" >
+                        @error('num_seguro')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="apellido_paterno" class="form-control" maxlength="120" placeholder="Apellido Paterno del Alumno" required>
+                        <input type="text" name="apellido_paterno" class="form-control @error('apellido_paterno') is-invalid @enderror" value="{{old('apellido_paterno')}}" maxlength="120" placeholder="Apellido Paterno del Alumno" >
+                        @error('apellido_paterno')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="apellido_materno" class="form-control" maxlength="120" placeholder="Apellido Materno del Alumno" required>
+                        <input type="text" name="apellido_materno" class="form-control @error('apellido_materno') is-invalid @enderror" value="{{old('apellido_materno')}}" maxlength="120" placeholder="Apellido Materno del Alumno" >
+                        @error('apellido_materno')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
+                        
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="nombres" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required>
+                        <input type="text" name="nombres" class="form-control @error('nombres') is-invalid @enderror" value="{{old('nombres')}}" maxlength="120" placeholder="Nombres del Alumno" >
+                        @error('nombres')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
@@ -127,39 +154,64 @@
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
                         <!-- <input type="text" name="sexo" class="form-control" maxlength="120" placeholder="Nombres del Alumno" required> -->
-                        <select name="sexo" id="" class="form-control" required>
+                        <select name="sexo" id="" class="form-control @error('sexo') is-invalid @enderror" value="{{old('sexo')}}" >
                             <option value="">Seleccione su sexo</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                         </select>
+                        @error('sexo')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="number" name="telefono" class="form-control" maxlength="10" placeholder="Número del Alumno" required>
+                        <input type="number" name="telefono" class="form-control @error('telefono') is-invalid @enderror" value="{{old('telefono')}}" maxlength="10" placeholder="Número del Alumno" >
+                        @error('telefono')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="email" name="correo" class="form-control" maxlength="120" placeholder="Correo del Alumno" required>
+                        <input type="email" name="correo" class="form-control @error('correo') is-invalid @enderror" value="{{old('correo')}}" maxlength="120" placeholder="Correo del Alumno" >
+                        @error('correo')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="direccion" class="form-control" maxlength="120" placeholder="Direccion del Alumno" required>
+                        <input type="text" name="direccion" class="form-control @error('direccion') is-invalid @enderror" value="{{old('direccion')}}" maxlength="120" placeholder="Direccion del Alumno" >
+                        @error('direccion')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="localidad" class="form-control" maxlength="120" placeholder="Localidad del Alumno" required>
+                        <input type="text" name="localidad" class="form-control @error('localidad') is-invalid @enderror" value="{{old('localidad')}}" maxlength="120" placeholder="Localidad del Alumno" >
+                        @error('localidad')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
 
@@ -167,16 +219,22 @@
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <input type="text" name="municipio" class="form-control" maxlength="120" placeholder="Municipio del Alumno" required>
+                        <input type="text" name="municipio" class="form-control @error('muncipio') is-invalid @enderror" value="{{old('municipio')}}" maxlength="120" placeholder="Municipio del Alumno" >
+                        @error('municipio')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
 
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6 mx-auto">
-                            <button class="btn btn-outline-success btn-lg">
+                            <!-- <button class="btn btn-outline-success btn-lg">
                                 <i class="fa-solid fa-floppy-disk"></i> Guardar
-                            </button>
+                            </button> -->
+                            <input type="submit" class="btn btn-outline-success btn-lg" name="" id="" value="Enviar">
                             <!-- boton de guardar -->
                         </div>
                     </div>
