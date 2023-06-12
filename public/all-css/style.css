@@ -4647,3 +4647,7 @@ body::-webkit-scrollbar-thumb {
     border: 2px solid #dfc00e;
     color: #dfc00e !important;
 }
+
+.margen-i {
+    margin-right: 1rem;
+}
