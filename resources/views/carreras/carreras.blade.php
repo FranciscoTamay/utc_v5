@@ -86,27 +86,37 @@
             </div>
             <div class="modal-body">
 
-                <form id="frmCarreras" method="POST" action="{{ url('carreras') }}">
+                <form id="frmCarreras" method="POST" action="guardarCarrera" >
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-qrcode"></i>
                         </span>
-                        <input type="number" name="codigo_carrera" class="form-control" maxlength="50" placeholder="Codigo de la Carrera" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                        <input type="number" name="codigo_carrera" class="form-control @error('codigo_carrera') is-invalid @enderror" value="{{old('codigo_carrera')}}" maxlength="50" placeholder="Codigo de la Carrera" oninput="this.value = this.value.replace(/[^0-9]/g, '')" >
+                        @error('codigo_carrera')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-file-signature"></i>
                         </span>
-                        <input type="text" name="nombre_carrera" class="form-control" maxlength="120" placeholder="Nombre de la Carrera" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
+                        <input type="text" name="nombre_carrera" class="form-control @error('nombre_carrera') is-invalid @enderror" value="{{old('nombre_carrera')}}" maxlength="120" placeholder="Nombre de la Carrera" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" >
+                        @error('nombre_carrera')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <select name="id_servicio" class="select2 form-control " required style="width: 89%;">
+                        <select name="id_plan" class="select2 form-control @error('id_plan') is-invalid @enderror" value="{{old('id_plan')}}" style="width: 89%;">
                             <option class="select-wit" value="">Plan de Estudios</option>
                             @foreach($planEstudios as $row)
                             <option value="{{$row->id}}">{{$row->nombre_plan}}</option>
@@ -115,10 +125,19 @@
                                 una ves que lo haga mostrara todos los elementos que contenga para que el
                                 usuario pueda seleccionar -->
                         </select>
+                        @error('id_plan')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
 
-                    <div class="d-grid col-6 mx-auto">
-                        <button type="submit" class="btn btn-info"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 mx-auto">
+                        <input type="submit" class="btn btn-outline-success btn-lg" name="" id="" value="Enviar">
+                            <!-- boton de guardar -->
+                        </div>
                     </div>
 
                 </form>

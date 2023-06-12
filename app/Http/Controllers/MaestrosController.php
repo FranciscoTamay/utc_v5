@@ -32,9 +32,34 @@ class MaestrosController extends Controller
     public function store(Request $request)
     {
         //
-        $maestro = new Maestros($request->input());
-        $maestro->saveOrFail();
-        return redirect('maestros');
+        $request ->validate(
+            [
+                'codigo'=>'required|unique:maestros|numeric',
+                'sexo'=>'required | max:50',
+                'apellido_paterno'=>'required | max:150',
+                'apellido_materno'=>'required | max:150',
+                'nombres'=>'required | max:150',
+                'curp'=>'required| unique:maestros',
+                'num_seguro'=>'required | unique:maestros',
+                'rfc'=>'required | unique:maestros',
+                'id_grado'=>'required | numeric ',
+            ]
+            );
+
+
+            $maestro = new Maestros;
+            $maestro->codigo = $request->codigo;
+            $maestro->sexo = $request->sexo;
+            $maestro->apellido_paterno = $request->apellido_paterno;
+            $maestro->apellido_materno = $request->apellido_materno;
+            $maestro->nombres = $request->nombres;
+            $maestro->curp = $request->curp;
+            $maestro->num_seguro = $request->num_seguro;
+            $maestro->rfc = $request->rfc;
+            $maestro->id_grado = $request->id_grado;
+            
+            $maestro->save();
+            return back()->with('success','Maestro Validado con Exito');
     }
 
     /**

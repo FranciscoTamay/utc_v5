@@ -72,6 +72,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('calificaciones', CalificacionController::class);
     Route::post('/matriculas/obtener-alumnos', [CalificacionController::class,'obtenerAlumnosPorGrupo'])->name('alumnos.obtener-alumnos');
 
+    // Rutas para validacion de formularios
+    
+    Route::post('guardarAlumno', [AlumnosController::class, 'store']);
+    Route::post('guardarMaestro', [MaestrosController::class, 'store']);
+    Route::post('guardarMateria', [AsignaturaController::class, 'store']);
+    Route::post('guardarCarrera', [CarrerasController::class, 'store']);
+
+
+    // ===================================================================
+
     
 // RUTAs DE HECTOR
 // FIN DE LAS RUTAS DE HECTOR
