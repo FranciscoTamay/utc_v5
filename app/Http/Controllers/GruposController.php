@@ -54,19 +54,19 @@ class GruposController extends Controller
      */
     public function store(Request $request)
     {
-        //Esta funcion es la que usaremos para que podemos mandar los datos 
-        // que el usuario a ingresado en los campos de la vista, ya que esta 
-        // tiene como parametro el request que es el que se encargara de poder tomar
-        // todos los datos que el usuario ingreso o selecciono.
-        $grupo = new Grupos($request->input());
-        // en este parte le decimos que cree un nuevo registro primero haciendo
-        // referencia al modelo le decimos que por medio
-        // del request tome lo que haya en los input o select que tambien puede ser tomado de select
-        $grupo->saveOrFail();
-        // usamos el metodo saveOrFail para que una vez recibido todos los datos
-        // lo mande a la base de datos para ser guardados
-        return redirect('grupos');
-        // por ultimo solo nos redireccionara a la vista antes declarada en el index 
+        $request->validate(
+            [
+                'nombre_grupo'=>'required|unique:grupos',
+                'id_carrera'=>'required'
+            ]
+            );
+
+            $grupo=new Grupos;
+            $grupo->nombre_grupo=$request->nombre_grupo;
+            $grupo->id_carrera=$request->id_carrera;
+            $grupo->save();
+            
+            return back()->with('success','Grupo Validado con Exito');
     }
 
     /**

@@ -17,9 +17,9 @@
 
         <div class="respon">
             <table id="pro5" class="xd display responsive nowrap" style="width:95%">
-                <thead class="bg-darck text-center">
+                <thead class="bg-white text-center">
                     <tr>
-                        <th class="inico ext-center">ID</th>
+                        <th class="inico text-center">ID</th>
                         <th class="text-center">NOMBRES</th>
                         <th class="text-center">APELLIDO PATERNO</th>
                         <th class="text-center">APELLIDO MATERNO</th>
@@ -37,6 +37,14 @@
                 <tbody class="table-group-divider">
                     @php $i=1; @endphp
                     @foreach($alumnos as $run)
+                       <!-- hay vistas como esta en donde se ve la tabla pero en los td
+                                estan unas llaves abiertas {{$run->dato}} es que en la parte de
+                                arriba en el foreach lo que hacemos es que por medio de lo que haya en 
+                                en la variable que tiene un signo de peso va a recorrer y llenar los datos
+                                de abajo nosotros tenemos puesto un $variable as $run ese as run es la forma
+                                en la que tu puedas llamar la variable por la que vas a imprimir en la tabla
+                                podrias ser otra cosa o el mismo nombre simplemnte es para generar instancia -->
+                                <td>{{$i++}}</td>
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{$run->nombres}}</td>
@@ -52,9 +60,11 @@
                         <td>{{$run->municipio}}</td>
 
                         <td>
-
+ <!-- aqui es como vemos $variable antes definida y apuntamos a que es lo que quieres
+                            que imprima, lo que este va a imprimir tiene que estar en la base de datos porque
+                            si a lo que apuntamos no esta en la base de datos o esta vacio no se mostrara nada en la tabla -->
                             <div class="d-inline-block me-2">
-                                <a href="{class=" d-inline-block me-2"{ url('alumnos',[$run]) }}" class="btn btn-success">
+                                <a href="{{ url('alumnos',[$run]) }}" class="btn btn-success">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
                             </div>
@@ -67,7 +77,9 @@
                                     <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </div>
-
+<!-- en el select le tenemos puesto un foreach para que este recorra el objeto
+                                una ves que lo haga mostrara todos los elementos que contenga para que el
+                                usuario pueda seleccionar -->
                         </td>
                     </tr>
                     @endforeach
@@ -81,13 +93,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar un grupo</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar un Alumno</h1>
+                
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
                 
-                <form id="frmAlumnos" method="POST" action="store" novalidate>
+                <form id="frmAlumnos" method="post" action="guardarAlumno" novalidate>
                     @csrf
+                    <div class="row">
+                    <strong class="p-2 col-lg">Todos los campos con <span class="text-danger fs-6">*</span> son requeridos</strong>
+                    </div>
+                    
+                    <strong>CURP</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -100,6 +119,7 @@
                         @enderror
                     </div>
 
+                    <strong>NSS</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -112,6 +132,7 @@
                         @enderror
                     </div>
 
+                    <strong>Apellido Paterno</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -124,6 +145,7 @@
                         @enderror
                     </div>
 
+                    <strong>Apellido Materno</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -137,6 +159,8 @@
                         
                     </div>
 
+
+                    <strong>Nombres</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -149,6 +173,8 @@
                         @enderror
                     </div>
 
+
+                    <strong>Sexo</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -166,6 +192,9 @@
                         @enderror
                     </div>
 
+
+
+                    <strong>Telefono</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -178,6 +207,9 @@
                         @enderror
                     </div>
 
+
+                    
+                    <strong>Correo</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -190,6 +222,8 @@
                         @enderror
                     </div>
 
+
+                    <strong>Direccion</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -202,6 +236,9 @@
                         @enderror
                     </div>
 
+
+                    
+                    <strong>Localidad</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -215,6 +252,7 @@
                     </div>
 
 
+                    <strong>Municipio</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -231,10 +269,7 @@
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6 mx-auto">
-                            <!-- <button class="btn btn-outline-success btn-lg">
-                                <i class="fa-solid fa-floppy-disk"></i> Guardar
-                            </button> -->
-                            <input type="submit" class="btn btn-outline-success btn-lg" name="" id="" value="Enviar">
+                        <input type="submit" class="btn btn-outline-success btn-lg" name="" id="" value="Enviar">
                             <!-- boton de guardar -->
                         </div>
                     </div>

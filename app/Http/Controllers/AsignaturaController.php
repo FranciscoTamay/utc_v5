@@ -35,19 +35,23 @@ class AsignaturaController extends Controller
      */
     public function store(Request $request)
     {
-        //Esta funcion es la que usaremos para que podemos mandar los datos 
-        // que el usuario a ingresado en los campos de la vista, ya que esta 
-        // tiene como parametro el request que es el que se encargara de poder tomar
-        // todos los datos que el usuario ingreso o selecciono.
-        $asignatura = new Asignaturas($request->input());
-        // en este parte le decimos que cree un nuevo registro primero haciendo
-        // referencia al modelo le decimos que por medio
-        // del request tome lo que haya en los input o select que tambien puede ser tomado de select
-        $asignatura->saveOrFail();
-        // usamos el metodo saveOrFail para que una vez recibido todos los datos
-        // lo mande a la base de datos para ser guardados
-        return redirect('asignaturas');
-        // por ultimo solo nos redireccionara a la vista antes declarada en el index 
+        $request->validate(
+            [
+                'codigo_asignatura'=>'required|unique:asignaturas|numeric',
+                'nombre_asignatura'=>'required|max:50',
+                'num_unidades'=>'required|numeric|max:10',
+                'horas'=>'required||numeric',
+            ]
+            );
+
+            $asignatura= new Asignaturas;
+            $asignatura->codigo_asignatura = $request->codigo_asignatura;
+            $asignatura->nombre_asignatura = $request->nombre_asignatura;
+            $asignatura->num_unidades = $request->num_unidades;
+            $asignatura->horas = $request->horas;
+
+            $asignatura->save();
+            return back()->with("success","Asignatura Validad con Exito");
     }
 
     /**

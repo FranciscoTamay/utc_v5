@@ -1,22 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
+
 <!-- COMIENZO DE LA CARD  TABLA -->
 <section class="section mt-4">
     <div class="card-body">
         <h2 class="title-2">Servicios</h2>
-        <div class="col-md-4 offset-md-4">
-            <div class="d-grid mx-auto">
-                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalServicos">
-                    <i class="fa-solid fa-circle-plus"></i> Añadir
-                </button>
-            </div>
-        </div>
+        @livewire('show-servicios')
         <div class="respon">
             <table id="pro4" class="xd display responsive nowrap" style="width:95%">
                 <thead class="bg-darck text-center">
                     <tr>
-
                         <th scope="col" class="inico text-center">CODIGO DEL SERVICIO</th>
                         <th scope="col" class="text-center">NOMBRE DEL SERVICIO</th>
                         <th scope="col" class="fin text-center">PRECIO DEL SERVICIO "MX"</th>
@@ -25,13 +19,22 @@
                 </thead>
                 <tbody class="table-group-divider">
                     @foreach($servicios as $row)
+                     <!-- hay vistas como esta en donde se ve la tabla pero en los td
+                                estan unas llaves abiertas {{$row->dato}} es que en la parte de
+                                arriba en el foreach lo que hacemos es que por medio de lo que haya en 
+                                en la variable que tiene un signo de peso va a recorrer y llenar los datos
+                                de abajo nosotros tenemos puesto un $variable as $run ese as run es la forma
+                                en la que tu puedas llamar la variable por la que vas a imprimir en la tabla
+                                podrias ser otra cosa o el mismo nombre simplemnte es para generar instancia -->
                     <tr>
 
                         <td scope="col" class="text-center text-black fw-bold">{{ $row->codigo_serv }}</td>
                         <td class="text-center  fw-bold text-black  ">{{ $row->nombre_serv }}</td>
                         <td class="text-center  fw-bold text-black text-success ">{{ $row->precio_serv }}</td>
                         <td class="text-center">
-
+<!-- aqui es como vemos $variable antes definida y apuntamos a que es lo que quieres
+                            que imprima, lo que este va a imprimir tiene que estar en la base de datos porque
+                            si a lo que apuntamos no esta en la base de datos o esta vacio no se mostrara nada en la tabla -->
                             <div class="d-inline-block me-2">
                                 <a href="{{ url('servicios', [$row]) }}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
                             </div>
@@ -50,60 +53,7 @@
         </div>
     </div>
 </section>
-<div class="modal fade" id="modalServicos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar una Servico</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="frmServicios" method="POST" action="{{url("servicios")}}">
-                    @csrf
-                    <!-- CASILLA DE DATO -->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-ticket"></i></span>
-                        <input type="text" wire:model="codigo_serv" name="codigo_serv" class="form-control @error('codigo_serv') is-invalid @enderror" maxlength="50" placeholder="CODIGO SERVICIO">
-                        @error('codigo_serv')
-                        <span class="invalid-feedback">
-                            <strong>{{$message}}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <!-- FIN DE DATO -->
 
-                    <!-- CASILLA DE DATO -->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-file-lines"></i></span>
-                        <input wire:model="nombre_serv" type="text" name="nombre_serv" class="form-control @error('nombre_serv') is-invalid @enderror" maxlength="50" placeholder="NOMBRE SERVICIO" required>
-                        @error('nombre_serv')
-                        <span class="invalid-feedback">
-                            <strong>{{$message}}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <!-- FIN DE DATO -->
-                    <!-- CASILLA DE DATO -->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-money-bill"></i></span>
-                        <input type="number" wire:model="precio_serv" name="precio_serv" class="form-control @error('precio_serv') is-invalid @enderror" maxlength="50" placeholder="PRECIO DE SERVICIO" required>
-                        @error('precio_serv')
-                        <span class="invalid-feedback">
-                            <strong>{{$message}}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <!-- FIN DE DATO -->
-
-
-                    <div class="d-grid col-6 mx-auto">
-                        <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- FIN DE SECCION -->
 
 @endsection

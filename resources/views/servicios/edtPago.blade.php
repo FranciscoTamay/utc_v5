@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+<!-- ESTA VISTA ES PARA EDITAR UN SERVICIO EL CUAL ES UN FORMULARIO QUE RETORNA 
+LOS DATOS DE LA FILA SELECCIONADA -->
 <section class="section">
         <div class="section-header">
                 <div class="col-lg-12">
