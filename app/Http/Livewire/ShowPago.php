@@ -9,7 +9,7 @@ class ShowPago extends Component
     public $id_servicio;
     public $id_matricula;
     public $estado;
-
+// AQUI RENDERIZAMOS LA VISTA QUE SE UTILIZARA PARA EL FORMULARIO 
     protected $rules =[
       'id_servicio'  => 'required',
       'id_matricula'  => 'required',

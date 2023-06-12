@@ -37,6 +37,14 @@
                 <tbody class="table-group-divider">
                     @php $i=1; @endphp
                     @foreach($alumnos as $run)
+                       <!-- hay vistas como esta en donde se ve la tabla pero en los td
+                                estan unas llaves abiertas {{$run->dato}} es que en la parte de
+                                arriba en el foreach lo que hacemos es que por medio de lo que haya en 
+                                en la variable que tiene un signo de peso va a recorrer y llenar los datos
+                                de abajo nosotros tenemos puesto un $variable as $run ese as run es la forma
+                                en la que tu puedas llamar la variable por la que vas a imprimir en la tabla
+                                podrias ser otra cosa o el mismo nombre simplemnte es para generar instancia -->
+                                <td>{{$i++}}</td>
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{$run->nombres}}</td>
@@ -52,7 +60,9 @@
                         <td>{{$run->municipio}}</td>
 
                         <td>
-
+ <!-- aqui es como vemos $variable antes definida y apuntamos a que es lo que quieres
+                            que imprima, lo que este va a imprimir tiene que estar en la base de datos porque
+                            si a lo que apuntamos no esta en la base de datos o esta vacio no se mostrara nada en la tabla -->
                             <div class="d-inline-block me-2">
                                 <a href="{class=" d-inline-block me-2"{ url('alumnos',[$run]) }}" class="btn btn-success">
                                     <i class="fa-solid fa-pencil"></i>
@@ -67,7 +77,9 @@
                                     <button class="btn btn-danger"> <i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </div>
-
+<!-- en el select le tenemos puesto un foreach para que este recorra el objeto
+                                una ves que lo haga mostrara todos los elementos que contenga para que el
+                                usuario pueda seleccionar -->
                         </td>
                     </tr>
                     @endforeach
