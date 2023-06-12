@@ -1,10 +1,10 @@
 <li class="side-menus {{ Request::is('*') ? 'active' : '' }}">
     <a class="nav-link" href="/home">
-        <i class=" fas fa-building"></i><span>Inico</span>
+        <i class=" fas fa-building margen-i"></i><span>Inico</span>
     </a>
 
     <a class="nav-link" href="/usuarios">
-        <i class=" fas fa-users"></i><span>Usuarios</span>
+        <i class=" fas fa-users margen-i"></i><span>Usuarios</span>
     </a>
 
     <!-- <a class="nav-link" href="/roles">
@@ -16,66 +16,66 @@
     </a> -->
 
     <a class="nav-link" href="/carreras">
-        <i class="fas fa-graduation-cap"></i><span>Carreras</span>
+        <i class="fas fa-graduation-cap margen-i"></i><span>Carreras</span>
     </a>
 
     <a class="nav-link" href="/planEstudio">
-        <i class="fas fa-clipboard"></i><span>Plan Estudio</span>
+        <i class="fas fa-clipboard margen-i"></i><span>Plan Estudio</span>
     </a>
 
 
     <a class="nav-link" href="/asignaturas">
-        <i class="fas fa-book"></i><span>Asignaturas</span>
+        <i class="fas fa-book margen-i"></i><span>Asignaturas</span>
     </a>
 
     <a class="nav-link" href="/alumnos">
-        <i class="fas fa-user-graduate"></i><span>Alumnos</span>
+        <i class="fas fa-user-graduate margen-i"></i><span>Alumnos</span>
     </a>
 
     <a class="nav-link" href="/servicios">
-        <i class="fas fa-staff-snake"></i><span>Servicios</span>
+        <i class="fas fa-staff-snake margen-i"></i><span>Servicios</span>
     </a>
 
     <a class="nav-link" href="/registrop">
-        <i class="fas fa-money-check-dollar"></i><span>Pagos</span>
+        <i class="fas fa-money-check-dollar margen-i"></i><span>Pagos</span>
     </a>
 
     <a class="nav-link" href="/asp">
-        <i class="fas fa-book" ></i><span>Aspirantes</span>
+        <i class="fas fa-book margen-i" ></i><span>Aspirantes</span>
     </a>
 
 
     <a class="nav-link" href="/matriculas">
-        <i class="fas fa-id-card-clip"></i><span>Matriculas</span>
+        <i class="fas fa-id-card-clip margen-i"></i><span>Matriculas</span>
     </a>
 
     <a class="nav-link" href="/grupos">
-        <i class="fas fa-people-group"></i><span>Grupos</span>
+        <i class="fas fa-people-group margen-i"></i><span>Grupos</span>
     </a>
 
     <a class="nav-link" href="/maestros">
-        <i class="fas fa-chalkboard-user"></i><span>Maestros</span>
+        <i class="fas fa-chalkboard-user margen-i"></i><span>Maestros</span>
     </a>
 
     <a class="nav-link" href="/procedencias">
-        <i class="fas fa-black-tie"></i><span>Procedencias</span>
+        <i class="fas fa-black-tie margen-i"></i><span>Procedencias</span>
     </a>
 
     <a class="nav-link" href="/grados">
-        <i class="fas fa-boxes-stacked"></i><span>Grados</span>
+        <i class="fas fa-boxes-stacked margen-i"></i><span>Grados</span>
     </a>
 
     <a class="nav-link" href="/calificaciones">
-        <i class="fas fa-envelope-open-text"></i></i><span>Calificaciones</span>
+        <i class="fas fa-envelope-open-text margen-i"></i></i><span>Calificaciones</span>
     </a>
 
     <a class="nav-link" href="/form">
-        <i class="fas fa-clipboard-question"></i><span>ASPIRANTES</span>
+        <i class="fas fa-clipboard-question margen-i"></i><span>ASPIRANTES</span>
     </a>
 
     <a onclick="abrirModal()" class="nav-link">
 
-        <i class="fas fa-circle-info fa-beat"></i><span>Ver Manual</span>
+        <i class="fas fa-beat"></i><span>Ver Manual</span>
 
     </a>
 
