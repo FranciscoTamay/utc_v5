@@ -31,9 +31,19 @@ class CarrerasController extends Controller
     public function store(Request $request)
     {
         //
-        $carrera = new Carreras($request->input());
-        $carrera->saveOrFail();
-        return redirect('carreras');
+        $request->validate(
+            [
+                'codigo_carrera'=>'required|unique:carreras|numeric',
+                'nombre_carrera'=>'required|max:50',
+                'id_plan'=>'required|numeric',
+            ]
+            );
+        $carrera = new Carreras;
+        $carrera->codigo_carrera = $request->codigo_carrera;
+        $carrera->nombre_carrera = $request->nombre_carrera;
+        $carrera->id_plan = $request->id_plan;
+        $carrera->save();
+        return back()->with('success','Carrera Validada con Exito');
     }
 
     /**

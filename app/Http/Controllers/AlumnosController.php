@@ -37,7 +37,7 @@ class AlumnosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'curp' => 'required | unique:App\Models\Alumnos',
+            'curp' => 'required | unique:alumnos',
             'num_seguro' => 'required|numeric|max:10',
             'apellido_paterno' => 'required|max:50',
             'apellido_materno' => 'required|max:50',

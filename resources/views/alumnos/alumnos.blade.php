@@ -17,9 +17,9 @@
 
         <div class="respon">
             <table id="pro5" class="xd display responsive nowrap" style="width:95%">
-                <thead class="bg-darck text-center">
+                <thead class="bg-white text-center">
                     <tr>
-                        <th class="inico ext-center">ID</th>
+                        <th class="inico text-center">ID</th>
                         <th class="text-center">NOMBRES</th>
                         <th class="text-center">APELLIDO PATERNO</th>
                         <th class="text-center">APELLIDO MATERNO</th>
@@ -54,7 +54,7 @@
                         <td>
 
                             <div class="d-inline-block me-2">
-                                <a href="{class=" d-inline-block me-2"{ url('alumnos',[$run]) }}" class="btn btn-success">
+                                <a href="{{ url('alumnos',[$run]) }}" class="btn btn-success">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
                             </div>
@@ -81,13 +81,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar un grupo</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar un Alumno</h1>
+                
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
                 
-                <form id="frmAlumnos" method="POST" action="store" novalidate>
+                <form id="frmAlumnos" method="post" action="guardarAlumno" novalidate>
                     @csrf
+                    <div class="row">
+                    <strong class="p-2 col-lg">Todos los campos con <span class="text-danger fs-6">*</span> son requeridos</strong>
+                    </div>
+                    
+                    <strong>CURP</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -100,6 +107,7 @@
                         @enderror
                     </div>
 
+                    <strong>NSS</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -112,6 +120,7 @@
                         @enderror
                     </div>
 
+                    <strong>Apellido Paterno</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -124,6 +133,7 @@
                         @enderror
                     </div>
 
+                    <strong>Apellido Materno</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -137,6 +147,8 @@
                         
                     </div>
 
+
+                    <strong>Nombres</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -149,6 +161,8 @@
                         @enderror
                     </div>
 
+
+                    <strong>Sexo</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -166,6 +180,9 @@
                         @enderror
                     </div>
 
+
+
+                    <strong>Telefono</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -178,6 +195,9 @@
                         @enderror
                     </div>
 
+
+                    
+                    <strong>Correo</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -190,6 +210,8 @@
                         @enderror
                     </div>
 
+
+                    <strong>Direccion</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -202,6 +224,9 @@
                         @enderror
                     </div>
 
+
+                    
+                    <strong>Localidad</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -215,6 +240,7 @@
                     </div>
 
 
+                    <strong>Municipio</strong><span class="text-danger fs-6">*</span>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -231,10 +257,7 @@
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6 mx-auto">
-                            <!-- <button class="btn btn-outline-success btn-lg">
-                                <i class="fa-solid fa-floppy-disk"></i> Guardar
-                            </button> -->
-                            <input type="submit" class="btn btn-outline-success btn-lg" name="" id="" value="Enviar">
+                        <input type="submit" class="btn btn-outline-success btn-lg" name="" id="" value="Enviar">
                             <!-- boton de guardar -->
                         </div>
                     </div>
