@@ -68,27 +68,36 @@ class Aspirantes2Controller extends Controller
 
     public function store(Request $request)
     {
-        //Esta funcion es la que usaremos para que podemos mandar los datos 
-        // que el usuario a ingresado en los campos de la vista, ya que esta 
-        // tiene como parametro el request que es el que se encargara de poder tomar
-        // todos los datos que el usuario ingreso o selecciono.
-
+        // Validacion del formulario
+        $request->validate([
+            'folio'=>'required|unique:aspirantes',
+            'nombres'=>'required|max:200',
+            'apellido_p'=>'required|',
+            'apellido_m'=>'required|',
+            'curp'=>'required|unique:aspirantes',
+            'correo'=>'required|unique:aspirantes|email',
+            'telefono'=>'required',
+            'localidad'=>'required',
+            'genero'=>'required',
+            'id_procedencia'=>'required',
+            'id_carrera'=>'required'
+        ]);
         $nuevoFolio = 'UTC' . now()->format('m') . uniqid();
         // aqui primero capturamos el folio que antes teniamos creado
-        $aspirante = new Aspirantes($request->input());
-       // en este parte le decimos que cree un nuevo registro primero haciendo
-        // referencia al modelo le decimos que por medio
-        // del request tome lo que haya en los input o select que tambien puede ser tomado de select
-
+        $aspirante = new Aspirantes;
         $aspirante->folio = $nuevoFolio;
-        // por ultimo le decimos que el folio va a ser guardado por la variable nuevo
-        // folio que antes capturamos porque somo este valor no lo toma del input
-        $aspirante->saveOrFail();
-        // usamos el metodo saveOrFail para que una vez recibido todos los datos
-        // lo mande a la base de datos para ser guardados
-        return redirect('aspirante')->with('nuevoFolio', $nuevoFolio);
-        // al terminar solamente le decimos que redireccione a una vista en este caso es a la de 
-        // aspirante y le decimos que cuando redireccione con el with mande el folio
+        $aspirante->nombres= $request->nombres;
+        $aspirante->apellido_p= $request->apellido_p;
+        $aspirante->apellido_m= $request->apellido_m;
+        $aspirante->curp= $request->curp;
+        $aspirante->correo= $request->correo;
+        $aspirante->telefono= $request->telefono;
+        $aspirante->localidad= $request->localidad;
+        $aspirante->genero= $request->genero;
+        $aspirante->id_procedencia= $request->id_procedencia;
+        $aspirante->id_carrera= $request->id_carrera;
+        $aspirante->save(); 
+        return back()->with('success','Aspirante Validado con Exito');
     }
 
 

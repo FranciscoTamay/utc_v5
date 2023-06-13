@@ -78,6 +78,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('guardarMaestro', [MaestrosController::class, 'store']);
     Route::post('guardarMateria', [AsignaturaController::class, 'store']);
     Route::post('guardarCarrera', [CarrerasController::class, 'store']);
+    Route::post('guardarAspirante', [Aspirantes2Controller::class, 'store']);
 
 
     // ===================================================================

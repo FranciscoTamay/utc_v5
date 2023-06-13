@@ -20,14 +20,14 @@
         <div class="title">Bienvenido a la UTC
             <img class="logo" src="img/utc.png" alt="">
         </div>
-        <form id="frmServicios" method="POST" action="{{url('asp')}}">
+        <form id="frmServicios" method="POST" action="guardarAspirante" novalidate>
         @csrf
         <!--en el formulario de aqui vemos que tiene el metodo post
             este es el que se va a encarhar que una vez que el usuario llene
             todo los campos los enviara al controlador para que sean guardados -->
             <div class="form-group">
                 <span>Folio</span>
-                <input type="text" disabled value="{{ $nuevoFolio }}" name="folio" placeholder="Folio" required>
+                <input type="text" class="" disabled value="{{ $nuevoFolio }}" name="folio" placeholder="Folio" required>
                 <!-- vemos que cada uno de los input tiene un name ese es el que se manda al controlador
                     para que pueda enviarlos a la base de datos y lo mismo para con el select  -->
 
