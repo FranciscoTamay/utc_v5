@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+:root {
+    --var-background: #23232e;
+    /* 262729 */
+    --var-fondo: #edeffd;
+    --var-text: #edeffd;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -116,4 +124,8 @@ form .button input{
 .logo{
     height: 4%;
     width: 4%;
+}
+
+.mmomento{
+    margin-top: 100rem;
 }
