@@ -78,7 +78,7 @@
                         <!-- CASILLA DE DATO -->
                         <div class="input-group mb-3">
                           <span class="input-group-text"><i class="fa-solid fa-file-lines"></i></span>
-                          <input type="text" wire:model="nombre_serv" name="nombre_serv" class="form-control @error('nombre_serv') is-invalid @enderror" maxlength="50" placeholder="CODIGO SERVICIO" value="{{old('nombre_serv')}}">
+                          <input type="text" wire:model="nombre_serv" name="nombre_serv" class="form-control @error('nombre_serv') is-invalid @enderror" maxlength="50" placeholder="NOMBRE DE SERVICIO" value="{{old('nombre_serv')}}">
                           @error('nombre_serv')
                           <span class="invalid-feedback">
                             <strong>{{$message}}</strong>
