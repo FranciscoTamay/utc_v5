@@ -4651,3 +4651,12 @@ body::-webkit-scrollbar-thumb {
 .margen-i {
     margin-right: 1rem;
 }
+
+.accordion{
+    background-color: #00000000;
+}
+
+.campos{
+    align-items: center;
+    text-align: center;
+}
