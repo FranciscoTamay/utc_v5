@@ -21,6 +21,10 @@
         <div class="title">Bienvenido a la UTC
             <img class="logo" src="img/utc.png" alt="">
         </div>
+
+        <div class="row">
+        <strong class="p-2 col-lg-5 ml-2">Todos los campos con <span class="text-danger fs-6">*</span> son requeridos</strong>
+        </div>
         <form id="frmServicios" method="POST" action="guardarAspirante" novalidate>
         @csrf
         <!--en el formulario de aqui vemos que tiene el metodo post
@@ -29,52 +33,101 @@
             <div class="form-group">
                 <span>Folio</span>
                 <input type="text" class="" disabled value="{{ $nuevoFolio }}" name="folio" placeholder="Folio" required>
+
                 <!-- vemos que cada uno de los input tiene un name ese es el que se manda al controlador
                     para que pueda enviarlos a la base de datos y lo mismo para con el select  -->
 
             </div>
             <div class="form-group">
                 <span>Nombre Completos</span>
-                <input type="text" name="nombres" placeholder="Nombres" required>
+                <input type="text" name="nombres" class="@error('nombres') is-invalid @enderror" value="{{old('nombres')}}" placeholder="Nombres" required>
+                @error('nombres')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Apellido Paterno</span>
-                <input type="text" name="apellido_p" placeholder="Apellidos Paternos" required>
+                <input type="text" class="@error('apellido_p') is-invalid @enderror" value="{{old('apellido_p')}}" name="apellido_p" placeholder="Apellidos Paternos" required>
+
+                @error('apellido_p')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Apellido Materno</span>
-                <input type="text" name="apellido_m" placeholder="Apellidos Maternos" required>
+                <input type="text" class="@error('apellido_m') is-invalid @enderror" value="{{old('apellido_m')}}" name="apellido_m" placeholder="Apellidos Maternos" required>
+
+                @error('apellido_m')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Curp</span>
-                <input type="text" name="curp" placeholder="Curp" required>
+                <input type="text" class="@error('curp') is-invalid @enderror" value="{{old('curp')}}" name="curp" placeholder="Curp" required>
+
+                @error('curp')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Correo</span>
-                <input type="mail" name="correo" placeholder="Correo" required>
+                <input type="mail" class="@error('correo') is-invalid @enderror" value="{{old('correo')}}" name="correo" placeholder="Correo" required>
+
+
+                @error('correo')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Telefono</span>
-                <input type="text" name="telefono" placeholder="Telefono" required>
+                <input type="text" class="@error('telefono') is-invalid @enderror" value="{{old('telefono')}}" name="telefono" placeholder="Telefono" required>
+
+                @error('telefono')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Localidad</span>
-                <input type="text" name="localidad" placeholder="Localidad" required>
+                <input type="text" class="@error('localidad') is-invalid @enderror" value="{{old('localidad')}}" name="localidad" placeholder="Localidad" required>
+
+
+                @error('localidad')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Genero</span>
-                <select name="genero" class="form-group2" required>
-                            <option value="">SELECCIONA UN GENERO</option>
-                            <option value="MASCULINO">MASCULINO</option>
-                            <option value="FEMENINO">FEMENINO</option>
-
-
+                <select name="genero" class="aspirante @error('genero') is-invalid @enderror" value="{{old('genero')}}" class="form-group2" required>
+                            <option value="">Seleccione su Género</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro(Tanque Sovietico T-34)</option>
                 </select>
+
+                @error('genero')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Procedencia</span>
-                <select name="id_procedencia" class=" aspirante form-group2" required>
-                            <option value="">SELECCIONA LA PROCEDENCIA</option>
+                <select name="id_procedencia"  class=" aspirante form-group2 @error('id_procedencia') is-invalid @enderror" value="{{old('id_procedencia')}}" required>
+                            <option value="">Seleccione la Escuela de Procedencia</option>
                             @foreach($procedencias as $row)
                             <option value="{{$row->id}}">{{$row->nombre_esc}}</option>
                             @endforeach
@@ -83,18 +136,31 @@
                                 a una llave foranea -->
 
                 </select>
+
+
+                @error('id_procedencia')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 <span>Carrera</span>
-                <select name="id_carrera" class="aspirante form-group2" required>
-                            <option value="">SELECCIONA LA CARRERA</option>
+                <select name="id_carrera" class="aspirante form-group2 @error('id_carrera') is-invalid @enderror" value="{{old('id_carrera')}}" required>
+                            <option value="">Seleccione la Carrera</option>
                             @foreach($carreras as $row)
                             <option value="{{$row->id}}">{{$row->nombre_carrera}}</option>
                             @endforeach
 
                 </select>
+
+                @error('id_carrera')
+                    <span class="invalid-feedback">
+                        <strong>{{$message}}</strong>
+                    </span>
+                @enderror
             </div>
-            <button class="button"> Guardar</button>
+            <input type="submit" class="button" name="" id="" value="Enviar">
         </form>
     </div>
     <script>
