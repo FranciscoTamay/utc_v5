@@ -21,8 +21,7 @@
             {{Session::get('success')}}
           </div>
 
-          @endif
-          <!-- FIN DE ALERTA DE AGREGADO CON EXITO -->
+          @endif          <!-- FIN DE ALERTA DE AGREGADO CON EXITO -->
 
           <!-- ALERTA DE EDITAR CON EXITO -->
           @if(Session::has('warning'))
